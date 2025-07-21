@@ -1,0 +1,417 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+
+:root {
+  --blue: #2058ff;
+  --light-yellow: #ffee80;
+  --black: #130f40;
+  --light-color: #666;
+  --primary: #130f40;
+  --secondary: #2058ff;
+  --light-grey: #666;
+  --white: #fff;
+  --border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  --card-width: 250px;
+  --card-border-radius: 16px;
+  --row-increment: 10px;
+  --card-small: 26;
+  --card-medium: 33;
+  --card-large: 45;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  scroll-padding-top: 7rem;
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 2rem 9%;
+}
+
+.jumbotron img {
+  width: 100%;
+  max-height: 680px;  
+  filter: brightness(0.5);
+}
+
+.started-wrapper p{
+  text-align: center;
+}
+
+.text-started {
+  margin-bottom: 100px;
+}
+
+.container-title1 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.container-title1 h2 {
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0;
+  border-bottom: 2px solid var(--primary);
+  display: inline-block;
+  padding-bottom: 10px;
+  font-family: "Poltawski Nowy", serif;
+}
+
+.why-wrapper p{
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.text-why {
+  margin-bottom: 100px;
+}
+
+.container-title2 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.container-title2 h2 {
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0;
+  border-bottom: 2px solid var(--primary);
+  display: inline-block;
+  padding-bottom: 10px;
+  font-family: "Poltawski Nowy", serif;
+
+}
+
+.features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.feature {
+background-color: #fff;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+padding: 20px;
+flex: 1;
+min-width: 300px;
+max-width: 300px;
+height: 180px;
+text-align: center;
+}
+.feature h3 {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+.feature p {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.target {
+margin-top: 100px;
+}
+
+.container {
+margin-bottom: 150px;
+}
+
+.container-title2 {
+text-align: center;
+margin-bottom: 50px;
+}
+
+.audience {
+display: flex;
+justify-content: center;
+text-align: center;
+flex-wrap: wrap;
+}
+.audience div {
+flex: 1;
+max-width: 300px;
+margin: 20px;
+}
+.audience div .bx {
+font-size: 50px;
+color: #333;
+}
+.audience p {
+font-size: 16px;
+color: #333;
+margin-top: 20px;
+}
+
+.audience i {
+font-size: 35px;
+}
+
+.container-title3 {
+text-align: center;
+margin-bottom: 100px;
+}
+
+.container-title3 h2 {
+font-size: 2em;
+font-weight: bold;
+text-transform: uppercase;
+color: var(--primary);
+margin: 0;
+border-bottom: 2px solid var(--primary);
+display: inline-block;
+padding-bottom: 10px;
+font-family: "Poltawski Nowy", serif;
+
+}
+
+#program {
+color: #000000;
+padding: 50px 20px;
+font-family: 'Georgia', serif;
+}
+
+.program {
+display: flex;
+align-items: center;
+flex-direction: row;
+padding: 50px;
+}
+
+.program-text h1{
+color: #000;
+margin-bottom: 10px;
+font-size: 2rem;
+font-family: "Poltawski Nowy", serif;
+text-transform: uppercase;
+}
+
+.program-text h4{
+font-weight: 600;
+}
+
+
+.program-title {
+margin-bottom: 10px;
+}
+
+.program-text{
+margin: 100px;
+}
+
+.container-title4 {
+text-align: center;
+margin-bottom: 50px;
+}
+
+.container-title4 h2 {
+font-size: 2em;
+font-weight: bold;
+text-transform: uppercase;
+color: var(--primary);
+margin: 0;
+border-bottom: 2px solid var(--primary);
+display: inline-block;
+padding-bottom: 10px;
+font-family: "Poltawski Nowy", serif;
+
+}
+
+.container-title5 {
+text-align: center;
+margin-bottom: 8dvh;
+}
+
+.container-title5 h2 {
+font-size: 2em;
+font-weight: bold;
+text-transform: uppercase;
+color: var(--primary);
+margin: 0;
+border-bottom: 2px solid var(--primary);
+display: inline-block;
+padding-bottom: 10px;
+font-family: "Poltawski Nowy", serif;
+
+}
+
+.highlights{
+margin-top: 100px;
+}
+
+.container-card {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 20px;
+max-width: 1200px;
+margin-bottom: 120px;
+}
+.card {
+background-color: #d3d3d3;
+border-radius: 10px;
+padding: 20px;
+width: 340px;
+height: 130px;
+text-align: center;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card h3 {
+font-size: 15px;
+margin-bottom: 10px;
+font-weight: bold;
+}
+.card p {
+font-size: 11px;
+margin: 0;
+}
+
+.container-title6 {
+text-align: center;
+margin-bottom: 8dvh;
+}
+
+.container-title6 h2 {
+font-size: 2em;
+font-weight: bold;
+text-transform: uppercase;
+color: var(--primary);
+margin: 0;
+border-bottom: 2px solid var(--primary);
+display: inline-block;
+padding-bottom: 10px;
+font-family: "Poltawski Nowy", serif;
+
+}
+
+.container-row {
+text-align: center;
+}
+.row {
+display: flex;
+justify-content: center;
+margin-bottom: 20px;
+}
+.job-role {
+display: inline-block;
+width: 150px;
+margin: 20px;
+}
+.job-role i {
+font-size: 40px;
+color: #000;
+}
+.job-role p {
+margin-top: 10px;
+font-size: 14px;
+color: #000;
+}
+
+.career{
+margin-top: 120px;
+}
+
+.Delivery-Options {
+display: flex;
+justify-content: center;
+text-align: center;
+flex-wrap: wrap;
+}
+.Delivery-Options div {
+flex: 1;
+max-width: 300px;
+margin: 20px;
+margin-bottom: 120px;
+}
+.Delivery-Options div .bx {
+font-size: 50px;
+color: #333;
+}
+.Delivery-Options p {
+font-size: 12px;
+color: #333;
+margin-top: 5px;
+}
+
+.Delivery-Options i {
+font-size: 35px;
+}
+
+.Delivery-Options h3 {
+font-size: 14px;
+color: #333;
+margin-top: 20px;
+}
+
+.warna {
+font-weight: 600;
+}
+
+.card-order{
+  margin-left: 180px;
+  background-color: #FFE8E8;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 700px;
+  height: 300px;
+  margin-bottom: 50px;
+}
+
+.text-order h2{
+  font-size: 24px;
+  color: #e57373;
+  padding-left: 10px;
+  width: 30%;
+}
+
+.description p{
+  color: #141449;
+  font-size: 16px;
+  width: 50%;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.price {
+  position: relative;
+  font-size: 24px;
+  color: #141449;
+  font-weight: bold;
+  top: 95px;
+  left: 10px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 50px;
+  margin-left: 500px;
+  padding: 10px 20px;
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #a93226;
+}

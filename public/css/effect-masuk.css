@@ -1,0 +1,27 @@
+/* Elemen sebelum muncul */
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .hidden-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    visibility: hidden;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .hidden-right {
+    opacity: 0;
+    transform: translateX(100px);
+    visibility: hidden;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .show {
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+  }
+  

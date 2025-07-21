@@ -1,0 +1,147 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+  }
+  
+  :root {
+    --blue: #2058ff;
+    --light-yellow: #ffee80;
+    --black: #130f40;
+    --light-color: #666;
+    --primary: #130f40;
+    --secondary: #2058ff;
+    --light-grey: #666;
+    --white: #fff;
+    --border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    --card-width: 250px;
+    --card-border-radius: 16px;
+    --row-increment: 10px;
+    --card-small: 26;
+    --card-medium: 33;
+    --card-large: 45;
+  }
+  
+  html,
+  body {
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+  }
+  
+  section {
+    padding: 2rem 9%;
+  }
+  
+.container {
+    width: 100%;
+    max-width: 1000px;
+}
+.card {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 50px;
+    overflow: hidden;
+    margin-bottom: 70px;
+    box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
+    padding: 0;
+    position: relative;
+}
+.card img {
+    width: 45%;
+    height: 300px;
+    object-fit: cover;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+.card-content {
+    padding: 30px;
+    width: 55%;
+}
+.card h3 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+}
+.card p {
+    margin: 10px 0 0;
+    font-size: 16px;
+    color: #666;
+}
+.card:nth-child(even) {
+    flex-direction: row-reverse;
+}
+.card:nth-child(even) img {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.card-order{
+    margin-left: 180px;
+    background-color: #FFE8E8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 700px;
+    height: 300px;
+    margin-bottom: 50px;
+}
+
+.text-order h2{
+    font-size: 24px;
+    color: #e57373;
+    padding-left: 10px;
+    width: 30%;
+}
+
+.description p{
+    color: #141449;
+    font-size: 16px;
+    width: 50%;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.price {
+    position: relative;
+    font-size: 24px;
+    color: #141449;
+    font-weight: bold;
+    top: 95px;
+    left: 10px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 500px;
+    padding: 10px 20px;
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #a93226;
+  }
+
+  .jumbotron img {
+    width: 100%;
+    max-height: 680px;  
+    filter: brightness(0.5);
+    }

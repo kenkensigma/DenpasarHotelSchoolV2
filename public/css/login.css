@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+.judul{
+    position: absolute;
+    display:flex;
+    bottom:80px;
+    height: 100%;
+    left: 60px;
+    align-items: center;
+  justify-content: center;
+    font-size:32px;
+    color: white;
+}
+.text-program{
+    position: absolute;
+    display:flex;
+    bottom:10px;
+    left: 180px;
+    height: 100%;
+    align-items: center;
+  justify-content: center;
+    font-size:82px;
+    color: white;
+    letter-spacing: 5px;
+}
+section .imgbox{
+    position: relative;
+    width: 50%;
+    height: 100%;
+} 
+section .imgbox img{
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(50%);
+}
+section .contentbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+section .contentbox .formbox{
+    width: 50%;
+}
+section .contentbox .formbox h2{
+    text-align: center;
+    color: black;
+    font-size: 60px;
+    text-transform: uppercase;
+}
+section .contentbox .formbox h3{
+    text-align: center;
+    color: black;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+section .contentbox .formbox .inputbox{
+    margin-bottom: 20px;
+    width: 100%;
+}
+section .contentbox .formbox .inputbox span{
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: black;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+section .contentbox .formbox .inputbox input{
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    font-weight: 400;
+    border:none;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #000000;
+    background: rgb(221, 219, 219);
+    border-radius: 10px;
+}
+section .contentbox .formbox .inputbox input[type="submit"]{
+    background: rgb(209, 21, 21);
+    color: rgb(255, 255, 255);
+    outline: none;
+    border: none;
+    font-weight: 500;
+    cursor:pointer;
+}
+section .contentbox .formbox .inputbox input[type="submit"]:hover{
+    background: rgb(175, 28, 28);
+}
+section .contentbox .formbox .remember{
+    margin-bottom: 10px;
+    color:black;
+    font-weight: 400;
+    font-size: 18px;
+}
+.container-alert {
+    position: fixed;
+    z-index: 9999;  
+    width: 100%;     
+}
+.alert {
+    padding: 15px;
+    background-color: #d4edda;
+    border: 1px solid #0dc337;
+    color: #155724;
+    border-radius: 5px;
+    position: relative;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    border: 1px solid;
+    border-radius: 0;
+    color: #721c24;
+    position: absolute;
+    width:50% ;
+    left: 640px;
+    text-align: center;
+}
+
+div.error {
+    color: red;
+    font-weight: 600;
+    margin-top: 6px;
+}

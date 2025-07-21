@@ -1,0 +1,80 @@
+footer {
+    margin-top: 50px;
+    background-color: #4b525c;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    color: #fff;
+}
+.footer .column {
+    flex: 1;
+    margin: 10px;
+    min-width: 200px;
+}
+.footer .column img {
+    width: 100%;
+    max-width: 300px;
+}
+.footer .column h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.contact-details {
+    color: #fff;
+}
+
+.footer .column p,
+.footer .column a {
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px 0;
+}
+.footer .social-media a {
+    font-size: 20px;
+    margin: 0 10px;
+    color: #fff;
+}
+
+.icon2 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.icon-sosmed a {
+    color: #fff;
+}
+
+.footer-bottom {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+}
+.sitemap-content {
+    display: flex;
+    flex-direction: column;
+}
+.sitemap-content a {
+    margin-right: 15px;
+    padding: 10px 0;
+    color: #fff;
+}
+
+.sitemap-content a:hover {
+    color: #b1afaf;
+}
+
+.contact-info {
+    display: flex;
+    align-items: center;
+}
+.contact-details {
+    margin-left: 20px;
+}
+.contact-details p {
+    margin: 5px 0;
+}

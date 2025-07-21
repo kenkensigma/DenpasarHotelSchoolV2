@@ -1,0 +1,369 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all 0.2s linear;
+  }
+  
+  :root {
+    --blue: #2058ff;
+    --light-yellow: #ffee80;
+    --black: #130f40;
+    --light-color: #666;
+    --primary: #130f40;
+    --secondary: #2058ff;
+    --light-grey: #666;
+    --white: #fff;
+    --border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    --card-width: 250px;
+    --card-border-radius: 16px;
+    --row-increment: 10px;
+    --card-small: 26;
+    --card-medium: 33;
+    --card-large: 45;
+  }
+  
+  html,
+  body {
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+  }
+  
+  section {
+    padding: 2rem 9%;
+  }
+  
+  /* -------------- HEADER -------------- */
+  
+  /* Reset existing header and navbar styles */
+/* General styles */
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  padding: 1rem 9%;
+  border-bottom: 1px solid transparent;
+  transition: all .45s ease;
+}
+
+header.sticky {
+background: #fff;
+border-bottom: 1px solid #ffffff1a;
+}
+
+.header.active {
+background: rgba(255, 255, 255, 0.9); /* White background with opacity */
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow */
+}
+
+.navbar {
+display: flex;
+align-items: center;
+justify-content: space-between;
+width: 100%;
+max-width: 1200px;
+}
+
+.nav-links {
+list-style: none;
+display: flex;
+gap: 100px;
+}
+
+.nav-links.left {
+flex: 1;
+justify-content: flex-start;
+}
+
+.nav-links.right {
+flex: 1;
+justify-content: flex-end;
+}
+
+.nav-links li {
+position: relative;
+}
+
+.nav-links a {
+text-decoration: none;
+color: #fff;
+font-size: 1rem;
+font-weight: 500;
+white-space: nowrap;
+}
+
+.header.sticky .nav-links a{
+  color: var(--black);
+}
+
+.nav-links a:hover {
+color: var(--secondary); /* Warna sekunder (biru) saat hover */
+}
+
+.header.sticky .nav-links a:hover{
+  color: var(--secondary);
+}
+
+.logo {
+position: absolute;
+margin-top: 15px;
+left: 50%;
+transform: translateX(-50%);
+padding: 5px;
+margin-right: 500px;
+}
+
+.logo img {
+display: block;
+width: 100px;
+height: auto;
+transition: transform 0.3s ease; /* Smooth scaling */
+}
+
+.header.sticky .logo img {
+transform: scale(0.9); /* Enlarge logo when active */
+}
+
+/* Dropdown */
+.dropdown-content {
+position: absolute;
+top: 100%;
+left: 0;
+display: none;
+background: white;
+box-shadow: var(--box-shadow);
+border-radius: 5px;
+min-width: 150px;
+}
+
+.dropdown:hover .dropdown-content {
+display: block;
+}
+
+.dropdown-content a {
+color: var(--black);
+padding: 10px 15px;
+text-decoration: none;
+display: block;
+font-size: 0.9rem;
+}
+
+.dropdown-content a:hover {
+color: var(--secondary);
+}
+
+/* Dropdown toggle arrow animation */
+.header .dropbtn i {
+margin-left: 5px;
+transition: transform 0.2s;
+}
+
+.header .dropdown:hover .dropbtn i {
+transform: rotate(180deg);
+}
+
+/* Responsive burger menu (if needed) */
+.burger {
+display: none;
+font-size: 2rem;
+cursor: pointer;
+}
+
+.jumbotron {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.jumbotron img {
+  width: 100%;
+  max-height: 680px;  
+  filter: brightness(0.5);
+}
+.jumbotron .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.jumbotron .overlay h1 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 80px;
+  margin: 0;
+}
+
+.jumbotron .overlay p {
+  font-size: 20px;
+  margin: 0;
+}
+
+.kotak {
+  position: relative;
+  top: 270px;
+  background-color: #ffffff;
+  width: 100%;
+  height: 70px;
+  max-height: 1000px; 
+  padding: 20px;
+  border-radius: 50px;
+  color: #fff;
+}
+
+.container-title {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.container-title h2 {
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0;
+  border-bottom: 2px solid var(--primary);
+  display: inline-block;
+  padding-bottom: 10px;
+  font-family: "Poltawski Nowy", serif;
+}
+
+.container-title2 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.container-title2 h2 {
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0;
+  border-bottom: 2px solid var(--primary);
+  display: inline-block;
+  padding-bottom: 10px;
+  font-family: "Poltawski Nowy", serif;
+}
+
+.container {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.contact-box {
+    display: flex;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.contact-box iframe {
+    width: 70%;
+    border: none;
+}
+
+.form-container {
+    padding: 40px;
+    width: 50%;
+}
+
+.form-container h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.form-container p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    resize: none;
+    height: 100px;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 15px;
+    background-color: #c0392b;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #a93226;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px; 
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
+  background-color: #8B8BCE;
+  color: #fff;
+  padding:30px;
+  border-radius: 8px;
+  margin: 0 10px 0 10px;
+}
+
+.text-card {
+  font-size: 13px;
+}
+
+
+.contact-card .text-card i {
+  margin-right: 10px;
+}
+
+.contact-card p {
+  margin: 0; 
+  font-size:11px ;
+}

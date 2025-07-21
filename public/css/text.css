@@ -1,0 +1,66 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+
+:root {
+  --blue: #2058ff;
+  --light-yellow: #ffee80;
+  --black: #130f40;
+  --light-color: #666;
+  --primary: #130f40;
+  --secondary: #2058ff;
+  --light-grey: #666;
+  --white: #fff;
+  --border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  --card-width: 250px;
+  --card-border-radius: 16px;
+  --row-increment: 10px;
+  --card-small: 26;
+  --card-medium: 33;
+  --card-large: 45;
+}
+
+/* ------ TITLE ------ */
+
+.container-title {
+text-align: center;
+}
+
+.container-title h2 {
+font-size: 2em;
+font-weight: bold;
+text-transform: uppercase;
+color: var(--primary);
+margin: 0;
+border-bottom: 2px solid var(--primary);
+display: inline-block;
+padding-bottom: 10px;
+font-family: "Poltawski Nowy", serif;
+}
+
+/* ------ TEXT ------ */
+
+.text p{
+width: 70%;
+}
+
+.text h1{
+color: #C23838;
+margin-bottom: 10px;
+}
+
+.wrapper-text {
+align-items: center;
+display: flex;
+flex-direction: row;
+margin-bottom: 30px;
+}

@@ -1,0 +1,112 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+  }
+  
+  :root {
+    --blue: #2058ff;
+    --light-yellow: #ffee80;
+    --black: #130f40;
+    --light-color: #666;
+    --primary: #130f40;
+    --secondary: #2058ff;
+    --light-grey: #666;
+    --white: #fff;
+    --border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    --card-width: 250px;
+    --card-border-radius: 16px;
+    --row-increment: 10px;
+    --card-small: 26;
+    --card-medium: 33;
+    --card-large: 45;
+  }
+  
+  html,
+  body {
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+  }
+  
+  section {
+    padding: 2rem 9%;
+  }
+  
+  .container-title {
+    text-align: center;
+  }
+  
+  .container-title h2 {
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin: 0;
+    border-bottom: 2px solid var(--primary);
+    display: inline-block;
+    padding-bottom: 10px;
+    font-family: "Poltawski Nowy", serif;
+  }
+  .jumbotron img {
+    width: 100%;
+    max-height: 680px;  
+    filter: brightness(0.5);
+  }
+
+  .text-national {
+    text-align: center;
+    padding-top: 30px;
+    width: 70%;
+    margin: 0 auto;
+    padding-left: 0;
+}
+
+#program {
+  color: #000000;
+  padding: 50px 20px;
+  font-family: 'Georgia', serif;
+}
+
+.program {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 50px;
+}
+
+.program-text h1 {
+  color: #000;
+  margin-bottom: 10px;
+  font-size: 2rem;
+  font-family: "Poltawski Nowy", serif;
+  text-transform: uppercase;
+}
+
+.program-text {
+  margin: 100px;
+}
+
+.program-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.program-btn:hover {
+  background-color: #a93226;
+}

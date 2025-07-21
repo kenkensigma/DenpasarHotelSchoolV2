@@ -1,0 +1,508 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* -------------- HEADER -------------- */
+
+/* Reset existing header and navbar styles */
+/* General styles */
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 1rem 5%;
+    border-bottom: 1px solid transparent;
+    transition: all .45s ease;
+  }
+  
+  header.sticky {
+  background: #fff;
+  border-bottom: 1px solid #ffffff1a;
+  }
+  
+  .header.active {
+  background: rgba(255, 255, 255, 0.9); /* White background with opacity */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow */
+  }
+  
+  .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  }
+  
+  .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 100px;
+  }
+  
+  .nav-links.left {
+  flex: 1;
+  justify-content: flex-start;
+  }
+  
+  .nav-links.right {
+  flex: 1;
+  justify-content: flex-end;
+  }
+  
+  .nav-links li {
+  position: relative;
+  }
+  
+  .nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  white-space: nowrap;
+  }
+  
+  .header.sticky .nav-links a{
+    color: var(--black);
+  }
+  
+  .nav-links a:hover {
+  color: var(--secondary); /* Warna sekunder (biru) saat hover */
+  }
+  
+  .header.sticky .nav-links a:hover{
+    color: var(--secondary);
+  }
+  
+  .logo {
+  position: absolute;
+  margin-top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px;
+  margin-right: 500px;
+  }
+  
+  .logo img {
+  display: block;
+  width: 100px;
+  height: auto;
+  transition: transform 0.3s ease; /* Smooth scaling */
+  }
+  
+  .header.sticky .logo img {
+  transform: scale(0.9); /* Enlarge logo when active */
+  }
+  
+  /* Dropdown */
+  .dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  background: white;
+  box-shadow: var(--box-shadow);
+  border-radius: 5px;
+  min-width: 150px;
+  }
+  
+  .dropdown:hover .dropdown-content {
+  display: block;
+  }
+  
+  .dropdown-content a {
+  color: var(--black);
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.9rem;
+  }
+  
+  .dropdown-content a:hover {
+  color: var(--secondary);
+  }
+  
+  /* Dropdown toggle arrow animation */
+  .header .dropbtn i {
+  margin-left: 5px;
+  transition: transform 0.2s;
+  }
+  .header .dropdown:hover .dropbtn i {
+  transform: rotate(180deg);
+  }
+  
+  /* Responsive burger menu (if needed) */
+  .burger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  }
+  
+  .jumbotron {
+  position: relative;
+  text-align: center;
+  color: white;
+  }
+  
+  .jumbotron img {
+  width: 100%;
+  max-height: 680px;  
+  filter: brightness(0.5);
+  }
+  .jumbotron .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+  
+  .jumbotron .overlay h1 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 80px;
+  margin: 0;
+  }
+  
+  .jumbotron .overlay p {
+  font-size: 20px;
+  margin: 0;
+  }
+  
+  .kotak {
+  position: relative;
+  top: 270px;
+  background-color: #ffffff;
+  width: 100%;
+  height: 70px;
+  max-height: 1000px; 
+  padding: 20px;
+  border-radius: 50px;
+  color: #fff;
+  }
+  
+  /* Styling dropdown agar sejajar dengan elemen lainnya */
+  .changeLang {
+  background: white;
+  color: var(--black);
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  min-width: 130px;
+  height: 35px;
+  box-shadow: var(--box-shadow);
+  vertical-align: middle;
+  }
+  
+  /* Pastikan .nav-links.right tetap sejajar */
+  .nav-links.right {
+  display: flex;
+  align-items: center;
+  gap: 72px; /* Sesuaikan dengan jarak di navbar kiri */
+  }
+  
+  /* Pastikan tiap elemen dalam .nav-links.right tetap sejajar */
+  .nav-links.right li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  
+  /* Sesuaikan margin dropdown bahasa agar tidak menggeser elemen lain */
+  .nav-links.right .changeLang {
+  margin-left: 20px;
+  }
+  
+    
+    @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .nav-links {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .burger {
+      display: block;
+    }
+    
+    .logo {
+      margin: 0 auto;
+    }
+    }
+
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container-judul {
+    text-align: center;
+    padding-top: 40px;
+}
+  
+.container-judul h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin: 0;
+    border-bottom: 2px solid var(--primary);
+    display: inline-block;
+    padding-bottom: 10px;
+    font-family: "Poltawski Nowy", serif;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+.container-judul-2 {
+    text-align: center;
+    padding-top: 40px;
+}
+  
+.container-judul-2 h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin: 0;
+    border-bottom: 2px solid var(--primary);
+    display: inline-block;
+    padding-bottom: 10px;
+    font-family: "Poltawski Nowy", serif;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 50px;
+}
+.container {
+    display: flex;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+}
+.image-section {
+    position: relative;
+    flex: 1;
+}
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff0000;
+    color: white;
+    padding: 15px 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.text-section {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+.text-section h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+.text-section p {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.container-team {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    max-width: 300px;
+    width: 100%;
+    transition: .3s ease;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.pfp {
+    border-radius: 10px;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+}
+
+.card img {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+}
+.card h2 {
+    font-size: 1.25em;
+    margin: 15px 0 5px;
+}
+.card h3 {
+    font-size: 1em;
+    color: gray;
+    margin: 0 0 15px;
+}
+.card p {
+    font-size: 0.875em;
+    color: #666;
+    margin: 0;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 30px;
+}
+
+.pagination li {
+    background: #e2e2e2;
+    padding: 8px 16px;
+    margin: 0 2px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: .3s ease;
+}
+
+.pagination li.active {
+    background-color: #b40303;
+    color: white;
+}
+
+.pagination li:hover:not(.active) {
+    background-color: #16295f;
+    color: #fff;
+}
+
+.join-desc {
+    max-width: 70%;
+    margin: 0 auto; /* Memastikan elemen berada di tengah */
+    text-align: center; /* Membuat teks di dalamnya rata tengah */
+}
+.join-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #003e80;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+    pointer-events: auto;
+}
+
+.join-button:hover {
+    background-color: #0054ad;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    overflow-y: auto; /* Bikin modal bisa di-scroll */
+}
+
+.modal-content {
+    background: white;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh; /* Batas tinggi supaya tidak kepotong */
+    overflow-y: auto; /* Tambahkan scroll kalau isi modal panjang */
+    z-index: 10000;
+}
+
+
+/* Tombol Close */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: red;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input, textarea {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f8f8f8;
+    text-align: center;
+}
+
+header {
+    background: url('header-image.jpg') center/cover;
+    padding: 30px;
+    color: white;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    background-color: #f8f8f8;
+}
+
+.back-button:hover {
+    background: #2088ff;
+    stroke: #ffff;
+}
+.back-button SVG:hover {
+    stroke: #ffff;
+}
+
+
+.back-button svg {
+    stroke: rgb(0, 0, 0);
+}
+
+
+
+.register-container {
+    background: white;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: flex;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+
+
+.file-upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    border: 3px dashed #1c4d97;
+    border-radius: 10px;
+    background: #f8f9fa;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    transition: 0.3s ease-in-out;
+}
+
+.upload-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+    padding: 0;
+}
+
+.upload-btn svg {
+    width: 30px;
+    height: 30px;
+    stroke: #1c4d97;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+.upload-btn:hover svg {
+    stroke: #ffff;
+}
+
+
+.upload-btn:hover {
+    background: #1c4d97;
+}
+
+#preview-container img {
+    max-width: 100%;
+    max-height: 150px;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: none;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+#preview-container {
+    margin-top: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+#preview-container img {
+    max-width: 100%;
+    max-height: 150px;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: none;
+}
+
+#file-name {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #0000;
+}
+
+
+
+.send-button {
+    width: 100%;
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+footer {
+    background: #333;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.program{
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.alert {
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #d4edda;
+    border: 1px solid #0dc337;
+    color: #155724;
+    border-radius: 5px;
+    position: relative;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+div.error {
+    color: red;
+    font-weight: 600;
+    margin-top: 6px;
+}

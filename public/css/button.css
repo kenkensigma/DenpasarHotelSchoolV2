@@ -1,0 +1,92 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+
+:root {
+  --red: #c23838;
+  --blue: #2058ff;
+  --light-yellow: #ffee80;
+  --black: #130f40;
+  --light-color: #666;
+  --primary: #130f40;
+  --secondary: #2058ff;
+  --light-grey: #666;
+  --white: #fff;
+  --border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  --card-width: 250px;
+  --card-border-radius: 16px;
+  --row-increment: 10px;
+  --card-small: 26;
+  --card-medium: 33;
+  --card-large: 45;
+}
+
+a.btn {
+  justify-content: center;
+  display: flex;
+  font-size: 18px;
+  font-weight: 500;
+  background: var(--black);
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 15px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.5s ease-out;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+
+.btn-middle {
+  justify-content: center;
+  display: flex;
+  font-size: 18px;
+  font-weight: 500;
+  background: var(--red);
+  color: white;
+  width: 160px;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.5s ease-out;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+
+.button {
+  margin-top: 20px;
+}
+
+.btn:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.btn-middle:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+@media (max-width: 1150px) {
+  .button {
+      display: none;
+  }
+}

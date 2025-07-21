@@ -1,0 +1,263 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --blue: #2058ff;
+    --light-yellow: #ffee80;
+    --black: #130f40;
+    --light-color: #666;
+    --primary: #130f40;
+    --secondary: #2058ff;
+    --light-grey: #666;
+    --white: #fff;
+    --border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    --card-width: 250px;
+    --card-border-radius: 16px;
+    --row-increment: 10px;
+    --card-small: 26;
+    --card-medium: 33;
+    --card-large: 45;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+section {
+    padding: 2rem 9%;
+    justify-content:center ;
+    align-items: center;
+}
+
+#program {
+    background-color: #2d2d44;
+    color: #ffffff;
+    padding: 50px 20px;
+    font-family: "Georgia", serif;
+    text-align: center;
+}
+
+.program {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 50px;
+}
+
+.program-text h1 {
+    color: var(--white);
+    margin-bottom: 10px;
+    font-size: 2rem;
+    font-family: "Poltawski Nowy", serif;
+    text-transform: uppercase;
+}
+
+.program-text h4 {
+    font-weight: 600;
+}
+
+.program-title {
+    margin-bottom: 10px;
+}
+
+.program-text {
+    margin: 100px;
+}
+
+
+.program-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.program-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: left;
+}
+
+.program-card p {
+    text-align: left;
+}
+
+.program-card img {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 10px 10px 0 0;
+    display: block;
+    filter: brightness(50%);
+}
+
+.program-title-text {
+    color: white;
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+/* ------ gallery ----- */
+
+.container-title {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.container-title h2 {
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin: 0;
+    border-bottom: 2px solid var(--primary);
+    display: inline-block;
+    padding-bottom: 10px;
+    font-family: "Poltawski Nowy", serif;
+}
+
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+    margin: 8px;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 300px;
+}
+
+/* News */
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    overflow: hidden;
+    width: 300px;
+    max-width: 100%;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+.card-content {
+    padding: 15px;
+}
+.card-content h3 {
+    font-size: 18px;
+    margin: 0 0 10px;
+    color: #333;
+}
+.card-content p {
+    font-size: 14px;
+    color: #777;
+    margin: 0;
+}
+
+.button-middle {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Elemen sebelum muncul */
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.hidden-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    visibility: hidden;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.hidden-right {
+    opacity: 0;
+    transform: translateX(100px);
+    visibility: hidden;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+}
+
+/* Media Queries */
+
+/* Tablet & Mobile */
+
+@media (max-width: 1150px) {
+    .container-title {
+        margin: 20px 0;
+    }
+    .program-text {
+        margin: 0;
+    }
+    .program-desktop {
+        display: none;
+    }
+}
+
+
+
+@media (min-width: 1150px) {
+    .program-mobile {
+        display: none;
+    }
+    .button-middle {
+        display: none;
+    }
+}
