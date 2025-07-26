@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -60,6 +61,16 @@ Route::get('/admin', function () {
     return view('admin/index');
 })->name('dashboard');
 
+// Clients resource routes
+Route::get('/clients', [ClientsController::class, 'index'])->name('clients.index');
+Route::get('/clients/create', [ClientsController::class, 'create'])->name('clients.create');
+Route::post('/clients/store', [ClientsController::class, 'store'])->name('clients.store');
+Route::get('/clients/{id}', [ClientsController::class, 'show'])->name('clients.show');
+Route::get('/clients/{id}/edit', [ClientsController::class, 'edit'])->name('clients.edit');
+Route::put('/clients/{id}', [ClientsController::class, 'update'])->name('clients.update');
+Route::delete('/clients/{id}', [ClientsController::class, 'destroy'])->name('clients.destroy');
+
+
 // Menampilkan form tambah berita di project-add.blade.php
 Route::get('/project-add', [NewsController::class, 'create'])->name('project-add'); // Alias untuk news.create
 Route::get('/news', [NewsController::class, 'news'])->name('news'); // Menampilkan daftar berita
@@ -91,6 +102,7 @@ Route::delete('/team/{id}', [TeamController::class, 'destroy'])->name('team.dest
 Route::get('/projects', [NewsController::class, 'list'])->name('admin.projects');
 Route::get('/team-list', [TeamController::class, 'list'])->name('admin.team-list');
 Route::get('/gallery-list', [GalleryController::class, 'list'])->name('admin.gallery-list');
+Route::get('/clients-list', [ClientsController::class, 'list'])->name('admin.clients-list');
 
 // Homepage
 Route::get('/', [HomeController::class, 'index'])->name('home');

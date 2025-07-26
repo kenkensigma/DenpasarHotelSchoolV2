@@ -168,7 +168,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="homepage-clients" class="nav-link">
+                                    <a href="clients-list" class="nav-link">
                                         <p>Clients</p>
                                     </a>
                                 </li>

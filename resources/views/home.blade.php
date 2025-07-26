@@ -84,8 +84,8 @@
 
             <!-- Nav Right -->
             <!-- Menu -->
-            <a onclick="showSidebar()" href="#"><svg class="menu-button" xmlns="http://www.w3.org/2000/svg" height="24px"
-                    viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <a onclick="showSidebar()" href="#"><svg class="menu-button" xmlns="http://www.w3.org/2000/svg"
+                    height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
                     <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
                 </svg></a>
 
@@ -870,14 +870,14 @@
                 <h3 class="about">{{ $translator->translate('About') }}</h3>
                 <h1 class="DHS">{{ $translator->translate('Denpasar Hotel School') }}</h1>
                 <p>{{ $translator->translate('
-                                                                                                                                                                                                                                Denpasar Hotel School is a premier institution dedicated to training
-                                                                                                                                                                                                                                the next generation of professionals in the hospitality and tourism
-                                                                                                                                                                                                                                industries. Located in the heart of Bali—a global hub for
-                                                                                                                                                                                                                                tourism—the school offers students a blend of theoretical knowledge
-                                                                                                                                                                                                                                and hands-on experience, fostering a deep understanding of
-                                                                                                                                                                                                                                world-class hospitality standards, service excellence, and Balinese
-                                                                                                                                                                                                                                cultural values.
-                                                                                                                                                                                                                               ') }}
+                                                 Denpasar Hotel School is a premier institution dedicated to training
+                                                 the next generation of professionals in the hospitality and tourism
+                                                 industries. Located in the heart of Bali—a global hub for
+                                                 tourism—the school offers students a blend of theoretical knowledge
+                                                 and hands-on experience, fostering a deep understanding of
+                                                 world-class hospitality standards, service excellence, and Balinese
+                                                 cultural values.
+                                                ') }}
                 </p>
                 <div class="button" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
                     <a href="#program" class="btn">{{ $translator->translate('Learn More') }}</a>
@@ -901,42 +901,42 @@
                 <h2>{{ $translator->translate('Program') }}</h2>
             </div>
             <div class="program-container">
-                    
-                    <div class="program-card">
-                        <a href="after-click-inter">
-                            <img src="img/program.png" alt="Internship Image">
-                            <div class="program-title-text">
-                                <p>{{ $translator->translate('Australian Internship &gt;') }}</p>
-                            </div>
-                        </a>
-                    </div>
 
-                    <div class="program-card">
-                        <a href="after-click-inter2">
-                            <img src="img/program.png" alt="program 2">
-                            <div class="program-title-text">
-                                <p>{{ $translator->translate('Structured Work Based Learning &gt;') }}</p>
-                            </div>
-                        </a>
-                    </div>
+                <div class="program-card">
+                    <a href="after-click-inter">
+                        <img src="img/program.png" alt="Internship Image">
+                        <div class="program-title-text">
+                            <p>{{ $translator->translate('Australian Internship &gt;') }}</p>
+                        </div>
+                    </a>
+                </div>
 
-                    <div class="program-card">
-                        <a href="after-click-inter5">
-                            <img src="img/program.png" alt="program 2">
-                            <div class="program-title-text">
-                                <p>{{ $translator->translate('Mentorship from Global Hospitality Leaders &gt;') }}</p>
-                            </div>
-                        </a>
-                    </div>
+                <div class="program-card">
+                    <a href="after-click-inter2">
+                        <img src="img/program.png" alt="program 2">
+                        <div class="program-title-text">
+                            <p>{{ $translator->translate('Structured Work Based Learning &gt;') }}</p>
+                        </div>
+                    </a>
+                </div>
 
-                    <div class="program-card">
-                        <a href="after-click-inter4">
-                            <img src="img/program.png" alt="program 2">
-                            <div class="program-title-text">
-                                <p>{{ $translator->translate('Cross cultural skill development &gt;') }}</p>
-                            </div>
-                        </a>
-                    </div>
+                <div class="program-card">
+                    <a href="after-click-inter5">
+                        <img src="img/program.png" alt="program 2">
+                        <div class="program-title-text">
+                            <p>{{ $translator->translate('Mentorship from Global Hospitality Leaders &gt;') }}</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="program-card">
+                    <a href="after-click-inter4">
+                        <img src="img/program.png" alt="program 2">
+                        <div class="program-title-text">
+                            <p>{{ $translator->translate('Cross cultural skill development &gt;') }}</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -947,16 +947,16 @@
                     <div class="program-title">
                         <h1>{{ $translator->translate('Australian Intership') }}</h1>
                         <h4>{{ $translator->translate('
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      Dual Certification Program with Australian Hospitality Schools.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      Dual Certification Program with Australian Hospitality Schools.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ') }}
                         </h4>
                     </div>
                     <p>{{ $translator->translate('
-                                                                                                                                                                                                                                                                                                                                                                                                                                After completing the initial training in Bali, students can
-                                                                                                                                                                                                                                                                                                                                                                                                                                participate in an internship at a partnered hotel or resort in
-                                                                                                                                                                                                                                                                                                                                                                                                                                Australia, gaining real-world experience in an international
-                                                                                                                                                                                                                                                                                                                                                                                                                                setting.
-                                                                                                                                                                                                                                                                                                                                                                                                                                ') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        After completing the initial training in Bali, students can
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        participate in an internship at a partnered hotel or resort in
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Australia, gaining real-world experience in an international
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        setting.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ') }}
                     </p>
                     <div class="button-middle" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
                         <a href="after-click-inter" class="btn-middle">{{ $translator->translate('See more') }}</a>
@@ -975,9 +975,9 @@
                     <h1>{{ $translator->translate('Structured Work Based Learning') }}</h1>
                     <h4>{{ $translator->translate('German Ausbildung program (2 to 3 Years)') }}</h4>
                     <p>{{ $translator->translate('
-                                                                                                                                                                                                                                                                                                                                                                                                                                Strudents alternate between classroom sessions classroom session and
-                                                                                                                                                                                                                                                                                                                                                                                                                                hands-on work at hotels, restaurants, or resorts in Germany.
-                                                                                                                                                                                                                                                                                                                                                                                                                                ') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Strudents alternate between classroom sessions classroom session and
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        hands-on work at hotels, restaurants, or resorts in Germany.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ') }}
                     </p>
                     <div class="button-middle" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
                         <a href="after-click-inter2" class="btn-middle">{{ $translator->translate('See more') }}</a>
@@ -990,15 +990,15 @@
                     <div class="program-title">
                         <h1>{{ $translator->translate('mentorship from Global Hospitality Leaders') }}</h1>
                         <h4>{{ $translator->translate('
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      Hospitality Management Internship Program with Global Hotel Chains
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      (6 to 12 Months)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      Hospitality Management Internship Program with Global Hotel Chains
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      (6 to 12 Months)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ') }}
                         </h4>
                     </div>
                     <p>{{ $translator->translate('
-                                                                                                                                                                                                                                                                                                                                                                                                                                Students receive mentorship from experienced managers and trainers
-                                                                                                                                                                                                                                                                                                                                                                                                                                within the partner hotel chains.
-                                                                                                                                                                                                                                                                                                                                                                                                                                ') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Students receive mentorship from experienced managers and trainers
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        within the partner hotel chains.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ') }}
                     </p>
                     <div class="button-middle" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
                         <a href="after-click-inter5" class="btn-middle">{{ $translator->translate('See more') }}</a>
@@ -1016,14 +1016,14 @@
                 <div class="program-text" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
                     <h1>{{ $translator->translate('Cross cultural skill development') }}</h1>
                     <h4>{{ $translator->translate('
-                                                                                                                                                                                                                                                                                                                                                                                                                                Internasional Culinary Exchange Program with European Schools (1
-                                                                                                                                                                                                                                                                                                                                                                                                                                Years)
-                                                                                                                                                                                                                                                                                                                                                                                                                                ') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Internasional Culinary Exchange Program with European Schools (1
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Years)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ') }}
                     </h4>
                     <p>{{ $translator->translate('
-                                                                                                                                                                                                                                                                                                                                                                                                                                Students learn to work in diverse, multicultural teams, a key skill
-                                                                                                                                                                                                                                                                                                                                                                                                                                in the international culinary industry.
-                                                                                                                                                                                                                                                                                                                                                                                                                                ') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Students learn to work in diverse, multicultural teams, a key skill
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        in the international culinary industry.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ') }}
                     </p>
                     <div class="button-middle" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
                         <a href="after-click-inter4" class="btn-middle">{{ $translator->translate('See more') }}</a>
@@ -1034,45 +1034,46 @@
     </section>
 
     <!-- ------ SECTION PHOTO ------ -->
-        <section class="collection">
+    <section class="collection">
         <div class="container-title">
-            <h2 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">{{ $translator->translate('Most Popular Photo') }}</h2>
+            <h2 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
+                {{ $translator->translate('Most Popular Photo') }}</h2>
         </div>
         <div class="swiper mySwiper" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
             <div class="swiper-wrapper">
                 @php $hot = $gallery->firstWhere('id', 11); @endphp
                 @if ($hot)
-                <div class="swiper-slide">
-                    <img alt="" src="{{ url("storage/{$hot->images}") }}" />
-                </div>
+                    <div class="swiper-slide">
+                        <img alt="" src="{{ url("storage/{$hot->images}") }}" />
+                    </div>
                 @endif
                 @php $hot = $gallery->firstWhere('id', 12); @endphp
                 @if ($hot)
-                <div class="swiper-slide">
-                    <img alt="" src="{{ url("storage/{$hot->images}") }}" />
-                </div>
+                    <div class="swiper-slide">
+                        <img alt="" src="{{ url("storage/{$hot->images}") }}" />
+                    </div>
                 @endif
-                 @php $hot = $gallery->firstWhere('id', 13); @endphp
+                @php $hot = $gallery->firstWhere('id', 13); @endphp
                 @if ($hot)
-                <div class="swiper-slide">
-                    <img alt="" src="{{ url("storage/{$hot->images}") }}" />
-                </div>
+                    <div class="swiper-slide">
+                        <img alt="" src="{{ url("storage/{$hot->images}") }}" />
+                    </div>
                 @endif
                 @php $hot = $gallery->firstWhere('id', 14); @endphp
                 @if ($hot)
-                <div class="swiper-slide">
-                    <img alt="" src="{{ url("storage/{$hot->images}") }}" />
-                </div>
+                    <div class="swiper-slide">
+                        <img alt="" src="{{ url("storage/{$hot->images}") }}" />
+                    </div>
                 @endif
-                </div>
             </div>
-            <div class="swiper-pagination"></div>
+        </div>
+        <div class="swiper-pagination"></div>
         </div>
         </div>
     </section>
     <!-------------- RECENT NEWS -------------->
     <section class="hidden">
-        
+
 
         <div class="container-title">
             <h2>{{ $translator->translate('Achievement') }}</h1>
@@ -1086,12 +1087,12 @@
                         width="300" />
                     <div class="card-content">
                         <h3>{{ $translator->translate('
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Siti Ari, Peserta Didik Persiapan Bahasa Jerman Sukses diterim...
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Siti Ari, Peserta Didik Persiapan Bahasa Jerman Sukses diterim...
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ') }}
                         </h3>
                         <p>{{ $translator->translate('
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            16/01/2025
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            16/01/2025
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ') }}
                         </p>
                     </div>
                 </div>
@@ -1103,8 +1104,8 @@
                         width="300" />
                     <div class="card-content">
                         <h3>{{ $translator->translate('
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Dio & Suparta Mahasiswa DHS Klungkung diterima bekerj...
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Dio & Suparta Mahasiswa DHS Klungkung diterima bekerj...
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ') }}
                         </h3>
                         <p>
                             14/01/2025
@@ -1119,8 +1120,8 @@
                         width="300" />
                     <div class="card-content">
                         <h3>{{ $translator->translate('
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Guest Lecture dari Prof.Dr.Subash Chandra Dash, India
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Guest Lecture dari Prof.Dr.Subash Chandra Dash, India
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ') }}
                         </h3>
                         <p>
                             04/01/2025
@@ -1143,10 +1144,12 @@
         </div>
         <div class="slider-container">
             <div class="slider" id="slider">
-                <div class="client"><img src="img/OYO.png" alt="Logo"></div>
-                <div class="client"><img src="img/LATIFABA.png" alt="Logo"></div>
-                <div class="client"><img src="img/IKEA.png" alt="Logo"></div>
-                <div class="client"><img src="img/STARBAK.png" alt="Logo"></div>
+                @foreach ($clients as $client)
+                <div class="client">
+                    <img src="{{ asset('storage/' . $client->image_path) }}" alt="{{ $client->name }}">
+                    </div>
+                @endforeach
+
             </div>
         </div>
     </section>
@@ -1202,8 +1205,37 @@
     </div>
 
     <script>
-        (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="vfUL835Gz6PZIU6hu9MRF";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-        </script>
+        (function() {
+            if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+                window.chatbase = (...arguments) => {
+                    if (!window.chatbase.q) {
+                        window.chatbase.q = []
+                    }
+                    window.chatbase.q.push(arguments)
+                };
+                window.chatbase = new Proxy(window.chatbase, {
+                    get(target, prop) {
+                        if (prop === "q") {
+                            return target.q
+                        }
+                        return (...args) => target(prop, ...args)
+                    }
+                })
+            }
+            const onLoad = function() {
+                const script = document.createElement("script");
+                script.src = "https://www.chatbase.co/embed.min.js";
+                script.id = "vfUL835Gz6PZIU6hu9MRF";
+                script.domain = "www.chatbase.co";
+                document.body.appendChild(script)
+            };
+            if (document.readyState === "complete") {
+                onLoad()
+            } else {
+                window.addEventListener("load", onLoad)
+            }
+        })();
+    </script>
     <script src="js/home.js"></script>
     <script src="js/galery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

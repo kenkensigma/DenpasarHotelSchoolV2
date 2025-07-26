@@ -193,12 +193,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Gallery</h1>
+                            <h1 class="m-0">Clients</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Gallery</li>
+                                <li class="breadcrumb-item active">Clients</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -209,12 +209,12 @@
             <section class="content">
                 <div class="container-fluid">
 
-                    <a href="{{ route('gallery-add') }}" class="blue-button">Add Photo</a>
+                    <a href="{{ route('clients.create') }}" class="blue-button">Add Client</a>
 
                     <!-- Alert for success message -->
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Photo Gallery</h3>
+                            <h3 class="card-title">Client List</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -223,36 +223,24 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Images</th>
-                                        <th>Description</th>
-                                        <th>Status</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($gallery as $ondesk => $content)
+                                    @foreach ($clients as $ondesk => $content)
                                         <tr>
                                             <td>{{ $ondesk + 1 }}</td> <!-- Nomor urut -->
                                             <td>
-                                                <img src="{{ asset('storage/' . $content->images) }}" width="80"
+                                                <img src="{{ asset('storage/' . $content->image_path) }}" width="80"
                                                     height="70" alt="Image">
                                             </td> <!-- Gambar -->
-                                            <td>{{ $content->description }}</td> <!-- deskripsi -->
                                             <td>
-                                                @if ($content->status)
-                                                    <span class="badge bg-success">Show</span>
-                                                    <!-- Jika Show, warna hijau -->
-                                                @else
-                                                    <span class="badge bg-danger">Hide</span>
-                                                    <!-- Jika Hide, warna merah -->
-                                                @endif <!-- Status -->
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('gallery.edit', $content->id) }}"
+                                                <a href="{{ route('clients.edit', $content->id) }}"
                                                     class="btn btn-info btn-sm">
                                                     <i class="bi bi-pen"></i> Edit
                                                 </a>
 
-                                                <form action="{{ route('gallery.destroy', $content->id) }}"
+                                                <form action="{{ route('clients.destroy', $content->id) }}"
                                                     method="POST" style="display:inline;"
                                                     onsubmit="return confirm('Apakah Anda yakin ingin menghapus foto ini?');">
                                                     @csrf
