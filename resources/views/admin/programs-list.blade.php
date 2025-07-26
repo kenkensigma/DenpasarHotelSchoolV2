@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | team-list</title>
+    <title>AdminLTE 3 | gallery-list</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -198,7 +198,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">News & Event</li>
+                                <li class="breadcrumb-item active">Gallery</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -209,12 +209,12 @@
             <section class="content">
                 <div class="container-fluid">
 
-                    <a href="{{ route('team-add') }}" class="blue-button">Add Photo</a>
+                    <a href="{{ route('gallery-add') }}" class="blue-button">Add Photo</a>
 
                     <!-- Alert for success message -->
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Photo Gallery</h3>
+                            <h3 class="card-title">Programs</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -222,35 +222,21 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Roles</th>
-                                        <th>Profil Singkat</th>
-                                        <th>Foto</th>
-                                        <th>Cv</th>
+                                        <th>Images</th>
+                                        <th>Description</th>
                                         <th>Status</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($teams as $ondesk => $content)
+                                    @foreach ($gallery as $ondesk => $content)
                                         <tr>
                                             <td>{{ $ondesk + 1 }}</td> <!-- Nomor urut -->
-                                            <td>{{ $content->nama }}</td> <!-- Kategori -->
-                                            <td>{{ $content->roles }}</td> <!-- Tanggal -->
-                                            <td>{{ $content->desc }}</td> <!-- Judul -->
                                             <td>
-                                                <img src="{{ asset('storage/' . $content->foto) }}" width="80"
-                                                    height="50" alt="Image">
+                                                <img src="{{ asset('storage/' . $content->images) }}" width="80"
+                                                    height="70" alt="Image">
                                             </td> <!-- Gambar -->
-                                            <td>
-                                                @if ($content->cv)
-                                                    <button
-                                                        onclick="openCV('{{ asset('storage/' . $content->cv) }}')">View
-                                                        CV</button>
-                                                @else
-                                                    Tidak ada CV
-                                                @endif
-                                            </td>
+                                            <td>{{ $content->description }}</td> <!-- deskripsi -->
                                             <td>
                                                 @if ($content->status)
                                                     <span class="badge bg-success">Show</span>
@@ -261,14 +247,14 @@
                                                 @endif <!-- Status -->
                                             </td>
                                             <td>
-                                                <a href="{{ route('team.edit', $content->id) }}"
+                                                <a href="{{ route('gallery.edit', $content->id) }}"
                                                     class="btn btn-info btn-sm">
                                                     <i class="bi bi-pen"></i> Edit
                                                 </a>
 
-                                                <form action="{{ route('team.destroy', $content->id) }}"
+                                                <form action="{{ route('gallery.destroy', $content->id) }}"
                                                     method="POST" style="display:inline;"
-                                                    onsubmit="return confirm('Apakah Anda yakin ingin menghapus berita ini?');">
+                                                    onsubmit="return confirm('Apakah Anda yakin ingin menghapus foto ini?');">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm">
@@ -304,11 +290,7 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
-    <script>
-        function openCV(cvUrl) {
-            window.open(cvUrl, '_blank');
-        }
-    </script>
+
     <!-- jQuery -->
     <script src="../../plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
