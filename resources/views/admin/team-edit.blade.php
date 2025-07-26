@@ -114,17 +114,17 @@
                             </a>
                             <ul class="nav nav-treeview dropdown-menu-custom">
                                 <li class="nav-item">
-                                    <a href="homepage-programs" class="nav-link">
+                                    <a href="{{ route('admin.programs-list') }}" class="nav-link">
                                         <p>Programs</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="homepage-clients" class="nav-link">
+                                    <a href="{{ route('admin.clients-list') }}" class="nav-link">
                                         <p>Clients</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="homepage-about" class="nav-link">
+                                    <a href="{{ route('admin.about-us-list') }}" class="nav-link">
                                         <p>About Us</p>
                                     </a>
                                 </li>
