@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
@@ -92,9 +93,7 @@ Route::get('/team-list', [TeamController::class, 'list'])->name('admin.team-list
 Route::get('/gallery-list', [GalleryController::class, 'list'])->name('admin.gallery-list');
 
 // Homepage
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/team-edit', function () {
     return view('admin.team-edit');

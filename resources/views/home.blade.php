@@ -1034,45 +1034,42 @@
     </section>
 
     <!-- ------ SECTION PHOTO ------ -->
-    <section class="collection">
-        <div class="container-title" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-            <h2>{{ $translator->translate('Most Popular Photo') }}</h2>
+        <section class="collection">
+        <div class="container-title">
+            <h2 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">{{ $translator->translate('Most Popular Photo') }}</h2>
         </div>
-
         <div class="swiper mySwiper" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
             <div class="swiper-wrapper">
+                @php $hot = $gallery->firstWhere('id', 11); @endphp
+                @if ($hot)
                 <div class="swiper-slide">
-                    <img src="img/jumbotron-news.jpg" />
+                    <img alt="" src="{{ url("storage/{$hot->images}") }}" />
                 </div>
+                @endif
+                @php $hot = $gallery->firstWhere('id', 12); @endphp
+                @if ($hot)
                 <div class="swiper-slide">
-                    <img src="img/g9.jpg" />
+                    <img alt="" src="{{ url("storage/{$hot->images}") }}" />
                 </div>
+                @endif
+                 @php $hot = $gallery->firstWhere('id', 13); @endphp
+                @if ($hot)
                 <div class="swiper-slide">
-                    <img src="img/g3.jpg" />
+                    <img alt="" src="{{ url("storage/{$hot->images}") }}" />
                 </div>
+                @endif
+                @php $hot = $gallery->firstWhere('id', 14); @endphp
+                @if ($hot)
                 <div class="swiper-slide">
-                    <img src="img/g4.jpg" />
+                    <img alt="" src="{{ url("storage/{$hot->images}") }}" />
                 </div>
-                <div class="swiper-slide">
-                    <img src="img/hotnews1.jpg" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="img/g1.jpg" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="img/jumbotron.jpg" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="img/g8.jpg" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="img/hotnews1.jpg" />
+                @endif
                 </div>
             </div>
             <div class="swiper-pagination"></div>
         </div>
+        </div>
     </section>
-
     <!-------------- RECENT NEWS -------------->
     <section class="hidden">
         
