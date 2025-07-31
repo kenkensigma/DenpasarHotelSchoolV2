@@ -229,41 +229,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($gallery as $ondesk => $content)
-                                        <tr>
-                                            <td>{{ $ondesk + 1 }}</td> <!-- Nomor urut -->
-                                            <td>
-                                                <img src="{{ asset('storage/' . $content->images) }}" width="80"
-                                                    height="70" alt="Image">
-                                            </td> <!-- Gambar -->
-                                            <td>{{ $content->description }}</td> <!-- deskripsi -->
-                                            <td>
-                                                @if ($content->status)
-                                                    <span class="badge bg-success">Show</span>
-                                                    <!-- Jika Show, warna hijau -->
-                                                @else
-                                                    <span class="badge bg-danger">Hide</span>
-                                                    <!-- Jika Hide, warna merah -->
-                                                @endif <!-- Status -->
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('gallery.edit', $content->id) }}"
-                                                    class="btn btn-info btn-sm">
-                                                    <i class="bi bi-pen"></i> Edit
-                                                </a>
-
-                                                <form action="{{ route('gallery.destroy', $content->id) }}"
-                                                    method="POST" style="display:inline;"
-                                                    onsubmit="return confirm('Apakah Anda yakin ingin menghapus foto ini?');">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm">
-                                                        <i class="bi bi-trash"></i> Delete
-                                                    </button>
-                                                </form>
-                                            </td> <!-- Hanya tombol Edit -->
-                                        </tr>
-                                    @endforeach
                                 </tbody>
                             </table>
 

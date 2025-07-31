@@ -126,6 +126,10 @@ Route::get('/team-edit', function () {
     return view('admin.team-edit');
 })->name('team');
 
+Route::get('/about-list', function () {
+    return view('admin.about-us-list');
+})->name('admin.about-us-list');
+
 // Profile Section
 Route::get('/about', function () {
     return view('about');

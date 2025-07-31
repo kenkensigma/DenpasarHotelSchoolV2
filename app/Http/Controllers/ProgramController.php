@@ -16,7 +16,7 @@ class ProgramController extends Controller
     $programs = Program::with('category')->get(); // Include relasi kategori
 
     // Kirim data ke view 'programs.index'
-    return view('programs-list', compact('programs'));
+    return view('admin.programs-list', compact('programs'));
 }
 
     public function store(Request $request)
