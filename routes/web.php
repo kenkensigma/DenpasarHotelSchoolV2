@@ -101,6 +101,7 @@ Route::get('/team/{id}/edit', [TeamController::class, 'edit'])->name('team.edit'
 Route::put('/team/{id}', [TeamController::class, 'update'])->name('team.update');
 Route::delete('/team/{id}', [TeamController::class, 'destroy'])->name('team.destroy');
 
+
 // Menampilkan form programs-add.blade.php
 Route::get('/programs-add', [ProgramController::class, 'create'])->name('programs-add');
 Route::get('/programs', [ProgramController::class, 'programs'])->name('programs');
@@ -109,6 +110,8 @@ Route::get('/programs/{id}/edit', [ProgramController::class, 'edit'])->name('pro
 Route::put('/programs/{id}', [ProgramController::class, 'update'])->name('programs.update');
 Route::delete('/programs/{id}', [ProgramController::class, 'destroy'])->name('programs.destroy');
 
+
+// Admin Routes
 Route::get('/projects', [NewsController::class, 'list'])->name('admin.projects');
 Route::get('/team-list', [TeamController::class, 'list'])->name('admin.team-list');
 Route::get('/gallery-list', [GalleryController::class, 'list'])->name('admin.gallery-list');
