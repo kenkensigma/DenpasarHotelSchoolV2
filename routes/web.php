@@ -14,6 +14,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
 use Stichoza\GoogleTranslate\GoogleTranslate;
 use App\Http\Controllers\DetailPageController;
+use App\Http\Controllers\ProgramController;
+
 
 Route::group([
     "middleware" => ("guest")
@@ -99,10 +101,20 @@ Route::get('/team/{id}/edit', [TeamController::class, 'edit'])->name('team.edit'
 Route::put('/team/{id}', [TeamController::class, 'update'])->name('team.update');
 Route::delete('/team/{id}', [TeamController::class, 'destroy'])->name('team.destroy');
 
+// Menampilkan form programs-add.blade.php
+Route::get('/programs-add', [ProgramController::class, 'create'])->name('programs-add');
+Route::get('/programs', [ProgramController::class, 'programs'])->name('programs');
+Route::post('/programs', [ProgramController::class, 'store'])->name('programs.store');
+Route::get('/programs/{id}/edit', [ProgramController::class, 'edit'])->name('programs.edit');
+Route::put('/programs/{id}', [ProgramController::class, 'update'])->name('programs.update');
+Route::delete('/programs/{id}', [ProgramController::class, 'destroy'])->name('programs.destroy');
+
 Route::get('/projects', [NewsController::class, 'list'])->name('admin.projects');
 Route::get('/team-list', [TeamController::class, 'list'])->name('admin.team-list');
 Route::get('/gallery-list', [GalleryController::class, 'list'])->name('admin.gallery-list');
 Route::get('/clients-list', [ClientsController::class, 'list'])->name('admin.clients-list');
+Route::get('/programs-list', [ProgramController::class, 'list'])->name('admin.programs-list');
+
 
 // Homepage
 Route::get('/', [HomeController::class, 'index'])->name('home');
