@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | gallery-list</title>
+    <title>AdminLTE 3 | programs-list</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -193,12 +193,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Gallery</h1>
+                            <h1 class="m-0">Programs</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Gallery</li>
+                                <li class="breadcrumb-item active">Programs</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -209,7 +209,7 @@
             <section class="content">
                 <div class="container-fluid">
 
-                    <a href="{{ route('gallery-add') }}" class="blue-button">Add Photo</a>
+                    <a href="{{ route('programs-add') }}" class="blue-button">Add Program</a>
 
                     <!-- Alert for success message -->
                     <div class="card">
@@ -223,6 +223,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Images</th>
+                                        <th>Name</th>
                                         <th>Description</th>
                                         <th>Status</th>
                                         <th>Actions</th>

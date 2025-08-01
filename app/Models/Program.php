@@ -12,9 +12,4 @@ class Program extends Model
     protected $table = 'programs'; // Nama tabel di database
     protected $fillable = ['name', 'duration', 'description', 'image'];
 
-    public function category()
-{
-    return $this->belongsTo(ProgramCategory::class, 'category_id');
-}
-
 }
