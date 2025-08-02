@@ -13,6 +13,8 @@ return new class extends Migration {
             $table->string('name');
             $table->string('duration');
             $table->text('description')->nullable();
+            $table->enum('category', ['National', 'International', 'Tailor-Made', 'In-House-Program', 'Hourly-Based'])->default('National');
+            $table->string('status')->default('1'); // 0 = draft, 1 = published
             $table->string('image')->nullable();
             $table->timestamps();
         });

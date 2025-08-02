@@ -230,6 +230,40 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($programs as $index => $program)
+                                        <tr>
+                                            <td>{{ $index + 1 }}</td>
+                                            <td>
+                                                @if ($program->image)
+                                                    <img src="{{ asset('storage/' . $program->image) }}"
+                                                        alt="{{ $program->name }}" width="100">
+                                                @else
+                                                    <span class="text-muted">No Image</span>
+                                                @endif
+                                            </td>
+                                            <td>{{ $program->name }}</td>
+                                            <td>{{ Str::limit($program->description, 50) }}</td>
+                                            <td>
+                                                @if ($program->status == 1)
+                                                    <span class="badge bg-success">Show</span>
+                                                @else
+                                                    <span class="badge bg-secondary">Hide</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('programs.edit', $program->id) }}"
+                                                    class="btn btn-sm btn-warning">Edit</a>
+                                                <form action="{{ route('programs.destroy', $program->id) }}"
+                                                    method="POST" style="display:inline-block;"
+                                                    onsubmit="return confirm('Yakin ingin hapus?')">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                        class="btn btn-sm btn-danger">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
 

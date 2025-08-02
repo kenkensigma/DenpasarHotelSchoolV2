@@ -106,7 +106,7 @@
                                 </p>
                             </a>
                         </li>
-                       <li class="nav-item dropdown-hover">
+                        <li class="nav-item dropdown-hover">
                             <a href="#" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
@@ -170,43 +170,88 @@
                                 class="custom-validation">
                                 @csrf
 
+                                {{-- Ini buat nampilin eror ja kalo misal validasinya gagal --}}
+                                @if ($errors->any())
+                                    <div class="alert alert-danger mb-3">
+                                        <ul class="mb-0">
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+
                                 <div class="row">
                                     <div class="form-group mb-3 col-md-6">
-                                        <label for="images" class="form-label">Upload File</label>
-                                        <input type="file" id="images" name="images"
+                                        <label for="image" class="form-label">Upload File</label>
+                                        <input type="file" id="image" name="image"
                                             class="form-control dropify" data-max-file-size="2M"
                                             data-allowed-file-extensions="jpg png jpeg" required />
                                         <small>Note: Ukuran gambar maksimal 2MB</small>
+                                        @error('image')
+                                            <small class="text-danger d-block">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
 
                                 <div class="form-group mb-3">
                                     <label for="name" class="form-label">Name</label>
-                                    <textarea name="name" id="name" cols="30" rows="5" class="form-control" required>
-                                        {{ old('name') ? strip_tags(old('name')) : '' }}
-                                    </textarea>
+                                    <textarea name="name" id="name" cols="30" rows="5" class="form-control" required>{{ old('name') ? strip_tags(old('name')) : '' }}</textarea>
+                                    @error('name')
+                                        <small class="text-danger d-block">{{ $message }}</small>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group mb-3">
                                     <label for="description" class="form-label">Description</label>
-                                    <textarea name="description" id="description" cols="30" rows="5" class="form-control" required>
-                                        {{ old('description') ? strip_tags(old('description')) : '' }}
-                                    </textarea>
+                                    <textarea name="description" id="description" cols="30" rows="5" class="form-control" required>{{ old('description') ? strip_tags(old('description')) : '' }}</textarea>
+                                    @error('description')
+                                        <small class="text-danger d-block">{{ $message }}</small>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group mb-3">
                                     <label for="duration" class="form-label">Duration</label>
-                                    <textarea name="description" id="description" cols="30" rows="5" class="form-control" required>
-                                        {{ old('duration') ? strip_tags(old('duration')) : '' }}
-                                    </textarea>
+                                    <textarea name="duration" id="duration" cols="30" rows="5" class="form-control" required>{{ old('duration') ? strip_tags(old('duration')) : '' }}</textarea>
+                                    @error('duration')
+                                        <small class="text-danger d-block">{{ $message }}</small>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group mb-3 col-md-3">
                                     <label for="status" class="form-label">Status</label>
                                     <select class="form-control" name="status" required>
-                                        <option value="0">Hide</option>
-                                        <option value="1">Show</option>
+                                        <option value="0" {{ old('status') == '0' ? 'selected' : '' }}>Hide
+                                        </option>
+                                        <option value="1" {{ old('status') == '1' ? 'selected' : '' }}>Show
+                                        </option>
                                     </select>
+                                    @error('status')
+                                        <small class="text-danger d-block">{{ $message }}</small>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group mb-3 col-md-3">
+                                    <label for="category" class="form-label">Category</label>
+                                    <select class="form-control" name="category" required>
+                                        <option value="National"
+                                            {{ old('category') == 'National' ? 'selected' : '' }}>National</option>
+                                        <option value="International"
+                                            {{ old('category') == 'International' ? 'selected' : '' }}>International
+                                        </option>
+                                        <option value="Tailor-Made"
+                                            {{ old('category') == 'Tailor-Made' ? 'selected' : '' }}>Tailor-Made
+                                        </option>
+                                        <option value="In-House-Program"
+                                            {{ old('category') == 'In-House-Program' ? 'selected' : '' }}>In-House
+                                            Program</option>
+                                        <option value="Hourly-Based"
+                                            {{ old('category') == 'Hourly-Based' ? 'selected' : '' }}>Hourly Based
+                                        </option>
+                                    </select>
+                                    @error('category')
+                                        <small class="text-danger d-block">{{ $message }}</small>
+                                    @enderror
                                 </div>
 
                                 <div class="text-right mt-4">
@@ -280,4 +325,5 @@
     </script>
 
 </body>
+
 </html>

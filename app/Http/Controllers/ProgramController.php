@@ -29,11 +29,12 @@ class ProgramController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|string',
-            'image' => 'required|string',
+            'name' => 'required|string|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             'description' => 'required|string',
-            'duration' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
-            'status' => 'required|in:0,1' // 0 = draft, 1 = published
+            'duration' => 'required|string|max:255',
+            'category' => 'required|in:National,International,Tailor-Made,In-House-Program,Hourly-Based',
+            'status' => 'required|in:0,1' // 0 = draft
         ]);
 
         if ($request->hasFile('image')) {
@@ -44,14 +45,15 @@ class ProgramController extends Controller
 
 
         Program::create([
-            'name' => $request->nama,
-            'image' => $request->roles,
-            'description' => $request->desc,
-            'duration' => $fotoPath,
-            'status' => $request->status,
+            'name' => $request->name,
+            'image' => $fotoPath,
+            'description' => $request->description,
+            'duration' => $request->duration,
+            'category' => $request->category,
+            'status' => $request->status
         ]);
-    
-        return redirect()->route('programs')->with('success', 'Program Added');
+
+        return redirect()->route('admin.programs-list')->with('success', 'Program Added');
     }
 
     public function edit($id) {
@@ -68,7 +70,7 @@ class ProgramController extends Controller
     // Update Foto
     if ($request->hasFile('image')) {
         // Hapus foto lama jika ada
-        if ($Programs->image && Storage::exists('public/' . $programs->image)) {
+        if ($programs->image && Storage::exists('public/' . $programs->image)) {
             Storage::delete('public/' . $programs->image);
         }
         // Simpan foto baru
