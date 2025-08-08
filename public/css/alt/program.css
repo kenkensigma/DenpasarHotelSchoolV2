@@ -1,0 +1,46 @@
+#program {
+    color: #000000;
+    padding: 50px 20px;
+    font-family: "Georgia", serif;
+
+    /* CENTER */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.program {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 50px;
+}
+
+.program-text h1 {
+    color: #000;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    font-family: "Poltawski Nowy", serif;
+    text-transform: uppercase;
+}
+
+.program-text {
+    margin: 100px;
+}
+
+.program-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.program-btn:hover {
+    background-color: #a93226;
+}
