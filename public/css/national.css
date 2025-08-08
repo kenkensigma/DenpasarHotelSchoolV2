@@ -55,11 +55,6 @@ section {
     padding-bottom: 10px;
     font-family: "Poltawski Nowy", serif;
 }
-.jumbotron img {
-    width: 100%;
-    max-height: 680px;
-    filter: brightness(0.5);
-}
 
 .text-national {
     text-align: center;
