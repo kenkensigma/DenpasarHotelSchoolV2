@@ -301,7 +301,6 @@
                 {{ $translator->translate('Welcome to the Denpasar Hotel School') }}</p>
             <h1 data-aos="fade-in" data-aos-duration="1200" data-aos-delay="600">
                 {{ $translator->translate('PROGRAM') }}</h1>
-            <div class="kotak"></div>
         </div>
     </div>
 

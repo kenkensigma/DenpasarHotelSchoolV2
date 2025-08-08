@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="css/national.css" />
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href=".../program.css">
+    <link rel="stylesheet" href="css/program.css">
 
     <!-- Fade in Animation CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
