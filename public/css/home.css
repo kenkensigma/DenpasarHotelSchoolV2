@@ -39,8 +39,16 @@ body {
 
 section {
     padding: 2rem 9%;
-    justify-content:center ;
+    justify-content: center;
     align-items: center;
+}
+
+.homefotoatas {
+    display: none;
+}
+
+.homefotobawah {
+    display: block;
 }
 
 #program {
@@ -77,7 +85,6 @@ section {
 .program-text {
     margin: 100px;
 }
-
 
 .program-container {
     display: flex;
@@ -117,8 +124,6 @@ section {
     text-align: center;
     font-weight: bold;
 }
-
-
 
 /* ------ gallery ----- */
 
@@ -249,9 +254,13 @@ section {
     .program-desktop {
         display: none;
     }
+    .homefotobawah {
+        display: none;
+    }
+    .homefotoatas {
+        display: block;
+    }
 }
-
-
 
 @media (min-width: 1150px) {
     .program-mobile {
