@@ -47,6 +47,10 @@ Route::group([
 
 });
 
+Route::get("admin", function () {
+    return view("admin.index");
+})->name("admin.index")->middleware("auth");
+
 Route::get("home", function () {
     return view("home");
 })->name("home")->middleware("auth");
@@ -54,6 +58,10 @@ Route::get("home", function () {
 Route::post('/contact', [ContactController::class, 'sendContactForm'])->name('contact.send');
 
 Route::get('/change-lang', [LangController::class, 'changeLang'])->name('changeLang');
+
+Route::get('/admin', function () {
+    return view('admin/index');
+})->name('dashboard');
 
 // Clients resource routes
 Route::get('/clients', [ClientsController::class, 'index'])->name('clients.index');
