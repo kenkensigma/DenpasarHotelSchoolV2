@@ -29,10 +29,35 @@
     --card-large: 45;
 }
 
+section #about {
+    justify-content: center;
+    align-items: center;
+}
+
 /* ------ TITLE ------ */
 
 .container-title {
     text-align: center;
+}
+
+.container-title2 {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.container-title2 h2 {
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--white);
+    margin: 0;
+    border-bottom: 2px solid var(--primary);
+    display: inline-block;
+    padding-bottom: 10px;
+    font-family: "Poltawski Nowy", serif;
+
+    border-bottom: 2px solid var(--white);
+    padding-bottom: 5px;
 }
 
 .container-title h2 {
@@ -82,11 +107,6 @@
 
     .text h3 {
         display: none;
-    }
-
-    section #about {
-        justify-content: center;
-        align-items: center;
     }
 
     .text {

@@ -57,9 +57,13 @@ section {
     padding: 50px 20px;
     font-family: "Georgia", serif;
     text-align: center;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
 }
 
 .program {
+    justify-content: center;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -126,23 +130,6 @@ section {
 }
 
 /* ------ gallery ----- */
-
-.container-title {
-    text-align: center;
-    margin: 50px 0;
-}
-
-.container-title h2 {
-    font-size: 2em;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: var(--primary);
-    margin: 0;
-    border-bottom: 2px solid var(--primary);
-    display: inline-block;
-    padding-bottom: 10px;
-    font-family: "Poltawski Nowy", serif;
-}
 
 .swiper {
     width: 100%;
@@ -259,6 +246,16 @@ section {
     }
     .homefotoatas {
         display: block;
+    }
+    .homefotoatas {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .homefotoatas img {
+        max-width: 100%;
+        height: auto;
     }
 }
 
