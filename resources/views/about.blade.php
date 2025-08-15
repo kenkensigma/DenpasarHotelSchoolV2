@@ -305,25 +305,41 @@
         </div>
     </div>
 
-    <!-- Jumbotron Section -->
-
-    <section class="about">
-        <div class="container-title" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-            <h2>About Us</h2>
-        </div>
-
-        <div class="wrapper-about">
-            <div class="text">
-                <h3 data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                    {{ $translator->translate('About') }}</h3>
-                <h1 data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                    {{ $translator->translate('Denpasar Hotel School') }}</h1>
-                <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                    {{ $translator->translate('Denpasar Hotel School is a premier institution dedicated to training the next generation of professionals in the hospitality and tourism industries. Located in the heart of Bali—a global hub for tourism—the school offers students a blend of theoretical knowledge and hands-on experience, fostering a deep understanding of world-class hospitality standards, service excellence, and Balinese cultural values. With a commitment to both personal and professional growth, Denpasar Hotel School aims to equip students with the skills, creativity, and adaptability needed to excel in a competitive, ever-evolving industry.') }}
-                </p>
+    <!-- About Us Section -->
+    <section id="about" class="hidden">
+        <div class="about-text">
+            <div class="homefotoatas" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                <img src="img/homefoto.png" width="400px" alt="" />
             </div>
-            <div class="laba" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                <img src="img/homefoto.png" width="400px">
+            <div class="container-title" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                <h2>{{ $translator->translate('About Us') }}</h2>
+            </div>
+
+            <div class="wrapper-text">
+                <div class="text" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+                    <h3 class="about">{{ $translator->translate('About') }}</h3>
+                    <h1 class="DHS">{{ $translator->translate('Denpasar Hotel School') }}</h1>
+                    <p>{{ $translator->translate('
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                     Denpasar Hotel School is a premier institution dedicated to training
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                     the next generation of professionals in the hospitality and tourism
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                     industries. Located in the heart of Bali—a global hub for
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                     tourism—the school offers students a blend of theoretical knowledge
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                     and hands-on experience, fostering a deep understanding of
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                     world-class hospitality standards, service excellence, and Balinese
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                     cultural values.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ') }}
+                    </p>
+                    <div class="button" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+                        <a href="#program" class="btn">{{ $translator->translate('Learn More') }}</a>
+                    </div>
+                    <div class="button-middle" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+                        <a href="#program" class="btn-middle">{{ $translator->translate('Learn More') }}</a>
+                    </div>
+                </div>
+
+                <div class="homefotobawah" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                    <img src="img/homefoto.png" width="400px" alt="" />
+                </div>
             </div>
         </div>
     </section>
