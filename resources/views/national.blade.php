@@ -390,7 +390,7 @@
         </div>
     </section>
 
-
+    {{-- Footer --}}
     <footer>
         <div class="column contact-info">
             <iframe
@@ -401,17 +401,6 @@
                 <p>{{ $translator->translate('Phone: +62 81228840166') }}</p>
                 <p>{{ $translator->translate('Email: partners@indoapps.id') }}</p>
                 <p>{{ $translator->translate('Website: www.indoapps.id') }}</p>
-            </div>
-        </div>
-        <div class="column">
-            <h3>{{ $translator->translate('Sitemap') }}</h3>
-            <div class="sitemap-content">
-                <a href="#"><i class='bx bx-chevron-right'></i>{{ $translator->translate(' Home') }}</a>
-                <a href="#"><i class='bx bx-chevron-right'></i>{{ $translator->translate(' Program') }}</a>
-                <a href="#"><i class='bx bx-chevron-right'></i>{{ $translator->translate(' Portofolio') }}</a>
-                <a href="#"><i
-                        class='bx bx-chevron-right'></i>{{ $translator->translate(' Partners & Clients') }}</a>
-                <a href="#"><i class='bx bx-chevron-right'></i>{{ $translator->translate(' Info') }}</a>
             </div>
         </div>
         <div class="column">

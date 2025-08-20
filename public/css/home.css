@@ -43,14 +43,6 @@ section {
     align-items: center;
 }
 
-.homefotoatas {
-    display: none;
-}
-
-.homefotobawah {
-    display: block;
-}
-
 #program {
     background-color: #2d2d44;
     color: #ffffff;
@@ -63,6 +55,7 @@ section {
 }
 
 .program {
+    max-width: 1544px;
     justify-content: center;
     display: flex;
     align-items: center;
@@ -240,22 +233,6 @@ section {
     }
     .program-desktop {
         display: none;
-    }
-    .homefotobawah {
-        display: none;
-    }
-    .homefotoatas {
-        display: block;
-    }
-    .homefotoatas {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .homefotoatas img {
-        max-width: 100%;
-        height: auto;
     }
 }
 

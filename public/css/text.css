@@ -87,7 +87,8 @@ section #about {
     align-items: center;
     display: flex;
     flex-direction: row;
-    margin-bottom: 30px;
+    margin: 0 auto 30px;
+    max-width: 1544px;
 }
 
 /* media query */
