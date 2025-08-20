@@ -367,3 +367,106 @@ cursor: pointer;
   margin: 0; 
   font-size:11px ;
 }
+
+
+@media (max-width: 1150px) {
+  .about iframe {
+    display: none;
+  }
+
+  .contact-container {
+    display: none;
+  }
+
+  footer {
+    display: none !important;
+  }
+
+  .footer-bottom{
+    display: none;
+  }
+}
+
+
+
+@media (min-width : 1150px) {
+  .contact-item{
+    display: none;
+  }
+}
+
+
+
+
+@media (max-width: 1150px) {
+
+  .jumbotron img {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+  }
+
+  .jumbotron {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.jumbotron h1 {
+ padding-top: 6px; 
+ 
+}
+
+.form-container{
+   width: 100%;
+}
+
+.form-group input,
+.form-group textarea{
+  font-size: 14px;
+}
+
+.container{
+  height: auto;
+}
+
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;     
+    gap: 20px 40px;     
+    padding: 0 40px;
+    margin-top: 100px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 45%;   
+    min-width: 200px;
+  }
+
+  .contact-item i {
+    font-size: 20px;
+    color: black;
+  }
+
+  .info-text h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    color: black;
+  }
+
+  .info-text p {
+    font-size: 13px;
+    margin: 0;
+    color: black;
+  }
+
+}
+
+
+
+
