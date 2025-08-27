@@ -400,31 +400,22 @@
 
     <section class="content-after">
         <div class="container">
-            <div class="card">
-                <div class="card-content">
-                    <h3>{{ $translator->translate('Australian Internship') }}</h3>
-                    <p>{{ $translator->translate('After completing the initial training in Bali, students can participate in an internship at a partnered hotel or resort in Australia, gaining real-world experience in an international setting.') }}
-                    </p>
+            @forelse($SubInternationalPrograms as $sub)
+                <div class="card">
+                    <div class="card-content">
+                        <h3>{{ $sub->title }}</h3>
+                        <p>{{ $sub->description }}</p>
+                    </div>
+                    @if ($sub->image)
+                        <img src="{{ asset('storage/' . $sub->image) }}" alt="{{ $sub->title }}">
+                    @endif
                 </div>
-                <img src="../img/prog3-1.jpg" alt="Hospitality Image">
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <h3>{{ $translator->translate('Dual Certification') }}</h3>
-                    <p>{{ $translator->translate('Upon completion, students receive a certificate from both Denpasar Hotel School and the Australian partner, enhancing employability in the global market.') }}
-                    </p>
-                </div>
-                <img src="../img/prog3-2.jpg" alt="Food Service Image">
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <h3>{{ $translator->translate('Focus on Australian Hospitality Standards') }}</h3>
-                    <p>{{ $translator->translate('Training modules emphasize skills in line with Australian hospitality and service standards.') }}
-                    </p>
-                </div>
-                <img src="../img/prog3-3.jpg" alt="Hospitality Image">
-            </div>
+            @empty
+                <p class="text-center">Belum ada sub program untuk main program ini.</p>
+            @endforelse
+        </div>
     </section>
+
 
     <section class="order">
         <div class="card-order">

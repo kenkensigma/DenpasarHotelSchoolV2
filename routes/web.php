@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MainInternationalController;
+use App\Http\Controllers\SubInternationalController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
@@ -110,6 +112,34 @@ Route::get('/programs/{id}/edit', [ProgramController::class, 'edit'])->name('pro
 Route::put('/programs/{id}', [ProgramController::class, 'update'])->name('programs.update');
 Route::delete('/programs/{id}', [ProgramController::class, 'destroy'])->name('programs.destroy');
 
+// =====================
+// FRONTEND
+// =====================
+Route::get('/international', [MainInternationalController::class, 'international'])->name('international'); 
+Route::get('/after-click-inter/{id}', [SubInternationalController::class, 'subInternational'])->name('after-click-inter');
+
+// =====================
+// ADMIN - MAIN PROGRAM
+// =====================
+Route::get('/international-add', [MainInternationalController::class, 'create'])->name('international-add');
+Route::post('/international-add', [MainInternationalController::class, 'store'])->name('international-store');
+Route::get('/international-edit/{id}', [MainInternationalController::class, 'edit'])->name('international-edit');
+Route::put('/international-edit/{id}', [MainInternationalController::class, 'update'])->name('international-update');
+Route::delete('/international-delete/{id}', [MainInternationalController::class, 'destroy'])->name('international-delete');
+
+// =====================
+// ADMIN - SUB PROGRAM
+// =====================
+Route::get('/sub-international-add', [SubInternationalController::class, 'create'])->name('sub-international-add');
+Route::post('/sub-international-add', [SubInternationalController::class, 'store'])->name('sub-international-store');
+Route::get('/sub-international-edit/{id}', [SubInternationalController::class, 'edit'])->name('sub-international-edit');
+Route::put('/sub-international-edit/{id}', [SubInternationalController::class, 'update'])->name('sub-international-update');
+Route::delete('/sub-international-delete/{id}', [SubInternationalController::class, 'destroy'])->name('sub-international-delete');
+Route::get('/sub-international/{main_program_id}', [SubInternationalController::class, 'subInternational'])
+    ->name('sub-international');
+
+
+
 
 // Admin Routes
 Route::get('/projects', [NewsController::class, 'list'])->name('admin.projects');
@@ -117,6 +147,11 @@ Route::get('/team-list', [TeamController::class, 'list'])->name('admin.team-list
 Route::get('/gallery-list', [GalleryController::class, 'list'])->name('admin.gallery-list');
 Route::get('/clients-list', [ClientsController::class, 'list'])->name('admin.clients-list');
 Route::get('/programs-list', [ProgramController::class, 'list'])->name('admin.programs-list');
+Route::get('/international-list', [MainInternationalController::class, 'list'])->name('admin.international-list');
+Route::get('/sub-international-list', [SubInternationalController::class, 'index'])->name('admin.sub-international-list');
+
+Route::get('/international', [MainInternationalController::class, 'international'])->name('international');
+
 
 
 // Homepage
@@ -148,9 +183,6 @@ Route::get('/national', function () {
     return view('national');
 })->name('national');
 
-Route::get('/international', function () {
-    return view('international');
-})->name('international');
 
 Route::get('/tailor-program', function () {
     return view('tailor-program');
@@ -178,22 +210,6 @@ Route::get('/after-click4', function () {
     return view('after-click4');
 })->name('program');
 
-// after click program international
-Route::get('/after-click-inter', function () {
-    return view('after-click-inter');
-})->name('program');
-Route::get('/after-click-inter2', function () {
-    return view('after-click-inter2');
-})->name('program');
-Route::get('/after-click-inter3', function () {
-    return view('after-click-inter3');
-})->name('program');
-Route::get('/after-click-inter4', function () {
-    return view('after-click-inter4');
-})->name('program');
-Route::get('/after-click-inter5', function () {
-    return view('after-click-inter5');
-})->name('program');
 
 // Portfolio (sementara diarahkan ke halaman utama karena belum ada file khusus)
 Route::get('/portfolio', function () {

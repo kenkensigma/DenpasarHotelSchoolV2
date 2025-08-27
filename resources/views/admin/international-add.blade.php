@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Gallery Add</title>
+    <title>AdminLTE 3 | Program Add</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -115,6 +115,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('admin.international-list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    International
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="team-list" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
@@ -161,12 +169,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Add Photo Gallery</h1>
+                            <h1 class="m-0">Add International Program</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Gallery</li>
+                                <li class="breadcrumb-item active">International</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -174,53 +182,54 @@
             </div>
             <!-- /.content-header -->
             <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Form Gallery</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <form action="{{ route('gallery.store') }}" method="POST" enctype="multipart/form-data"
-                                class="custom-validation">
-                                @csrf
+            <div class="container mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Add International Program</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('international-store') }}" method="POST"
+                            enctype="multipart/form-data" class="custom-validation">
+                            @csrf
 
-                                <div class="row">
-                                    <div class="form-group mb-3 col-md-6">
-                                        <label for="images" class="form-label">Upload File</label>
-                                        <input type="file" id="images" name="images"
-                                            class="form-control dropify" data-max-file-size="2M"
-                                            data-allowed-file-extensions="jpg png jpeg" required />
-                                        <small>Note: Ukuran gambar maksimal 2MB</small>
-                                    </div>
+                            <div class="row">
+                                <div class="form-group mb-3 col-md-6">
+                                    <label for="title" class="form-label">Title</label>
+                                    <input type="text" id="title" name="title" class="form-control"
+                                        value="{{ old('title') }}" required>
                                 </div>
 
-                                <div class="form-group mb-3">
-                                    <label for="description" class="form-label">Description</label>
-                                    <textarea name="description" id="description" cols="30" rows="5" class="form-control" required>
-        {{ old('description') ? strip_tags(old('description')) : '' }}
-    </textarea>
+                                <div class="form-group mb-3 col-md-6">
+                                    <label for="tag" class="form-label">Tag</label>
+                                    <input type="text" id="tag" name="tag" class="form-control"
+                                        value="{{ old('tag') }}" required>
                                 </div>
+                            </div>
 
-                                <div class="form-group mb-3 col-md-3">
-                                    <label for="status" class="form-label">Status</label>
-                                    <select class="form-control" name="status" required>
-                                        <option value="0">Hide</option>
-                                        <option value="1">Show</option>
-                                    </select>
+                            <div class="row">
+                                <div class="form-group mb-3 col-md-6">
+                                    <label for="image" class="form-label">Upload Image</label>
+                                    <input type="file" id="image" name="image" class="form-control dropify"
+                                        data-max-file-size="2M" data-allowed-file-extensions="jpg png jpeg"
+                                        required />
+                                    <small>Note: Ukuran gambar maksimal 2MB</small>
                                 </div>
+                            </div>
 
-                                <div class="text-right mt-4">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
+                            <div class="form-group mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea name="description" id="description" cols="30" rows="5" class="form-control" required>{{ old('description') ? strip_tags(old('description')) : '' }}</textarea>
+                            </div>
+
+                            <div class="text-right mt-4">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
 
 
-                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
 
         <footer class="main-footer">

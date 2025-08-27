@@ -146,6 +146,22 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('admin.international-list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    International
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.sub-international-list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Sub International
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="team-list" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
@@ -231,8 +247,8 @@
                                         <tr>
                                             <td>{{ $ondesk + 1 }}</td> <!-- Nomor urut -->
                                             <td>
-                                                <img src="{{ asset('storage/' . $content->image_path) }}" width="80"
-                                                    height="70" alt="Image">
+                                                <img src="{{ asset('storage/' . $content->image_path) }}"
+                                                    width="80" height="70" alt="Image">
                                             </td> <!-- Gambar -->
                                             <td>
                                                 <a href="{{ route('clients.edit', $content->id) }}"

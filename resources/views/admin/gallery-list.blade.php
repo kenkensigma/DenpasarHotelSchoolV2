@@ -145,6 +145,22 @@
                                 </p>
                             </a>
                         </li>
+                            <li class="nav-item">
+                            <a href="{{ route('admin.international-list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    International
+                                </p>
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                            <a href="{{ route('admin.sub-international-list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Sub International
+                                </p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="team-list" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>

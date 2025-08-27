@@ -843,96 +843,52 @@
     <!-- Program Section -->
 
     <section id="program">
-        <div class="program">
-            <div class="program-text">
-                <div class="program-title">
-                    <h1 data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                        {{ $translator->translate('Dual Certification Program with Australian Hospitality Schools') }}
-                    </h1>
-                </div>
-                <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                    {{ $translator->translate('Gain internationally recognized qualifications through a dual certification program, combining academic excellence with practical industry training in Australia.') }}
-                </p>
-                <button class="program-btn" onclick="window.location.href='after-click-inter'" data-aos="fade-right"
-                    data-aos-duration="1200"
-                    data-aos-delay="200">{{ $translator->translate('Learn More') }}</button>
-            </div>
-            <div class="image-vision" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                <img src="img/vision.png" width="400px" />
-            </div>
-        </div>
+        @foreach ($MainInternationalPrograms as $index => $program)
+            <div class="program">
+                {{-- Ganti posisi image dan text biar selang-seling --}}
+                @if ($index % 2 == 0)
+                    <div class="program-text">
+                        <div class="program-title">
+                            <h1 data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+                                {{ $program->title }}
+                            </h1>
+                        </div>
+                        <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+                            {{ $program->description }}
+                        </p>
+                        <button class="program-btn"
+                            onclick="window.location.href='{{ route('sub-international', $program->id) }}'"
+                            data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+                            Learn More
+                        </button>
 
-        <div class="program">
-            <div class="image-vision" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                <img src="img/vision.png" width="400px" />
-            </div>
-            <div class="program-text">
-                <h1 data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                    {{ $translator->translate('German Ausbildung Program (2 to 3 Years) ') }}</h1>
-                <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                    {{ $translator->translate('A structured vocational program integrating classroom learning with paid on-the-job training in Germany’s top hospitality establishments.') }}
-                </p>
-                <button class="program-btn" onclick="window.location.href='after-click-inter2'" data-aos="fade-right"
-                    data-aos-duration="1200"
-                    data-aos-delay="200">{{ $translator->translate('Learn More') }}</button>
-            </div>
-        </div>
+                    </div>
+                    <div class="image-vision" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                        <img src="{{ asset('storage/' . $program->image) }}" width="400px" />
+                    </div>
+                @else
+                    <div class="image-vision" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+                        <img src="{{ asset('storage/' . $program->image) }}" width="400px" />
+                    </div>
+                    <div class="program-text">
+                        <h1 data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                            {{ $program->title }}
+                        </h1>
+                        <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                            {{ $program->description }}
+                        </p>
+                        <button class="program-btn"
+                            onclick="window.location.href='{{ route('sub-international', $program->id) }}'"
+                            data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+                            Learn More
+                        </button>
 
-        <div class="program">
-            <div class="program-text">
-                <div class="program-title">
-                    <h1 data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                        {{ $translator->translate('Short-Term Study Abroad Program in Australia (3 to 6 Months)') }}
-                    </h1>
-                </div>
-                <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                    {{ $translator->translate('Experience world-class hospitality education through a short-term study program, offering a blend of academic courses and hands-on training in Australia.') }}
-                </p>
-                <button class="program-btn" onclick="window.location.href='after-click-inter3'" data-aos="fade-right"
-                    data-aos-duration="1200"
-                    data-aos-delay="200">{{ $translator->translate('Learn More') }}</button>
+                    </div>
+                @endif
             </div>
-            <div class="image-vision" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                <img src="img/vision.png" width="400px" />
-            </div>
-        </div>
-
-        <div class="program">
-            <div class="image-vision" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                <img src="img/vision.png" width="400px" />
-            </div>
-            <div class="program-text">
-                <h1 data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                    {{ $translator->translate('International Culinary Exchange Program with European Schools (1 Year)') }}
-                </h1>
-                <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                    {{ $translator->translate('Enhance your culinary expertise through an immersive exchange program, learning from top European chefs while experiencing diverse culinary traditions.') }}
-                </p>
-                <button class="program-btn" onclick="window.location.href='after-click-inter4'" data-aos="fade-right"
-                    data-aos-duration="1200"
-                    data-aos-delay="200">{{ $translator->translate('Learn More') }}</button>
-            </div>
-        </div>
-
-        <div class="program">
-            <div class="program-text">
-                <div class="program-title">
-                    <h1 data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                        {{ $translator->translate('Hospitality Management Internship Program with Global Hotel Chains (6 to 12 Months)') }}
-                    </h1>
-                </div>
-                <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                    {{ $translator->translate('Develop professional hospitality skills with an internship at leading global hotel chains, gaining hands-on experience in management and operations. ') }}
-                </p>
-                <button class="program-btn" onclick="window.location.href='after-click-inter5'" data-aos="fade-right"
-                    data-aos-duration="1200"
-                    data-aos-delay="200">{{ $translator->translate('Learn More') }}</button>
-            </div>
-            <div class="image-vision" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                <img src="img/vision.png" width="400px" />
-            </div>
-        </div>
+        @endforeach
     </section>
+
 
 
     <footer>
