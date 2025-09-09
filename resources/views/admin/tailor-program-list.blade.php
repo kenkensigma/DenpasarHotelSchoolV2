@@ -4,22 +4,34 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Program Add</title>
+    <title>AdminLTE 3 | Tailor Program</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../css/adminlte.min.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css">
-    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"> -->
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
-
-
     <style>
+        .blue-button {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .blue-button:hover {
+            background-color: darkblue;
+        }
+
         .dropdown-menu-custom {
             display: none;
             padding-left: 15px;
@@ -36,6 +48,41 @@
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script>
+                @if (session('success'))
+                    Swal.fire({
+                        title: "Succes!",
+                        text: "{{ session('success') }}",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    });
+                @endif
+            </script>
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Navbar Search -->
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <div class="navbar-search-block">
+                        <form class="form-inline">
+                            <div class="input-group input-group-sm">
+                                <input class="form-control form-control-navbar" type="search" placeholder="Search"
+                                    aria-label="Search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-navbar" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </li>
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -115,6 +162,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('admin.international-list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    International
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('admin.tailor-program-list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
@@ -179,18 +234,19 @@
             <!-- /.sidebar -->
         </aside>
 
+        <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Add Program</h1>
+                            <h1 class="m-0">Tailor Program</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Programs</li>
+                                <li class="breadcrumb-item active">Tailor Program</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -200,110 +256,73 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
+
+                    <a href="{{ route('tailor-program-add') }}" class="blue-button">Add Program</a>
+
+                    <!-- Alert for success message -->
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Form Program</h3>
+                            <h3 class="card-title">Tailor Program</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form action="{{ route('programs.store') }}" method="POST" enctype="multipart/form-data"
-                                class="custom-validation">
-                                @csrf
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Target Audience Description</th>
+                                        <th>Program Title</th>
+                                        <th>Program Description</th>
+                                        <th>Program Duration</th>
+                                        <th>Program Image</th>
+                                        <th>Highlights Title</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($tailorPrograms as $key => $item)
+                                        <tr>
+                                            <td>{{ $key + 1 }}</td>
+                                            <td>{{ $item->target_audience_description }}</td>
+                                            <td>{{ Str::limit(strip_tags($item->program_title), 50) }}</td>
+                                            <td>{{ Str::limit(strip_tags($item->program_description), 50) }}</td>
+                                            <td>{{ Str::limit(strip_tags($item->program_duration), 50) }}</td>
+                                            <td>
+                                                <img src="{{ asset('storage/' . $item->image) }}" width="80"
+                                                    height="70" alt="Image">
+                                            </td> <!-- Gambar -->
+                                            <td>{{ Str::limit(strip_tags($item->highlights_title), 50) }}</td>
+                                            <td>
+                                                @if ($item->status == 1)
+                                                    <span class="badge badge-success">Show</span>
+                                                @else
+                                                    <span class="badge badge-secondary">Hide</span>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('tailor-program-edit', $item->id) }}"
+                                                    class="btn btn-sm btn-warning">Edit</a>
 
-                                {{-- Ini buat nampilin eror ja kalo misal validasinya gagal --}}
-                                @if ($errors->any())
-                                    <div class="alert alert-danger mb-3">
-                                        <ul class="mb-0">
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
-
-                                <div class="row">
-                                    <div class="form-group mb-3 col-md-6">
-                                        <label for="image" class="form-label">Upload File</label>
-                                        <input type="file" id="image" name="image"
-                                            class="form-control dropify" data-max-file-size="2M"
-                                            data-allowed-file-extensions="jpg png jpeg" required />
-                                        <small>Note: Ukuran gambar maksimal 2MB</small>
-                                        @error('image')
-                                            <small class="text-danger d-block">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <label for="name" class="form-label">Name</label>
-                                    <textarea name="name" id="name" cols="30" rows="5" class="form-control" required>{{ old('name') ? strip_tags(old('name')) : '' }}</textarea>
-                                    @error('name')
-                                        <small class="text-danger d-block">{{ $message }}</small>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <label for="description" class="form-label">Description</label>
-                                    <textarea name="description" id="description" cols="30" rows="5" class="form-control" required>{{ old('description') ? strip_tags(old('description')) : '' }}</textarea>
-                                    @error('description')
-                                        <small class="text-danger d-block">{{ $message }}</small>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group mb-3">
-                                    <label for="duration" class="form-label">Duration</label>
-                                    <textarea name="duration" id="duration" cols="30" rows="5" class="form-control" required>{{ old('duration') ? strip_tags(old('duration')) : '' }}</textarea>
-                                    @error('duration')
-                                        <small class="text-danger d-block">{{ $message }}</small>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group mb-3 col-md-3">
-                                    <label for="status" class="form-label">Status</label>
-                                    <select class="form-control" name="status" required>
-                                        <option value="0" {{ old('status') == '0' ? 'selected' : '' }}>Hide
-                                        </option>
-                                        <option value="1" {{ old('status') == '1' ? 'selected' : '' }}>Show
-                                        </option>
-                                    </select>
-                                    @error('status')
-                                        <small class="text-danger d-block">{{ $message }}</small>
-                                    @enderror
-                                </div>
-
-                                <div class="form-group mb-3 col-md-3">
-                                    <label for="category" class="form-label">Category</label>
-                                    <select class="form-control" name="category" required>
-                                        <option value="National"
-                                            {{ old('category') == 'National' ? 'selected' : '' }}>National</option>
-                                        <option value="International"
-                                            {{ old('category') == 'International' ? 'selected' : '' }}>International
-                                        </option>
-                                        <option value="Tailor-Made"
-                                            {{ old('category') == 'Tailor-Made' ? 'selected' : '' }}>Tailor-Made
-                                        </option>
-                                        <option value="In-House-Program"
-                                            {{ old('category') == 'In-House-Program' ? 'selected' : '' }}>In-House
-                                            Program</option>
-                                        <option value="Hourly-Based"
-                                            {{ old('category') == 'Hourly-Based' ? 'selected' : '' }}>Hourly Based
-                                        </option>
-                                    </select>
-                                    @error('category')
-                                        <small class="text-danger d-block">{{ $message }}</small>
-                                    @enderror
-                                </div>
-
-                                <div class="text-right mt-4">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
-
-
+                                                <form action="{{ route('tailor-program-delete', $item->id) }}"
+                                                    method="POST" class="d-inline"
+                                                    onsubmit="return confirm('Yakin mau hapus?')">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-sm btn-danger">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
+
+                        <!-- /.card-body -->
                     </div>
-                </div>
+                </div><!-- /.container-fluid -->
             </section>
+            <!-- /.content -->
         </div>
 
         <footer class="main-footer">
@@ -322,48 +341,12 @@
     </div>
     <!-- ./wrapper -->
 
-
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
     <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../../dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../../dist/js/demo.js"></script>
-
-    <!-- jQuery (Wajib sebelum Dropify) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-    <!-- Dropify (Pastikan link-nya benar) -->
-    <script src="https://cdn.jsdelivr.net/npm/dropify@0.2.2/dist/js/dropify.min.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
-
-    <!-- Inisialisasi Dropify -->
-    <script>
-        $(document).ready(function() {
-            console.log(typeof $.fn.dropify); // Cek apakah Dropify termuat
-            $('.dropify').dropify(); // Inisialisasi Dropify
-        });
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $('.dropify').dropify(); // Inisialisasi Dropify
-            $('#content').summernote({
-                height: 180,
-            });
-
-            let textareaHeight = $("textarea").outerHeight(); // Ambil tinggi textarea
-            $(".dropify-wrapper").css({
-                "height": textareaHeight, // Samakan tinggi dengan textarea
-                "font-size": "24px" // Kecilkan ukuran tulisan
-            });
-
-            $(".dropify-message span").css("font-size", "24px"); // Sesuaikan ukuran teks di dalam Dropify
-        });
-    </script>
-
 </body>
 
 </html>

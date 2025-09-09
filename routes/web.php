@@ -17,6 +17,9 @@ use App\Http\Controllers\GalleryController;
 use Stichoza\GoogleTranslate\GoogleTranslate;
 use App\Http\Controllers\DetailPageController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\TailorProgramController;
+use App\Http\Controllers\InHouseProgramController;
+use App\Http\Controllers\HourlyBasedProgramController;
 
 
 Route::group([
@@ -138,8 +141,29 @@ Route::delete('/sub-international-delete/{id}', [SubInternationalController::cla
 Route::get('/sub-international/{main_program_id}', [SubInternationalController::class, 'subInternational'])
     ->name('sub-international');
 
+//tailor program
+Route::get('/tailor-program-add', [TailorProgramController::class, 'create'])->name('tailor-program-add');
+Route::get('/tailor-program', [TailorProgramController::class, 'tailorPrograms'])->name('tailor-program');
+Route::post('/tailor-program', [TailorProgramController::class, 'store'])->name('tailor-program-store');
+Route::get('/tailor-program/{id}/edit', [TailorProgramController::class, 'edit'])->name('tailor-program-edit');
+Route::put('/tailor-program/{id}', [TailorProgramController::class, 'update'])->name('tailor-program-update');
+Route::delete('/tailor-program/{id}', [TailorProgramController::class, 'destroy'])->name('tailor-program-delete');
 
+//in house program
+Route::get('/in-house-program-add', [InHouseProgramController::class, 'create'])->name('in-house-program-add');
+Route::get('/in-house-program', [InHouseProgramController::class, 'inHousePrograms'])->name('in-house-program');
+Route::post('/in-house-program', [InHouseProgramController::class, 'store'])->name('in-house-program-store');
+Route::get('/in-house-program/{id}/edit', [InHouseProgramController::class, 'edit'])->name('in-house-program-edit');
+Route::put('/in-house-program/{id}', [InHouseProgramController::class, 'update'])->name('in-house-program-update');
+Route::delete('/in-house-program/{id}', [InHouseProgramController::class, 'destroy'])->name('in-house-program-delete');
 
+//hourly based program
+Route::get('/hourly-based-program-add', [HourlyBasedProgramController::class, 'create'])->name('hourly-based-program-add');
+Route::get('/hourly-based-program', [HourlyBasedProgramController::class, 'hourlyBasedPrograms'])->name('hourly-based-program');
+Route::post('/hourly-based-program', [HourlyBasedProgramController::class, 'store'])->name('hourly-based-program-store');
+Route::get('/hourly-based-program/{id}/edit', [HourlyBasedProgramController::class, 'edit'])->name('hourly-based-program-edit');
+Route::put('/hourly-based-program/{id}', [HourlyBasedProgramController::class, 'update'])->name('hourly-based-program-update');
+Route::delete('/hourly-based-program/{id}', [HourlyBasedProgramController::class, 'destroy'])->name('hourly-based-program-delete');
 
 // Admin Routes
 Route::get('/projects', [NewsController::class, 'list'])->name('admin.projects');
@@ -149,7 +173,9 @@ Route::get('/clients-list', [ClientsController::class, 'list'])->name('admin.cli
 Route::get('/programs-list', [ProgramController::class, 'list'])->name('admin.programs-list');
 Route::get('/international-list', [MainInternationalController::class, 'list'])->name('admin.international-list');
 Route::get('/sub-international-list', [SubInternationalController::class, 'index'])->name('admin.sub-international-list');
-
+Route::get('/tailor-program-list', [TailorProgramController::class, 'list'])->name('admin.tailor-program-list');
+Route::get('/in-house-program-list', [InHouseProgramController::class, 'list'])->name('admin.in-house-program-list');
+Route::get('/hourly-based-program-list', [HourlyBasedProgramController::class, 'list'])->name('admin.hourly-based-program-list');
 Route::get('/international', [MainInternationalController::class, 'international'])->name('international');
 
 

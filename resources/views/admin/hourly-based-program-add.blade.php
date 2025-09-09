@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Program Add</title>
+    <title>AdminLTE 3 | Hourly Based Program Add</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -115,6 +115,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('admin.international-list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    International
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('admin.tailor-program-list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
@@ -185,12 +193,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Add Program</h1>
+                            <h1 class="m-0">Add Hourly Based Program</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Programs</li>
+                                <li class="breadcrumb-item active">Add Hourly Based Program</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -198,112 +206,87 @@
             </div>
             <!-- /.content-header -->
             <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Form Program</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <form action="{{ route('programs.store') }}" method="POST" enctype="multipart/form-data"
-                                class="custom-validation">
-                                @csrf
+            <div class="container mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Add Hourly Based Program</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('hourly-based-program-store') }}" method="POST"
+                            enctype="multipart/form-data" class="custom-validation">
+                            @csrf
 
-                                {{-- Ini buat nampilin eror ja kalo misal validasinya gagal --}}
-                                @if ($errors->any())
-                                    <div class="alert alert-danger mb-3">
-                                        <ul class="mb-0">
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
+                            </div>
 
-                                <div class="row">
-                                    <div class="form-group mb-3 col-md-6">
-                                        <label for="image" class="form-label">Upload File</label>
-                                        <input type="file" id="image" name="image"
-                                            class="form-control dropify" data-max-file-size="2M"
-                                            data-allowed-file-extensions="jpg png jpeg" required />
-                                        <small>Note: Ukuran gambar maksimal 2MB</small>
-                                        @error('image')
-                                            <small class="text-danger d-block">{{ $message }}</small>
-                                        @enderror
-                                    </div>
+                            <div class="row">
+                                <div class="form-group mb-3 col-md-6">
+                                    <label for="sub_reason_title" class="form-label">Sub Reason Title</label>
+                                    <input type="text" id="sub_reason_title" name="sub_reason_title" class="form-control"
+                                        value="{{ old('sub_reason_title') }}" required>
                                 </div>
+
+                               <div class="form-group mb-3">
+                                    <label for="sub_reason_description" class="form-label">Sub Reason Description</label>
+                                    <textarea name="sub_reason_description" id="sub_reason_description" cols="30" rows="5" class="form-control" required>{{ old('sub_reason_description') ? strip_tags(old('sub_reason_description')) : '' }}</textarea>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group mb-3 col-md-6">
+                                    <label for="program_title" class="form-label">Program Title</label>
+                                    <input type="text" id="program_title" name="program_title" class="form-control"
+                                        value="{{ old('program_title') }}" required>
+                                </div>
+
+                                <div class="form-group mb-3 col-md-6">
+                                    <label for="program_duration" class="form-label">Program Duration</label>
+                                    <input type="text" id="program_duration" name="program_duration" class="form-control"
+                                        value="{{ old('program_duration') }}" required>
+                                </div>
+                            </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="name" class="form-label">Name</label>
-                                    <textarea name="name" id="name" cols="30" rows="5" class="form-control" required>{{ old('name') ? strip_tags(old('name')) : '' }}</textarea>
-                                    @error('name')
-                                        <small class="text-danger d-block">{{ $message }}</small>
-                                    @enderror
+                                    <label for="program_description" class="form-label">Program Description</label>
+                                    <textarea name="program_description" id="program_description" cols="30" rows="5" class="form-control" required>{{ old('program_description') ? strip_tags(old('program_description')) : '' }}</textarea>
                                 </div>
 
-                                <div class="form-group mb-3">
-                                    <label for="description" class="form-label">Description</label>
-                                    <textarea name="description" id="description" cols="30" rows="5" class="form-control" required>{{ old('description') ? strip_tags(old('description')) : '' }}</textarea>
-                                    @error('description')
-                                        <small class="text-danger d-block">{{ $message }}</small>
-                                    @enderror
+                            <div class="row">
+                                <div class="form-group mb-3 col-md-6">
+                                    <label for="program_image" class="form-label">Upload Image</label>
+                                    <input type="file" id="program_image" name="program_image" class="form-control dropify"
+                                        data-max-file-size="2M" data-allowed-file-extensions="jpg png jpeg"
+                                        required />
+                                    <small>Note: Ukuran gambar maksimal 2MB</small>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group mb-3 col-md-6">
+                                    <label for="highlights_title" class="form-label">Highlights Title</label>
+                                    <input type="text" id="highlights_title" name="highlights_title" class="form-control"
+                                        value="{{ old('highlights_title') }}" required>
                                 </div>
 
-                                <div class="form-group mb-3">
-                                    <label for="duration" class="form-label">Duration</label>
-                                    <textarea name="duration" id="duration" cols="30" rows="5" class="form-control" required>{{ old('duration') ? strip_tags(old('duration')) : '' }}</textarea>
-                                    @error('duration')
-                                        <small class="text-danger d-block">{{ $message }}</small>
-                                    @enderror
+                               <div class="form-group mb-3">
+                                    <label for="highlights_description" class="form-label">Highlights Description</label>
+                                    <textarea name="highlights_description" id="highlights_description" cols="30" rows="5" class="form-control" required>{{ old('highlights_description') ? strip_tags(old('highlights_description')) : '' }}</textarea>
                                 </div>
+                            </div>
 
-                                <div class="form-group mb-3 col-md-3">
-                                    <label for="status" class="form-label">Status</label>
-                                    <select class="form-control" name="status" required>
-                                        <option value="0" {{ old('status') == '0' ? 'selected' : '' }}>Hide
-                                        </option>
-                                        <option value="1" {{ old('status') == '1' ? 'selected' : '' }}>Show
-                                        </option>
-                                    </select>
-                                    @error('status')
-                                        <small class="text-danger d-block">{{ $message }}</small>
-                                    @enderror
-                                </div>
+                            <div class="form-group mb-3">
+                                <label for="target_audience_description" class="form-label">Target Audience Description</label>
+                                <textarea name="target_audience_description" id="target_audience_description" cols="30" rows="5" class="form-control" required>{{ old('target_audience_description') ? strip_tags(old('target_audience_description')) : '' }}</textarea>
+                            </div>
 
-                                <div class="form-group mb-3 col-md-3">
-                                    <label for="category" class="form-label">Category</label>
-                                    <select class="form-control" name="category" required>
-                                        <option value="National"
-                                            {{ old('category') == 'National' ? 'selected' : '' }}>National</option>
-                                        <option value="International"
-                                            {{ old('category') == 'International' ? 'selected' : '' }}>International
-                                        </option>
-                                        <option value="Tailor-Made"
-                                            {{ old('category') == 'Tailor-Made' ? 'selected' : '' }}>Tailor-Made
-                                        </option>
-                                        <option value="In-House-Program"
-                                            {{ old('category') == 'In-House-Program' ? 'selected' : '' }}>In-House
-                                            Program</option>
-                                        <option value="Hourly-Based"
-                                            {{ old('category') == 'Hourly-Based' ? 'selected' : '' }}>Hourly Based
-                                        </option>
-                                    </select>
-                                    @error('category')
-                                        <small class="text-danger d-block">{{ $message }}</small>
-                                    @enderror
-                                </div>
-
-                                <div class="text-right mt-4">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
+                            <div class="text-right mt-4">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
 
 
-                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
 
         <footer class="main-footer">
@@ -363,6 +346,10 @@
             $(".dropify-message span").css("font-size", "24px"); // Sesuaikan ukuran teks di dalam Dropify
         });
     </script>
+
+
+
+
 
 </body>
 

@@ -162,6 +162,30 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('admin.tailor-program-list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Tailor Program
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.in-house-program-list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    In House Program
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.hourly-based-program-list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Hourly Based Program
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="team-list" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
