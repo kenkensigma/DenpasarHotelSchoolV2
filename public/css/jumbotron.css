@@ -1,0 +1,42 @@
+/* Jumbotron */
+.jumbotron {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.jumbotron iframe {
+    width: 100%;
+    object-fit: cover;
+    height: 100vh;
+    filter: brightness(0.8);
+    pointer-events: none;
+}
+
+.jumbotron img {
+    width: 100%;
+    filter: brightness(0.5);
+}
+
+.jumbotron .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.jumbotron .overlay h1 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 5vw;
+    margin: 0;
+}
+
+.jumbotron .overlay p {
+    font-size: 2vw;
+    margin: 0;
+}
