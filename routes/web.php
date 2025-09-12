@@ -140,11 +140,36 @@ Route::put('/sub-international-edit/{id}', [SubInternationalController::class, '
 Route::delete('/sub-international-delete/{id}', [SubInternationalController::class, 'destroy'])->name('sub-international-delete');
 Route::get('/sub-international/{main_program_id}', [SubInternationalController::class, 'subInternational'])
     ->name('sub-international');
+// =====================
+// FRONTEND
+// =====================
+Route::get('/international', [MainInternationalController::class, 'international'])->name('international'); 
+Route::get('/after-click-inter/{id}', [SubInternationalController::class, 'subInternational'])->name('after-click-inter');
+
+// =====================
+// ADMIN - MAIN PROGRAM NATIONAL
+// =====================
+Route::get('/international-add', [MainInternationalController::class, 'create'])->name('international-add');
+Route::post('/international-add', [MainInternationalController::class, 'store'])->name('international-store');
+Route::get('/international-edit/{id}', [MainInternationalController::class, 'edit'])->name('international-edit');
+Route::put('/international-edit/{id}', [MainInternationalController::class, 'update'])->name('international-update');
+Route::delete('/international-delete/{id}', [MainInternationalController::class, 'destroy'])->name('international-delete');
+
+// =====================
+// ADMIN - SUB PROGRAM NATIONAL
+// =====================
+Route::get('/sub-international-add', [SubInternationalController::class, 'create'])->name('sub-international-add');
+Route::post('/sub-international-add', [SubInternationalController::class, 'store'])->name('sub-international-store');
+Route::get('/sub-international-edit/{id}', [SubInternationalController::class, 'edit'])->name('sub-international-edit');
+Route::put('/sub-international-edit/{id}', [SubInternationalController::class, 'update'])->name('sub-international-update');
+Route::delete('/sub-international-delete/{id}', [SubInternationalController::class, 'destroy'])->name('sub-international-delete');
+Route::get('/sub-international/{main_program_id}', [SubInternationalController::class, 'subInternational'])
+    ->name('sub-international');
 
 //tailor program
 Route::get('/tailor-program-add', [TailorProgramController::class, 'create'])->name('tailor-program-add');
+Route::post('/tailor-program/store', [TailorProgramController::class, 'store'])->name('tailor-program-store');
 Route::get('/tailor-program', [TailorProgramController::class, 'tailorPrograms'])->name('tailor-program');
-Route::post('/tailor-program', [TailorProgramController::class, 'store'])->name('tailor-program-store');
 Route::get('/tailor-program/{id}/edit', [TailorProgramController::class, 'edit'])->name('tailor-program-edit');
 Route::put('/tailor-program/{id}', [TailorProgramController::class, 'update'])->name('tailor-program-update');
 Route::delete('/tailor-program/{id}', [TailorProgramController::class, 'destroy'])->name('tailor-program-delete');

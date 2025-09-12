@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class TailorProgram extends Model
 {
+    use HasFactory;
     protected $table = "tailor_programs";
     protected $fillable = [
         'sub_reason_title',

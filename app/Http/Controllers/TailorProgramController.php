@@ -34,16 +34,18 @@ class TailorProgramController extends Controller
             'program_title' => 'string|max:255',
             'program_duration' => 'string|max:255',
             'program_description' => 'string',
-            'program_image' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'program_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'highlights_description' => 'string',
             'career_pathways_description' => 'string',
         ]);
 
-        if ($request->hasFile('tailorprogram_image')) {
-            $fotoPath = $request->file('tailorprogram_image')->store('images', 'public');
+        
+
+        if ($request->hasFile('program_image')) {
+            $programimagePath = $request->file('program_image')->store('images', 'public');
         } else {
-            $fotoPath = 'noimage.png'; // Default image
-        } 
+            $programimagePath = 'noimage.png'; // Default image
+        }
 
 
         TailorProgram::create([
@@ -53,7 +55,7 @@ class TailorProgramController extends Controller
             'program_title' => $request->program_title,
             'program_duration' => $request->program_duration,
             'program_description' => $request->program_description,
-            'program_image' => $fotoPath,
+            'program_image' => $programimagePath,
             'highlights_title' => $request->highlights_title,
             'highlights_description' => $request->highlights_description,
             'career_pathways_description' => $request->career_pathways_description

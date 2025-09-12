@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Tailor Program Add</title>
+    <title>AdminLTE 3 | Program Add</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -193,12 +193,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Add Tailor Program</h1>
+                            <h1 class="m-0">Add International Program</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Add Tailor Program</li>
+                                <li class="breadcrumb-item active">International</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -253,7 +253,7 @@
                             <div class="row">
                                 <div class="form-group mb-3 col-md-6">
                                     <label for="program_image" class="form-label">Upload Image</label>
-                                    <input type="file" id="program_image" name="program_image" class="form-control dropify"
+                                    <input type="file" id="program_image" name="program_image" class="form-control"
                                         data-max-file-size="2M" data-allowed-file-extensions="jpg png jpeg"
                                         required />
                                     <small>Note: Ukuran gambar maksimal 2MB</small>

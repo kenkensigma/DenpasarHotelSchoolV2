@@ -253,7 +253,7 @@
                             <div class="row">
                                 <div class="form-group mb-3 col-md-6">
                                     <label for="program_image" class="form-label">Upload Image</label>
-                                    <input type="file" id="program_image" name="program_image" class="form-control dropify"
+                                    <input type="file" id="program_image" name="program_image" class="form-control"
                                         data-max-file-size="2M" data-allowed-file-extensions="jpg png jpeg"
                                         required />
                                     <small>Note: Ukuran gambar maksimal 2MB</small>

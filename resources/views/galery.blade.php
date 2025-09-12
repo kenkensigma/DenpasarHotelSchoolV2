@@ -366,10 +366,17 @@
                 @foreach ($gallery as $content)
                     @if ($content->status == 1)
                         {{-- Hanya tampilkan foto dengan status "Show" --}}
-                        <div class="box" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="100">
+                        <div class="gallery-item" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="100">
                             <img src="{{ url("storage/{$content->images}") }}" />
                             <div class="overlay">{{ $content->description }}</div>
                         </div>
+
+                         <div class="fullscreen" id="fullscreen">
+  <span class="close" id="closeBtn">&times;</span>
+  <span class="nav-btn prev" id="prevBtn">&#10094;</span>
+  <img id="fullscreenImg" src="{{ url("storage/{$content->images}") }}" alt="fullscreen">
+  <span class="nav-btn next" id="nextBtn">&#10095;</span>
+</div>
                     @endif
                 @endforeach
             </div>
@@ -432,6 +439,7 @@
         © Copyright Denpasar Hotel School. All right reserved 2025
     </div>
 
+    <script src="js/photo.js"></script>
     <script src="js/about.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -460,6 +468,7 @@
     <!-- Animation Fade js -->
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
     <script>
         AOS.init({
             offset: 1,

@@ -289,8 +289,8 @@
                                             <td>{{ Str::limit(strip_tags($item->program_description), 50) }}</td>
                                             <td>{{ Str::limit(strip_tags($item->program_duration), 50) }}</td>
                                             <td>
-                                                <img src="{{ asset('storage/' . $item->image) }}" width="80"
-                                                    height="70" alt="Image">
+                                                <img src="{{ asset('storage/' . $item->program_image) }}" width="80"
+                                                    height="70" alt="program_image">
                                             </td> <!-- Gambar -->
                                             <td>{{ Str::limit(strip_tags($item->highlights_title), 50) }}</td>
                                             <td>

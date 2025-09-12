@@ -119,41 +119,47 @@ section {
 .swiper-slide {
     background-position: center;
     background-size: cover;
-    width: 380px;
-    height: 330px;
+    width: 350px;
+    height: 320px;
     margin: 8px;
 }
 
 .swiper-slide img {
     display: block;
-    width: 380px;
-    height: 330px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .gallery {
-    width: 1000px;
-    display: grid;
-    left: 100px;
-    grid-template-columns: repeat(3, 1fr);
-    flex-wrap: wrap; 
-    gap: 20px;
-}
-.gallery .box {
-    position: relative;
-    width: 350px;
-    height: 300px;
-    right: 30px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    border-radius: 15px;
-    transition: filter 0.3s ease;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 10px;
+  padding: 10px;
+  max-width: 1000px;
+  margin: auto;
 }
 
-.gallery .box img {
-    display: block;
-    transition: filter 0.3s ease;
-    width: 100%;
-    height: 100%;
+.gallery-item {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
 }
 .overlay {
     position: absolute;
@@ -169,10 +175,82 @@ section {
     justify-content: center;
     align-items: center;
     text-align: center;
+     pointer-events: none;
 }
 
 .gallery div:hover .overlay {
     display: flex;
+}
+
+.fullscreen {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.fullscreen img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.fullscreen .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+.fullscreen .nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex; 
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  line-height: 1;
+  font-family: sans-serif; /* hindari font aneh */
+   -webkit-tap-highlight-color: transparent; /* untuk Android/iOS */
+  outline: none;
+  user-select: none;
+}
+
+
+.fullscreen .nav-btn:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.fullscreen .nav-btn.prev {
+  left: 80px;
+  padding-right: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.fullscreen .nav-btn.next {
+  right: 80px;
+  padding-left: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 .button-container {
