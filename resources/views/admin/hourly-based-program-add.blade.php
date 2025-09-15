@@ -71,7 +71,7 @@
                     </div>
                 </div>
 
-                <!-- Sidebar Menu -->
+<!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
@@ -98,7 +98,7 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                            <li class="nav-item">
                             <a href="{{ route('admin.international-list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
@@ -106,7 +106,7 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                            <li class="nav-item">
                             <a href="{{ route('admin.sub-international-list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
@@ -114,11 +114,20 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.international-list') }}" class="nav-link">
+                        </li>
+                            <li class="nav-item">
+                            <a href="{{ route('admin.national-list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
-                                    International
+                                    National
+                                </p>
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                            <a href="{{ route('admin.sub-national-list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Sub National
                                 </p>
                             </a>
                         </li>

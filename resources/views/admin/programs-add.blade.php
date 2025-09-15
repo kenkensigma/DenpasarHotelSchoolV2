@@ -114,6 +114,23 @@
                                 </p>
                             </a>
                         </li>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.national-list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    National
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.sub-national-list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Sub National
+                                </p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.tailor-program-list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -206,8 +223,8 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form action="{{ route('programs.store') }}" method="POST" enctype="multipart/form-data"
-                                class="custom-validation">
+                            <form action="{{ route('programs.store') }}" method="POST"
+                                enctype="multipart/form-data" class="custom-validation">
                                 @csrf
 
                                 {{-- Ini buat nampilin eror ja kalo misal validasinya gagal --}}

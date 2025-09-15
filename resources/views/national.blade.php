@@ -319,76 +319,50 @@
         </div>
     </section>
 
-    <!-- Program Section -->
-
     <section id="program">
+    @foreach ($MainNationalPrograms as $index => $program)
         <div class="program">
-            <div class="program-text">
-                <div class="program-title" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                    <h1>{{ $translator->translate('3-Month Hospitality Programs') }}</h1>
+            {{-- Ganti posisi image dan text biar selang-seling --}}
+            @if ($index % 2 == 0)
+                <div class="program-text">
+                    <div class="program-title">
+                        <h1 data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+                            {{ $program->title }}
+                        </h1>
+                    </div>
+                    <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+                        {{ $program->description }}
+                    </p>
+                    <button class="program-btn"
+                        onclick="window.location.href='{{ route('sub-national', $program->id) }}'"
+                        data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+                        Learn More
+                    </button>
                 </div>
-                <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                    {{ $translator->translate('A short-term program providing fundamental hospitality training, preparing participants for international work experience at partner hotels or resorts.') }}
-                </p>
-                <button class="program-btn" onclick="window.location.href='after-click'" data-aos="fade-right"
-                    data-aos-duration="1200"
-                    data-aos-delay="200">{{ $translator->translate('Learn More') }}</button>
-            </div>
-            <div class="image-vision" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                <img src="img/vision.png" width="400px" />
-            </div>
-        </div>
-
-        <div class="program">
-            <div class="image-vision" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                <img src="img/vision.png" width="400px" />
-            </div>
-            <div class="program-text">
-                <h1 data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                    {{ $translator->translate('6-Month Hospitality Programs') }}</h1>
-                <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                    {{ $translator->translate('This program combines classroom training with hands-on experience in the international hospitality industry, offering in-depth operational insights.') }}
-                </p>
-                <button class="program-btn" onclick="window.location.href='after-click2'" data-aos="fade-left"
-                    data-aos-duration="1200"
-                    data-aos-delay="200">{{ $translator->translate('Learn More') }}</button>
-            </div>
-        </div>
-
-        <div class="program">
-            <div class="program-text">
-                <div class="program-title">
-                    <h1 data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                        {{ $translator->translate('1-Year Hospitality Programs') }}</h1>
+                <div class="image-vision" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                    <img src="{{ asset('storage/' . $program->image) }}" width="400px" />
                 </div>
-                <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                    {{ $translator->translate('A comprehensive program that includes professional training and internships at top-rated hotels, building strong management and operational skills.') }}
-                </p>
-                <button class="program-btn" onclick="window.location.href='after-click3'" data-aos="fade-right"
-                    data-aos-duration="1200"
-                    data-aos-delay="200">{{ $translator->translate('Learn More') }}</button>
-            </div>
-            <div class="image-vision" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                <img src="img/vision.png" width="400px" />
-            </div>
+            @else
+                <div class="image-vision" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+                    <img src="{{ asset('storage/' . $program->image) }}" width="400px" />
+                </div>
+                <div class="program-text">
+                    <h1 data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                        {{ $program->title }}
+                    </h1>
+                    <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                        {{ $program->description }}
+                    </p>
+                    <button class="program-btn"
+                        onclick="window.location.href='{{ route('sub-national', $program->id) }}'"
+                        data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                        Learn More
+                    </button>
+                </div>
+            @endif
         </div>
-
-        <div class="program">
-            <div class="image-vision" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                <img src="img/vision.png" width="400px" />
-            </div>
-            <div class="program-text">
-                <h1 data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                    {{ $translator->translate('2-Year Hospitality Programs') }}</h1>
-                <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                    {{ $translator->translate('An intensive program designed to develop global hospitality expertise, focusing on leadership, cross-cultural skills, and real-world experience.') }}
-                </p>
-                <button class="program-btn" onclick="window.location.href='after-click4'" data-aos="fade-left"
-                    data-aos-duration="1200"
-                    data-aos-delay="200">{{ $translator->translate('Learn More') }}</button>
-            </div>
-        </div>
-    </section>
+    @endforeach
+</section>
 
     {{-- Footer --}}
     <footer>

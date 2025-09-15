@@ -114,11 +114,20 @@
                                 </p>
                             </a>
                         </li>
+                        </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.international-list') }}" class="nav-link">
+                            <a href="{{ route('admin.national-list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
-                                    International
+                                    National
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.sub-national-list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Sub National
                                 </p>
                             </a>
                         </li>

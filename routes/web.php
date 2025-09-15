@@ -3,7 +3,9 @@
 use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainInternationalController;
+use App\Http\Controllers\MainNationalController;
 use App\Http\Controllers\SubInternationalController;
+use App\Http\Controllers\SubNationalController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
@@ -140,31 +142,33 @@ Route::put('/sub-international-edit/{id}', [SubInternationalController::class, '
 Route::delete('/sub-international-delete/{id}', [SubInternationalController::class, 'destroy'])->name('sub-international-delete');
 Route::get('/sub-international/{main_program_id}', [SubInternationalController::class, 'subInternational'])
     ->name('sub-international');
+
+
 // =====================
 // FRONTEND
 // =====================
-Route::get('/international', [MainInternationalController::class, 'international'])->name('international'); 
-Route::get('/after-click-inter/{id}', [SubInternationalController::class, 'subInternational'])->name('after-click-inter');
+Route::get('/national', [MainInternationalController::class, 'international'])->name('international'); 
+Route::get('/after-click/{id}', [SubInternationalController::class, 'subInternational'])->name('after-click-inter');
 
 // =====================
 // ADMIN - MAIN PROGRAM NATIONAL
 // =====================
-Route::get('/international-add', [MainInternationalController::class, 'create'])->name('international-add');
-Route::post('/international-add', [MainInternationalController::class, 'store'])->name('international-store');
-Route::get('/international-edit/{id}', [MainInternationalController::class, 'edit'])->name('international-edit');
-Route::put('/international-edit/{id}', [MainInternationalController::class, 'update'])->name('international-update');
-Route::delete('/international-delete/{id}', [MainInternationalController::class, 'destroy'])->name('international-delete');
+Route::get('/national-add', [MainNationalController::class, 'create'])->name('national-add');
+Route::post('/national-add', [MainNationalController::class, 'store'])->name('national-store');
+Route::get('/national-edit/{id}', [MainNationalController::class, 'edit'])->name('national-edit');
+Route::put('/national-edit/{id}', [MainNationalController::class, 'update'])->name('national-update');
+Route::delete('/national-delete/{id}', [MainNationalController::class, 'destroy'])->name('national-delete');
 
 // =====================
 // ADMIN - SUB PROGRAM NATIONAL
 // =====================
-Route::get('/sub-international-add', [SubInternationalController::class, 'create'])->name('sub-international-add');
-Route::post('/sub-international-add', [SubInternationalController::class, 'store'])->name('sub-international-store');
-Route::get('/sub-international-edit/{id}', [SubInternationalController::class, 'edit'])->name('sub-international-edit');
-Route::put('/sub-international-edit/{id}', [SubInternationalController::class, 'update'])->name('sub-international-update');
-Route::delete('/sub-international-delete/{id}', [SubInternationalController::class, 'destroy'])->name('sub-international-delete');
-Route::get('/sub-international/{main_program_id}', [SubInternationalController::class, 'subInternational'])
-    ->name('sub-international');
+Route::get('/sub-national-add', [SubNationalController::class, 'create'])->name('sub-national-add');
+Route::post('/sub-national-add', [SubNationalController::class, 'store'])->name('sub-national-store');
+Route::get('/sub-national-edit/{id}', [SubNationalController::class, 'edit'])->name('sub-national-edit');
+Route::put('/sub-national-edit/{id}', [SubNationalController::class, 'update'])->name('sub-national-update');
+Route::delete('/sub-national-delete/{id}', [SubNationalController::class, 'destroy'])->name('sub-national-delete');
+Route::get('/sub-national/{main_program_id}', [SubNationalController::class, 'subNational'])
+    ->name('sub-national');
 
 //tailor program
 Route::get('/tailor-program-add', [TailorProgramController::class, 'create'])->name('tailor-program-add');
@@ -198,10 +202,13 @@ Route::get('/clients-list', [ClientsController::class, 'list'])->name('admin.cli
 Route::get('/programs-list', [ProgramController::class, 'list'])->name('admin.programs-list');
 Route::get('/international-list', [MainInternationalController::class, 'list'])->name('admin.international-list');
 Route::get('/sub-international-list', [SubInternationalController::class, 'index'])->name('admin.sub-international-list');
+Route::get('/national-list', [MainNationalController::class, 'list'])->name('admin.national-list');
+Route::get('/sub-national-list', [SubNationalController::class, 'index'])->name('admin.sub-national-list');
 Route::get('/tailor-program-list', [TailorProgramController::class, 'list'])->name('admin.tailor-program-list');
 Route::get('/in-house-program-list', [InHouseProgramController::class, 'list'])->name('admin.in-house-program-list');
 Route::get('/hourly-based-program-list', [HourlyBasedProgramController::class, 'list'])->name('admin.hourly-based-program-list');
 Route::get('/international', [MainInternationalController::class, 'international'])->name('international');
+Route::get('/national', [MainNationalController::class, 'national'])->name('national');
 
 
 
@@ -228,11 +235,6 @@ Route::get('/contact', function () {
 Route::get('/video', function () {
     return view('video');
 })->name('video');
-
-// Program Section
-Route::get('/national', function () {
-    return view('national');
-})->name('national');
 
 
 Route::get('/tailor-program', function () {

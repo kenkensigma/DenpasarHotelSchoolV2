@@ -115,6 +115,23 @@
                                 </p>
                             </a>
                         </li>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.national-list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    National
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.sub-national-list') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>
+                                    Sub National
+                                </p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.tailor-program-list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
