@@ -71,7 +71,7 @@
                     </div>
                 </div>
 
- <!-- Sidebar Menu -->
+                <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
@@ -98,7 +98,7 @@
                                 </p>
                             </a>
                         </li>
-                            <li class="nav-item">
+                        <li class="nav-item">
                             <a href="{{ route('admin.international-list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
@@ -106,7 +106,7 @@
                                 </p>
                             </a>
                         </li>
-                            <li class="nav-item">
+                        <li class="nav-item">
                             <a href="{{ route('admin.sub-international-list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
@@ -115,7 +115,7 @@
                             </a>
                         </li>
                         </li>
-                            <li class="nav-item">
+                        <li class="nav-item">
                             <a href="{{ route('admin.national-list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
@@ -123,7 +123,7 @@
                                 </p>
                             </a>
                         </li>
-                            <li class="nav-item">
+                        <li class="nav-item">
                             <a href="{{ route('admin.sub-national-list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
@@ -230,13 +230,21 @@
 
                                 <div class="row">
                                     <div class="form-group mb-3 col-md-6">
-                                        <label for="images" class="form-label">Upload File</label>
+                                        <label for="image_path" class="form-label">Upload File</label>
                                         <input type="file" id="image_path" name="image_path"
                                             class="form-control dropify" data-max-file-size="2M"
-                                            data-allowed-file-extensions="jpg png jpeg" required
+                                            data-allowed-file-extensions="jpg png jpeg"
                                             data-default-file="{{ asset('storage/' . $client->image_path) }}" />
                                         <small>Note: Ukuran gambar maksimal 2MB</small>
                                     </div>
+                                </div>
+
+
+                                <div class="form-group mb-3 col-md-3">
+                                    <label for="link">Website URL</label>
+                                    <input type="url" name="link" id="link" class="form-control"
+                                        placeholder="https://example.com"
+                                        value="{{ old('link', $client->link ?? '') }}">
                                 </div>
 
                                 <div class="text-right mt-4">

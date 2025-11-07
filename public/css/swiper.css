@@ -29,6 +29,26 @@
 .client:hover img {
     filter: grayscale(0%);
 }
+
+.client a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.client a img {
+    max-height: 100%;
+    width: auto;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+
+.client a:hover img {
+    filter: grayscale(0%);
+}
+
+
 @keyframes scroll {
     from { transform: translateX(0); }
     to { transform: translateX(-100%); }

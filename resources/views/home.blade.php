@@ -1152,20 +1152,28 @@
     <!-- ------ CLIENT ------ -->
 
     <section id="clients" class="hidden">
-        <div class="container-title">
-            <h2>{{ $translator->translate('Clients & Partners') }}</h2>
+    <div class="container-title">
+        <h2>{{ $translator->translate('Clients & Partners') }}</h2>
+    </div>
+    <div class="slider-container">
+        <div class="slider" id="slider">
+            @foreach ($clients as $client)
+                <div class="client">
+                    @if ($client->link)
+                        <a href="{{ $client->link }}" target="_blank" rel="noopener noreferrer">
+                            <img src="{{ asset('storage/' . $client->image_path) }}" 
+                                 alt="{{ $client->name }}">
+                        </a>
+                    @else
+                        <img src="{{ asset('storage/' . $client->image_path) }}" 
+                             alt="{{ $client->name }}">
+                    @endif
+                </div>
+            @endforeach
         </div>
-        <div class="slider-container">
-            <div class="slider" id="slider">
-                @foreach ($clients as $client)
-                    <div class="client">
-                        <img src="{{ asset('storage/' . $client->image_path) }}" alt="{{ $client->name }}">
-                    </div>
-                @endforeach
+    </div>
+</section>
 
-            </div>
-        </div>
-    </section>
 
     <!-- ------ FOOTER ------ -->
 
