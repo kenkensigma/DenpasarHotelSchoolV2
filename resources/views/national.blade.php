@@ -20,7 +20,7 @@
 
     {{-- style --}}
     <link rel="stylesheet" href="css/national.css" />
-    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/program.css">
 
