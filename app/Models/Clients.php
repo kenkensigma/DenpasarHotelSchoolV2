@@ -10,6 +10,7 @@ class Clients extends Model
     use HasFactory;
     protected $table = 'clients'; // Nama tabel di database
     protected $fillable = [
-        'image_path', // Contoh: 'img/client1.png'
+        'image_path',
+        'link',
     ];
 }

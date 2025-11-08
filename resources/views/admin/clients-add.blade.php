@@ -98,7 +98,7 @@
                                 </p>
                             </a>
                         </li>
-                            <li class="nav-item">
+                        <li class="nav-item">
                             <a href="{{ route('admin.international-list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
@@ -106,7 +106,7 @@
                                 </p>
                             </a>
                         </li>
-                            <li class="nav-item">
+                        <li class="nav-item">
                             <a href="{{ route('admin.sub-international-list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
@@ -115,7 +115,7 @@
                             </a>
                         </li>
                         </li>
-                            <li class="nav-item">
+                        <li class="nav-item">
                             <a href="{{ route('admin.national-list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
@@ -123,7 +123,7 @@
                                 </p>
                             </a>
                         </li>
-                            <li class="nav-item">
+                        <li class="nav-item">
                             <a href="{{ route('admin.sub-national-list') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>
@@ -236,7 +236,12 @@
                                         <small>Note: Ukuran gambar maksimal 2MB</small>
                                     </div>
                                 </div>
-
+                                <div class="form-group mb-3 col-md-3">
+                                    <label for="link">Website URL</label>
+                                    <input type="url" name="link" id="link" class="form-control"
+                                        placeholder="https://example.com"
+                                        value="{{ old('link') }}">
+                                </div>
                                 <div class="text-right mt-4">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>

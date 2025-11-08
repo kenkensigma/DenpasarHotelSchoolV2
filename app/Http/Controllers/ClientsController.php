@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Clients;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -35,7 +36,8 @@ class ClientsController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'image_path' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
+            'image_path' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'link'  => 'nullable|url',
         ]);
 
         if ($request->hasFile('image_path')) {
@@ -46,6 +48,7 @@ class ClientsController extends Controller
 
         Clients::create([
             'image_path' => $imagePath,
+            'link' => $request->link,
         ]);
 
         return redirect()->route('admin.clients-list')->with('success', 'Client berhasil ditambahkan!');
@@ -63,22 +66,36 @@ class ClientsController extends Controller
     public function update(Request $request, string $id)
     {
         $client = Clients::findOrFail($id);
-        $client->update($request->all());
 
+        // Validasi
+        $request->validate([
+            'link' => 'nullable|url',
+            'image_path' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
+
+        // Cek apakah user upload gambar baru
         if ($request->hasFile('image_path')) {
-            // Hapus file lama jika ada
+            // Hapus gambar lama kalau ada
             if ($client->image_path && file_exists(storage_path('app/public/' . $client->image_path))) {
                 unlink(storage_path('app/public/' . $client->image_path));
             }
+
+            // Simpan gambar baru
             $imagePath = $request->file('image_path')->store('images', 'public');
         } else {
-            $imagePath = $client->image_path; // Tetap gunakan gambar lama jika tidak ada yang diupload
+            // Tetap pakai gambar lama
+            $imagePath = $client->image_path;
         }
 
-        $client->update();
+        // Update data client
+        $client->update([
+            'link' => $request->link,
+            'image_path' => $imagePath,
+        ]);
 
         return redirect()->route('admin.clients-list')->with('success', 'Client berhasil diperbarui!');
     }
+
 
     /**
      * Remove the specified resource from storage.
