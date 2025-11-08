@@ -1054,25 +1054,25 @@
         </div>
         <div class="swiper mySwiper" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
             <div class="swiper-wrapper">
-                @php $hot = $gallery->firstWhere('id', 17); @endphp
+                @php $hot = $gallery->firstWhere('id', 22); @endphp
                 @if ($hot)
                     <div class="swiper-slide">
                         <img alt="" src="{{ url("storage/{$hot->images}") }}" />
                     </div>
                 @endif
-                @php $hot = $gallery->firstWhere('id', 18); @endphp
+                @php $hot = $gallery->firstWhere('id', 22); @endphp
                 @if ($hot)
                     <div class="swiper-slide">
                         <img alt="" src="{{ url("storage/{$hot->images}") }}" />
                     </div>
                 @endif
-                @php $hot = $gallery->firstWhere('id', 19); @endphp
+                @php $hot = $gallery->firstWhere('id', 22); @endphp
                 @if ($hot)
                     <div class="swiper-slide">
                         <img alt="" src="{{ url("storage/{$hot->images}") }}" />
                     </div>
                 @endif
-                @php $hot = $gallery->firstWhere('id', 20); @endphp
+                @php $hot = $gallery->firstWhere('id', 22); @endphp
                 @if ($hot)
                     <div class="swiper-slide">
                         <img alt="" src="{{ url("storage/{$hot->images}") }}" />
