@@ -854,16 +854,22 @@
 
     <!-- ------ JUMBOTRON SECTION ------ -->
     <div class="jumbotron">
-        <iframe class="background-video"
-            src="https://www.youtube.com/embed/56ki5NE7Nwg?autoplay=1&mute=1&loop=1&playlist=56ki5NE7Nwg"
-            frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
-        </iframe>
-        <div class="overlay">
-            <p data-aos="fade-in" data-aos-duration="1200" data-aos-delay="200">
-                {{ $translator->translate('Start your career') }}</p>
-            <h1 data-aos="fade-in" data-aos-duration="1200" data-aos-delay="600">
-                {{ $translator->translate('Your Dream Hotel School in Bali') }}</h1>
+        <div class="relative w-full h-screen overflow-hidden">
+            <!-- YouTube Background -->
+            <iframe class="absolute top-0 left-0 w-full h-full pointer-events-none"
+                src="https://www.youtube.com/embed/56ki5NE7Nwg?autoplay=1&mute=1&loop=1&playlist=56ki5NE7Nwg&controls=0&modestbranding=1&showinfo=0"
+                frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+            </iframe>
+
+            <!-- Overlay -->
+            <div class="overlay">
+                <p data-aos="fade-in" data-aos-duration="1200" data-aos-delay="200">
+                    {{ $translator->translate('Start your career') }}</p>
+                <h1 data-aos="fade-in" data-aos-duration="1200" data-aos-delay="600">
+                    {{ $translator->translate('Your Dream Hotel School in Bali') }}</h1>
+            </div>
         </div>
+
     </div>
 
     <!-- ------ ABOUT SECTION ------ -->
@@ -881,14 +887,14 @@
                     <h3 class="about">{{ $translator->translate('About') }}</h3>
                     <h1 class="DHS">{{ $translator->translate('Denpasar Hotel School') }}</h1>
                     <p>{{ $translator->translate('
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         Denpasar Hotel School is a premier institution dedicated to training
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         the next generation of professionals in the hospitality and tourism
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         industries. Located in the heart of Bali—a global hub for
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         tourism—the school offers students a blend of theoretical knowledge
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         and hands-on experience, fostering a deep understanding of
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         world-class hospitality standards, service excellence, and Balinese
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         cultural values.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             Denpasar Hotel School is a premier institution dedicated to training
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             the next generation of professionals in the hospitality and tourism
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             industries. Located in the heart of Bali—a global hub for
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             tourism—the school offers students a blend of theoretical knowledge
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             and hands-on experience, fostering a deep understanding of
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             world-class hospitality standards, service excellence, and Balinese
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             cultural values.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ') }}
                     </p>
                     <div class="button" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
                         <a href="#program" class="btn">{{ $translator->translate('Learn More') }}</a>
@@ -907,12 +913,12 @@
 
     <!-- ------ SECTION PROGRAM ------ -->
     <section id="program">
-
-        {{-- ------ Program Mobile ------ --}}
         <div class="program-mobile">
             <div class="container-title2" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
                 <h2>{{ $translator->translate('Program') }}</h2>
             </div>
+
+            {{-- ------ Mobile ------ --}}
             <div class="program-container">
 
                 <div class="program-card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
@@ -975,14 +981,14 @@
                     </div>
                 </div>
                 <div class="image-vision" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                    <img src="img/vision.png" width="400px" />
+                    <img src="img/orang ganteng.jpg" width="400px" />
                 </div>
             </div>
             {{-- @endforeach --}}
 
             <div class="program hidden-left">
                 <div class="image-vision" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-                    <img src="img/vision.png" width="400px" />
+                    <img src="img/orang ganteng.jpg" width="400px" />
                 </div>
                 <div class="program-text" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
                     <h1>{{ $translator->translate('Structured Work Based Learning') }}</h1>
@@ -1003,9 +1009,9 @@
                     <div class="program-title">
                         <h1>{{ $translator->translate('mentorship from Global Hospitality Leaders') }}</h1>
                         <h4>{{ $translator->translate('
-                      Hospitality Management Internship Program with Global Hotel Chains
-                      (6 to 12 Months)
-                      ') }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Hospitality Management Internship Program with Global Hotel Chains
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              (6 to 12 Months)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ') }}
                         </h4>
                     </div>
                     <p>{{ $translator->translate('
