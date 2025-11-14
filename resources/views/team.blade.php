@@ -328,7 +328,7 @@
         @if ($tim->status == 1)
             <div class="card">
                 <img alt="Foto" height="300" src="{{ asset("storage/{$tim->foto}") }}" width="300"/>
-                <h2>{{ $tim->nama }}</h2>
+                <h2>{{ $tim->nama_panggilan }}</h2>
                 <h3>{{ $tim->roles }}</h3>
                 <p>{{ $tim->desc }}</p>
             </div>

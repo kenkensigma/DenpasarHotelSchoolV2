@@ -11,6 +11,7 @@ class MainNationalProgram extends Model
 
     protected $fillable = [
         'title',
+        'sub_title',
         'description',
         'image',
         'tag',

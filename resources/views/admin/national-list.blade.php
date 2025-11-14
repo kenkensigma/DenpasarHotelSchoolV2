@@ -280,6 +280,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Title</th>
+                                        <th>Sub-Title</th>
                                         <th>Description</th>
                                         <th>Images</th>
                                         <th>Tag</th>
@@ -292,6 +293,7 @@
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $item->title }}</td>
+                                            <td>{{ $item->sub_title }}</td>
                                             <td>{{ Str::limit(strip_tags($item->description), 50) }}</td>
                                             <td>
                                                 <img src="{{ asset('storage/' . $item->image) }}" width="80"

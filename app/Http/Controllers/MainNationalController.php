@@ -28,6 +28,7 @@ class MainNationalController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
+            'sub_title' => 'required|string|max:255',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'tag' => 'required|unique:main_national_programs',
@@ -41,6 +42,7 @@ class MainNationalController extends Controller
 
         MainNationalProgram::create([
             'title' => $validatedData['title'],
+            'sub_title' => $validatedData['sub_title'],
             'description' => $validatedData['description'],
             'image' => $imagePath,
             'tag' => $validatedData['tag'],
@@ -67,6 +69,7 @@ class MainNationalController extends Controller
 
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
+            'sub_title' => 'required|string|max:255',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'tag' => 'required|unique:main_national_programs,tag,' . $id,
@@ -74,6 +77,7 @@ class MainNationalController extends Controller
 
         $MainNationalProgram->fill([
             'title' => $validatedData['title'],
+            'sub_title' => $validatedData['sub_title'],
             'description' => $validatedData['description'],
             'tag' => $validatedData['tag'],
         ]);

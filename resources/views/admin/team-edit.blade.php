@@ -227,9 +227,9 @@
                                 @method('PUT')
 
                                 <div class="form-group mb-3">
-                                    <label for="nama" class="form-label">Nama</label>
-                                    <input type="text" name="nama" class="form-control"
-                                        value="{{ old('nama', $teams->nama ?? '') }}" required>
+                                    <label for="nama" class="form-label">Nama Panggilan</label>
+                                    <input type="text" name="nama_panggilan" class="form-control"
+                                        value="{{ old('nama_panggilan', $teams->nama_panggilan ?? '') }}" required>
                                 </div>
 
                                 <div class="form-group mb-3">

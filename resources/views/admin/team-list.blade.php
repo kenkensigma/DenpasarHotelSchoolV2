@@ -292,7 +292,7 @@
                                     @foreach ($teams as $ondesk => $content)
                                         <tr>
                                             <td>{{ $ondesk + 1 }}</td> <!-- Nomor urut -->
-                                            <td>{{ $content->nama }}</td> <!-- Kategori -->
+                                            <td>{{ $content->nama_panggilan }}</td> <!-- Kategori -->
                                             <td>{{ $content->roles }}</td> <!-- Tanggal -->
                                             <td>{{ $content->desc }}</td> <!-- Judul -->
                                             <td>

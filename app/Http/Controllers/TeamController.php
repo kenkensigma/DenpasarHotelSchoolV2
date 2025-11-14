@@ -29,7 +29,7 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama' => 'required|string',
+            'nama_panggilan' => 'required|string',
             'roles' => 'required|string',
             'desc' => 'required|string',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
@@ -51,7 +51,7 @@ class TeamController extends Controller
         }
 
         Team::create([
-            'nama' => $request->nama,
+            'nama_panggilan' => $request->nama_panggilan,
             'roles' => $request->roles,
             'desc' => $request->desc,
             'foto' => $fotoPath,

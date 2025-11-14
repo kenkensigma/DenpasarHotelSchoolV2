@@ -469,7 +469,7 @@
                     <a href="#program" class="dropbtn">{{ $translator->translate('Profile') }} <i
                             class="fas fa-chevron-down"></i></a>
                     <div class="dropdown-content">
-                        <a href="about">{{ $translator->translate('About us') }}</a>
+                        <a href="{{ route('about') }}">{{ $translator->translate('About us') }}</a>
                         <a href="achievement">{{ $translator->translate('Achievement') }}</a>
                         <a href="contact">{{ $translator->translate('Contact Us') }}</a>
                         <a href="team">{{ $translator->translate('Our Team') }}</a>
@@ -908,7 +908,7 @@
     <!-- ------ SECTION PROGRAM ------ -->
     <section id="program">
 
-        {{-- ------ Mobile ------ --}}
+        {{-- ------ Program Mobile ------ --}}
         <div class="program-mobile">
             <div class="container-title2" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
                 <h2>{{ $translator->translate('Program') }}</h2>
@@ -953,15 +953,14 @@
             </div>
         </div>
 
-        {{-- ------ Desktop ------ --}}
+        {{-- ------ Program Desktop ------ --}}
         <div class="program-desktop">
+            {{-- @foreach ($MainNationalPrograms as $index => $program) --}}
             <div class="program hidden-right">
                 <div class="program-text">
                     <div class="program-title">
-                        <h1>{{ $translator->translate('Australian Intership') }}</h1>
-                        <h4>{{ $translator->translate('
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Dual Certification Program with Australian Hospitality Schools.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ') }}
+                        {{-- <h1>{{ $translator->translate({{$program->title}}) }}</h1>
+                        <h4>{{ $translator->translate({{$program->subtitle}}) }} --}}
                         </h4>
                     </div>
                     <p>{{ $translator->translate('
@@ -979,6 +978,7 @@
                     <img src="img/vision.png" width="400px" />
                 </div>
             </div>
+            {{-- @endforeach --}}
 
             <div class="program hidden-left">
                 <div class="image-vision" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">

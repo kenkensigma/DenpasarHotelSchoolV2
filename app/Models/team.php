@@ -10,6 +10,6 @@ class team extends Model
     use HasFactory;
 
     protected $table = 'teams'; // Nama tabel di database
-    protected $fillable = ['nama', 'roles', 'desc', 'foto', 'cv', 'status'];
+    protected $fillable = ['nama_panggilan', 'roles', 'desc', 'foto', 'cv', 'status'];
 
 }

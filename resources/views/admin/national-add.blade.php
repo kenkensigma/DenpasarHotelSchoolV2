@@ -233,6 +233,12 @@
                                 </div>
 
                                 <div class="form-group mb-3 col-md-6">
+                                    <label for="sub_title" class="form-label">Sub Title</label>
+                                    <input type="text" id="sub_title" name="sub_title" class="form-control"
+                                        value="{{ old('sub_title') }}" required>
+                                </div>
+
+                                <div class="form-group mb-3 col-md-6">
                                     <label for="tag" class="form-label">Tag</label>
                                     <input type="text" id="tag" name="tag" class="form-control"
                                         value="{{ old('tag') }}" required>

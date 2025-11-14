@@ -91,7 +91,7 @@ class AuthController extends Controller
     // Dashboard
     public function dashboard() {
         $user = Auth::user();
-        return view('#', compact('user'));
+        return view('admin.index', compact('user'));
     }
     
 

@@ -54,10 +54,6 @@ Route::group([
 
 });
 
-Route::get("admin", function () {
-    return view("admin.index");
-})->name("admin.index")->middleware("auth");
-
 Route::get("home", function () {
     return view("home");
 })->name("home")->middleware("auth");
@@ -65,10 +61,6 @@ Route::get("home", function () {
 Route::post('/contact', [ContactController::class, 'sendContactForm'])->name('contact.send');
 
 Route::get('/change-lang', [LangController::class, 'changeLang'])->name('changeLang');
-
-Route::get('/admin', function () {
-    return view('admin/index');
-})->name('dashboard');
 
 // Clients resource routes
 Route::get('/clients', [ClientsController::class, 'index'])->name('clients.index');
@@ -231,6 +223,15 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
+
+// TES ROUTE
+Route::get('/adminbaru', function () {
+    return view('admin_new.dashboard');
+})->name('adminbaru');
+
+Route::get('/project', function () {
+    return view('admin-new.projects');
+})->name('project');
 
 Route::get('/video', function () {
     return view('video');

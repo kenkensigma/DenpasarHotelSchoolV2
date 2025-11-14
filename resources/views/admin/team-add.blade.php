@@ -93,8 +93,8 @@ input:focus, textarea:focus {
             @csrf
 
             <div class="form-group">
-                <label>Nama</label>
-                <input type="text" name="nama" value="{{ old('nama') }}" required>
+                <label>Nama Panggilan</label>
+                <input type="text" name="nama_panggilan"  value="{{ old('nama_panggilan') }}" required>
             </div>
 
             <div class="form-group">
