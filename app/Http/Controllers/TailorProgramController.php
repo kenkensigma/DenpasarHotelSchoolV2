@@ -1,101 +1,167 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\TailorProgram;
+use App\Models\TailorProgramOption;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class TailorProgramController extends Controller
 {
+    // Halaman user (frontend)
     public function tailorPrograms()
     {
-        $tailorPrograms = TailorProgram::all();
-        return view('tailorprogram', compact('tailorPrograms'));
+        $tailorPrograms = TailorProgram::with('SubTailor')->get();
+
+        foreach ($tailorPrograms as $program) {
+            $program->sub_reason_title = json_decode($program->sub_reason_title, true) ?? [];
+            $program->sub_reason_description = json_decode($program->sub_reason_description, true) ?? [];
+
+            $program->icon_target_audience = json_decode($program->icon_target_audience, true) ?? [];
+            $program->description_target_audience = json_decode($program->description_target_audience, true) ?? [];
+
+            $program->highlights_title = json_decode($program->highlights_title, true) ?? [];
+            $program->highlights_description = json_decode($program->highlights_description, true) ?? [];
+
+            $program->career_icon = json_decode($program->career_icon, true) ?? [];
+            $program->career_description = json_decode($program->career_description, true) ?? [];
+        }
+
+        return view('tailor-program', compact('tailorPrograms'));
     }
-    
+
+
+
+    // Halaman admin list
     public function list()
     {
         $tailorPrograms = TailorProgram::all();
-        return view('admin.tailor-program-list', compact('tailorPrograms'));
-    } 
+        return view('admin_new.TailorProgram.tailor-program-list', compact('tailorPrograms'));
+    }
 
     public function create()
     {
-        return view('admin.tailor-program-add');
+        return view('admin_new.TailorProgram.tailor-program-add');
     }
 
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'sub_reason_title' => 'string|max:255',
-            'sub_reason_description' => 'string',
-            'target_audience_title' => 'string|max:255',
-            'target_audience_description' => 'string',
-            'program_title' => 'string|max:255',
-            'program_duration' => 'string|max:255',
-            'program_description' => 'string',
-            'program_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'highlights_description' => 'string',
-            'career_pathways_description' => 'string',
+        $request->validate([
+            'title' => 'required|string',
+            'subtitle' => 'nullable|string',
+            'reason_main' => 'nullable|string',
+            'price' => 'required|numeric',
+
+            // array validation
+            'sub_reason_title' => 'nullable|array',
+            'sub_reason_description' => 'nullable|array',
+
+            'icon_target_audience' => 'nullable|array',
+            'description_target_audience' => 'nullable|array',
+
+            'highlights_title' => 'nullable|array',
+            'highlights_description' => 'nullable|array',
+
+            'career_icon' => 'nullable|array',
+            'career_description' => 'nullable|array',
         ]);
-
-        
-
-        if ($request->hasFile('program_image')) {
-            $programimagePath = $request->file('program_image')->store('images', 'public');
-        } else {
-            $programimagePath = 'noimage.png'; // Default image
-        }
-
 
         TailorProgram::create([
-            'sub_reason_title' => $request->sub_reason_title,
-            'sub_reason_description' => $request->sub_reason_description,
-            'target_audience_description' => $request->target_audience_description,
-            'program_title' => $request->program_title,
-            'program_duration' => $request->program_duration,
-            'program_description' => $request->program_description,
-            'program_image' => $programimagePath,
-            'highlights_title' => $request->highlights_title,
-            'highlights_description' => $request->highlights_description,
-            'career_pathways_description' => $request->career_pathways_description
+            'title' => $request->title,
+            'subtitle' => $request->subtitle,
+            'reason_main' => $request->reason_main,
+            'price' => $request->price,
+
+            'sub_reason_title' => json_encode($request->sub_reason_title ?? []),
+            'sub_reason_description' => json_encode($request->sub_reason_description ?? []),
+
+            'icon_target_audience' => json_encode($request->icon_target_audience ?? []),
+            'description_target_audience' => json_encode($request->description_target_audience ?? []),
+
+            'highlights_title' => json_encode($request->highlights_title ?? []),
+            'highlights_description' => json_encode($request->highlights_description ?? []),
+
+            'career_icon' => json_encode($request->career_icon ?? []),
+            'career_description' => json_encode($request->career_description ?? []),
+
         ]);
 
-        return redirect()->route('admin.tailor-program-list')->with('success', 'Program Added');
+        return redirect()->route('admin.tailor-program-list')->with('success', 'Program successfully updated!');
     }
 
-    public function edit($id) {
-        $tailorPrograms = TailorProgram::findOrFail($id); // Pastikan ID valid
-        return view('admin.tailor-program-edit', compact('tailorPrograms'));
+
+
+    public function edit($id)
+    {
+        $tailorPrograms = TailorProgram::findOrFail($id);
+
+        $tailorPrograms->sub_reason_title = json_decode($tailorPrograms->sub_reason_title, true) ?? [];
+        $tailorPrograms->sub_reason_description = json_decode($tailorPrograms->sub_reason_description, true) ?? [];
+
+        $tailorPrograms->icon_target_audience = json_decode($tailorPrograms->icon_target_audience, true) ?? [];
+        $tailorPrograms->description_target_audience = json_decode($tailorPrograms->description_target_audience, true) ?? [];
+
+        $tailorPrograms->highlights_title = json_decode($tailorPrograms->highlights_title, true) ?? [];
+        $tailorPrograms->highlights_description = json_decode($tailorPrograms->highlights_description, true) ?? [];
+
+        $tailorPrograms->career_icon = json_decode($tailorPrograms->career_icon, true) ?? [];
+        $tailorPrograms->career_description = json_decode($tailorPrograms->career_description, true) ?? [];
+        return view('admin_new.TailorProgram.tailor-program-edit', compact('tailorPrograms'));
     }
-     
+
 
     public function update(Request $request, $id)
-{
-    $tailorPrograms = TailorProgram::find($id);
-    $tailorPrograms->update($request->all()); // Gunakan findOrFail agar error lebih jelas jika tidak ditemukan
+    {
+        $request->validate([
+            'title' => 'required|string',
+            'subtitle' => 'nullable|string',
+            'reason_main' => 'nullable|string',
+            'price' => 'required|numeric',
 
-    // Update Foto
-    if ($request->hasFile('image')) {
-        // Hapus foto lama jika ada
-        if ($tailorPrograms->image && Storage::exists('public/' . $tailorPrograms->image)) {
-            Storage::delete('public/' . $tailorPrograms->image);
-        }
-        // Simpan foto baru
-        $fotoPath = $request->file('image')->store('images', 'public');
-        $tailorPrograms->image = $fotoPath;
+            // array validation
+            'sub_reason_title' => 'nullable|array',
+            'sub_reason_description' => 'nullable|array',
+
+            'icon_target_audience' => 'nullable|array',
+            'description_target_audience' => 'nullable|array',
+
+            'highlights_title' => 'nullable|array',
+            'highlights_description' => 'nullable|array',
+
+            'career_icon' => 'nullable|array',
+            'career_description' => 'nullable|array',
+        ]);
+
+        $tailorPrograms = TailorProgram::findOrFail($id);
+
+        $tailorPrograms->update([
+            'title' => $request->title,
+            'subtitle' => $request->subtitle,
+            'reason_main' => $request->reason_main,
+            'price' => $request->price,
+
+            'sub_reason_title' => json_encode($request->sub_reason_title),
+            'sub_reason_description' => json_encode($request->sub_reason_description),
+
+            'icon_target_audience' => json_encode($request->icon_target_audience),
+            'description_target_audience' => json_encode($request->description_target_audience),
+
+            'highlights_title' => json_encode($request->highlights_title),
+            'highlights_description' => json_encode($request->highlights_description),
+
+            'career_icon' => json_encode($request->career_icon),
+            'career_description' => json_encode($request->career_description),
+        ]);
+
+        return redirect()->route('admin.tailor-program-list')->with('success', 'Program successfully updated!');
     }
 
 
-    $tailorPrograms->update(); // Simpan perubahan
+    public function destroy($id)
+    {
+        $tailorPrograms = TailorProgram::findOrFail($id);
+        $tailorPrograms->delete();
 
-    return redirect()->route('admin.tailor-program-list')->with('success', 'Data Program berhasil diperbarui!');
-}
-public function destroy($id)
-{
-    $tailorPrograms = TailorProgram::findOrFail($id); // Cari foto berdasarkan ID
-    $tailorPrograms->delete(); // Hapus foto
-
-    return redirect()->route('admin.tailor-program-list')->with('success', 'foto berhasil dihapus!');
-}
+        return redirect()->route('admin.tailor-program-list')->with('success', 'Program successfully deleted!');
+    }
 }

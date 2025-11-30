@@ -38,6 +38,7 @@
     />
 </head>
 <body>
+  
     <!-- Header Section -->
     <header class="header">
       <nav class="navbar">
@@ -263,270 +264,122 @@
 </div>
 
   <!-- Jumbotron Section -->
-
+@foreach($tailorPrograms as $program)
+{{-- ================= SECTION STARTED ================= --}}
 <section class="started">
   <div class="text-started">
     <div class="container-title1" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-      <h2>{{ $translator->translate('TAILOR-MADE PROGRAM FOR HOSPITALITY') }}</h2>
+      <h2>{{ $program->title }}</h2>
     </div>
     <div class="started-wrapper" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-      <p>{{ $translator->translate('This tailor-made program is designed to provide students with a complete, well-rounded understanding of the hospitality industry, focusing on essential areas such as hotel operations, guest service, food & beverage management, and event coordination. The program combines theoretical knowledge with hands-on practical training, making it perfect for those aiming for managerial roles or specialized careers within hospitality. Available in flexible durations of 3, 6, or 12 months, this program allows students to choose the learning path that best suits their goals and schedule.') }}</p>
+      <p>{{ $program->reason_main }}</p>
     </div>
   </div>
-</section>  
+</section>
 
+{{-- ================= SECTION WHY CHOOSE ================= --}}
 <section class="why">
   <div class="text-why">
     <div class="container-title2" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-      <h2>{{ $translator->translate('WHY CHOOSE THIS PROGRAM') }}</h2>
+      <h2>WHY CHOOSE THIS PROGRAM</h2>
     </div>
     <div class="why-wrapper" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-      <p>{{ $translator->translate('This program offers a comprehensive, adaptable pathway for
-        individuals passionate about pursuing a successful career in the hospitality industry.') }}</p>
+      <p>{{ $program->subtitle }}</p>
     </div>
   </div>
 
   <div class="features">
-    <div class="feature" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-      <h3>{{ $translator->translate('
-        Tailored Learning Experience
-        ') }}</h3>
-        <p>{{ $translator->translate('
-          The program can be customized based on the student s area of interest or specific career goals (e.g., hotel management, food & beverage, event planning).
-          ') }}</p>
+    @foreach($program->sub_reason_title as $i => $title)
+    <div class="feature" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="{{ 200 + ($i * 100) }}">
+      <h3>{{ $title }}</h3>
+      <p>{{ $program->sub_reason_description[$i] ?? '' }}</p>
     </div>
+    @endforeach
+  </div>
+</section>
 
-    <div class="feature" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
-     <h3>{{ $translator->translate('
-        Global Perspective
-    ') }}</h3>
-     <p>{{ $translator->translate('
-      Students gain exposure to both local Balinese hospitality practices and global hospitality trends, preparing them for international career opportunities.
-      ') }}</p>
-    </div>
-
-    <div class="feature" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-     <h3>{{ $translator->translate('
-      Hands-On Experience
-     ') }}</h3>
-     <p>{{ $translator->translate('
-      The program includes practical training through internships, ensuring students are job-ready upon completion.
-      ') }}</p>
-    </div>
-   </div>
-</section>  
-
+{{-- ================= SECTION TARGET AUDIENCE ================= --}}
 <section class="target">
   <div class="container">
-  <div class="container-title3" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-    <h2>{{ $translator->translate('TARGET AUDINCE') }}</h2>
+    <div class="container-title3" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+      <h2>TARGET AUDIENCE</h2>
+    </div>
   </div>
-</div>
-  <div class="audience">
-    <div data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200"> 
-      <i class="fa-solid fa-bell"></i>
-     <p>{{ $translator->translate('
-      Aspiring hotel managers, guest service professionals, and those seeking a career in hospitality.
-      ') }}</p>
-    </div>
-    <div data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
-      <i class="fa-solid fa-handshake"></i>
-     <p>{{ $translator->translate('
-      Aspiring hotel managers, guest service professionals, and those seeking a career in hospitality.
-      ') }}</p>
-    </div>
-   </div>
 
+  <div class="audience">
+    @foreach($program->icon_target_audience as $i => $icon)
+    <div data-aos="fade-up" data-aos-duration="1200" data-aos-delay="{{ 200 + ($i * 100) }}">
+      <i class="{{ $icon }}"></i>
+      <p>{{ $program->description_target_audience[$i] ?? '' }}</p>
+    </div>
+    @endforeach
+  </div>
 </section>
 
+{{-- ================= SECTION STRUCTURE (AMBIL DARI SUB TAILOR PROGRAM) ================= --}}
 <section id="program">
   <div class="container-title4" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-    <h2>{{ $translator->translate('STRUCTURE') }}</h2>
+    <h2>STRUCTURE</h2>
   </div>
+
+  @foreach($program->SubTailor as $i => $sub)
   <div class="program">
-    <div class="program-text">
-      <div class="program-title" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-        <h1>{{ $translator->translate('Introduction to Hospitality and Customer Service (1 Month)') }}</h1>
+    @if($i % 2 == 0)
+      <div class="program-text" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+        <h1>{{ $sub->option_title }}</h1>
+        <p>{{ $sub->option_description }}</p>
       </div>
-      <div class="text-program">
-      <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Overview of the Hospitality Industry') }}</p>
-      <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Key Principles of Customer Service') }}</p>
-      <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Guest Relations and Communication') }}</p>
-      <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Handling Customer Complaints and Feedback') }}</p>
-      <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Service Etiquette and Professional Conduct') }}</p>
-  </div>
-
-    </div>
-    <div class="image-vision" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-      <img src="img/vision.png" width="400px" />
-    </div>
-  </div>
-
-  <div class="program">
-    <div class="image-vision" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-      <img src="img/vision.png" width="400px" />
-    </div>
-    <div class="program-text">
-      <h1 data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('Hotel Operations and Front Office Management (1.5 Months)') }}</h1>
-      <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Front Desk Operations: Reservation systems, check-in/check-out procedures') }}</p>
-      <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Guest Services and Concierge Skills') }}</p>
-      <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Room Management and Housekeeping Coordination') }}</p>
-      <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Understanding Hotel Management Software') }}</p>
-      <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Effective Communication within Hotel Teams') }}</p>
-
-
-    </div>
-  </div>
-
-  <div class="program">
-    <div class="program-text">
-      <div class="program-title" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-        <h1>{{ $translator->translate('Food and Beverage Service (1 Month)') }}</h1>
+      <div class="image-vision" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+        <img src="{{ asset('storage/' . $sub->option_image) }}" width="400">
       </div>
-      <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Menu Design and Food Pairing') }}</p>
-      <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Barista and Beverage Service') }}</p>
-      <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Table Service Techniques: Etiquette, different types of service') }}</p>
-      <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Food and Beverage Hygiene Standards') }}</p>
-      <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- F&B Staff Management') }}</p>
-
-
-    </div>
-    <div class="image-vision" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-      <img src="img/vision.png" width="400px" />
-    </div>
-  </div>
-
-  <div class="program">
-    <div class="image-vision" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-      <img src="img/vision.png" width="400px" />
-    </div>
-    <div class="program-text">
-      <h1 data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('Event Planning and Coordination (1 Month)') }}</h1>
-      <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Understanding Event Types: Conferences, banquets, and weddings') }}</p>
-      <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- vent Logistics and Planning') }}</p>
-      <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Eudgeting and Cost Control in Events') }}</p>
-      <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Vendor Management and Negotiation') }}</p>
-      <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- On-Site Event Coordination') }}</p>
-
-
-    </div>
-  </div>
-
-  <div class="program">
-    <div class="program-text">
-      <div class="program-title" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-        <h1>{{ $translator->translate('Hospitality Marketing and Sales (1 Month)') }}</h1>
+    @else
+      <div class="image-vision" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+        <img src="{{ asset('storage/' . $sub->option_image) }}" width="400">
       </div>
-      <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Basics of Hospitality Marketing: Online presence, branding, and promotions') }}</p>
-      <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Sales Techniques and Customer Acquisition') }}</p>
-      <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- E-commerce and Booking Platforms') }}</p>
-      <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Social Media and Digital Marketing for Hotels') }}</p>
-      <p data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Customer Relationship Management (CRM)') }}</p>
+      <div class="program-text" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+        <h1>{{ $sub->option_title }}</h1>
+        <p>{{ $sub->option_description }}</p>
+      </div>
+    @endif
+  </div>
+  @endforeach
+</section>
 
-     
-    </div>
-    <div class="image-vision" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-      <img src="img/vision.png" width="400px" />
-    </div>
+{{-- ================= SECTION HIGHLIGHTS ================= --}}
+<section class="highlights">
+  <div class="container-title5" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+    <h2>HIGHLIGHTS</h2>
   </div>
 
-  <div class="program">
-    <div class="image-vision" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
-      <img src="img/vision.png" width="400px" />
+  <div class="container-card">
+    @foreach($program->highlights_title as $i => $h)
+    <div class="card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="{{ 200 + ($i * 100) }}">
+      <h3>{{ $h }}</h3>
+      <p>{{ $program->highlights_description[$i] ?? '' }}</p>
     </div>
-    <div class="program-text">
-      <h1 data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('Practical Training and Internship (1 Month)') }}</h1>
-      <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Hands-on Practice in real hotel environments (internship in a partnered hotel/resort)') }}</p>
-      <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Supervised Experience in front office, food & beverage service, and event coordination') }}</p>
-      <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Developing Leadership and Teamwork Skills') }}</p>
-      <p data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">{{ $translator->translate('- Feedback and Evaluation') }}</p>
-
-
-    </div>
+    @endforeach
   </div>
 </section>
 
-<section class="highlights">
-    <div class="container-title5" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-      <h2>{{ $translator->translate('HIGHLIGHTS') }}</h2>
-    </div>
-
-    <div class="container-card">
-      <div class="card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-          <h3>{{ $translator->translate('Mentorship') }}</h3>
-          <p>{{ $translator->translate('Access to industry professionals for career guidance and networking') }}</p>
-      </div>
-      <div class="card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
-          <h3>{{ $translator->translate('Internships') }}</h3>
-          <p>{{ $translator->translate('Gain real-world experience in top hotels and resorts in Bali or international locations.') }}</p>
-      </div>
-      <div class="card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-          <h3>{{ $translator->translate('Cultural Immersion') }}</h3>
-          <p>{{ $translator->translate('Understanding Bali’s unique hospitality culture, integrating local practices with international standards.') }}</p>
-      </div>
-      <div class="card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-          <h3>{{ $translator->translate('Industry-Standard Curriculum') }}</h3>
-          <p>{{ $translator->translate('Designed to meet international hospitality standards, ensuring graduates are well-prepared for a global career.') }}</p>
-      </div>
-      <div class="card" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
-          <h3>{{ $translator->translate('Certifications') }}</h3>
-          <p>{{ $translator->translate('Upon completion, students receive the Certificate in Hospitality Management from Denpasar Hotel School.') }}</p>
-      </div>
-  </div>
-</section> 
-
+{{-- ================= SECTION CAREER ================= --}}
 <section class="career">
   <div class="container-title6" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-    <h2>{{ $translator->translate('CAREER PATHWAYS') }}</h2>
+    <h2>CAREER PATHWAYS</h2>
   </div>
 
   <div class="container-row">
     <div class="row">
-     <div class="job-role" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-        <i class="fas fa-microphone"></i>
-        <p>{{ $translator->translate('Event Coordinator') }}</p>
-     </div>
-
-     <div class="job-role" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
-        <i class="fa-solid fa-earth-asia"></i>
-        <p>{{ $translator->translate('Hotel Manager') }}</p>
-     </div>
-     <div class="job-role" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-        <i class="fa-solid fa-message"></i>
-        <p>{{ $translator->translate('Guest Relations Officer') }}</p>
-     </div>
+      @foreach($program->career_icon as $i => $c)
+      <div class="col" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="{{ 200 + ($i * 100) }}">
+        <i class="{{ $c }}"></i>
+        <p>{{ $program->career_description[$i] ?? '' }}</p>
+      </div>
+      @endforeach
     </div>
-
-    <div class="row">
-     <div class="job-role" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
-        <i class="fas fa-utensils"></i>
-        <p>{{ $translator->translate('Food & Beverage Manager') }}</p>
-     </div>
-     <div class="job-role" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
-        <i class="fas fa-briefcase"></i>
-        <p>{{ $translator->translate('Hospitality Sales & MarketingExecutive') }}</p>
-     </div>
-     <div class="job-role" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="400">
-        <i class="fas fa-hotel"></i>
-        <p>{{ $translator->translate('Front Desk Supervisor') }}</p>
-     </div>
-    </div>
-   </div>
-</section>
-
-<section class="order">
-  <div class="card-order">
-    <div class="text-order">
-    <h2>{{ $translator->translate('Are you interested?') }}</h2>
-    </div>
-    <div class="description">
-    <p>{{ $translator->translate('Don’t miss out on these opportunities, join our program now!') }}</p>
-    </div>
-    <p class="price">$xxx.xx</p>
-    <button class="btn">{{ $translator->translate('Join Now') }}</button>
   </div>
-
 </section>
+
+@endforeach
 
 <footer>
   <div class="column contact-info">

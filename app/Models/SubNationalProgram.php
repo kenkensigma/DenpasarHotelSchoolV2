@@ -12,6 +12,7 @@ class SubNationalProgram extends Model
     protected $fillable = [
         'main_program_id',
         'title',
+        'sub_title',
         'description',
         'image',
         'tag',

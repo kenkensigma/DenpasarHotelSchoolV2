@@ -16,12 +16,12 @@ class InHouseProgramController extends Controller
     public function list()
     {
         $inHousePrograms = InHouseProgram::all();
-        return view('admin.in-house-program-list', compact('inHousePrograms'));
+        return view('admin_new.In-HouseProgram.in-house-program-list', compact('inHousePrograms'));
     }
 
     public function create()
     {
-        return view('admin.in-house-program-add');
+        return view('admin_new.In-HouseProgram.in-house-program-add');
     }
 
     public function store(Request $request)
@@ -41,11 +41,12 @@ class InHouseProgramController extends Controller
             'program_delivery_description' => 'string',
         ]);
 
-        if ($request->hasFile('in_house_program_image')) {
-            $fotoPath = $request->file('in_house_program_image')->store('images', 'public');
+        // HANDLE UPLOAD FOTO
+        if ($request->hasFile('program_image')) {
+            $fotoPath = $request->file('program_image')->store('images', 'public');
         } else {
-            $fotoPath = 'noimage.png'; // Default image
-        } 
+            $fotoPath = 'noimage.png';
+        }
 
 
         InHouseProgram::create([
@@ -67,7 +68,7 @@ class InHouseProgramController extends Controller
 
     public function edit($id) {
         $inHousePrograms = InHouseProgram::findOrFail($id); // Pastikan ID valid
-        return view('admin.in-house-program-edit', compact('inHousePrograms'));
+        return view('admin_new.In-HouseProgram.in-house-program-edit', compact('inHousePrograms'));
     }
      
 

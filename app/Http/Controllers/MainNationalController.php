@@ -17,11 +17,11 @@ class MainNationalController extends Controller
     public function list()
     {
         $MainNationalPrograms = MainNationalProgram::all();
-        return view('admin.national-list', compact('MainNationalPrograms'));
+        return view('admin_new.NationalProgram.national-list', compact('MainNationalPrograms'));
     }
     public function create()
     {
-        return view('admin.national-add');
+        return view('admin_new.NationalProgram.national-add');
     }
 
     public function store(Request $request)
@@ -37,7 +37,7 @@ class MainNationalController extends Controller
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('images', 'public');
         } else {
-            $imagePath = 'noimage.png'; // Default image}
+            $imagePath = 'noimage.png'; // Default image
         }
 
         MainNationalProgram::create([
@@ -57,7 +57,7 @@ class MainNationalController extends Controller
     public function edit(string $id)
     {
         $MainNationalProgram = MainNationalProgram::findOrFail($id);
-        return view('admin.national-edit', compact('MainNationalProgram'));
+        return view('admin_new.NationalProgram.national-edit', compact('MainNationalProgram'));
     }
 
     /**

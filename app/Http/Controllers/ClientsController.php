@@ -20,14 +20,14 @@ class ClientsController extends Controller
     public function list()
     {
         $clients = Clients::all();
-        return view('admin.clients-list', compact('clients'));
+        return view('admin_new.Clients.clients-list', compact('clients'));
     }
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('admin.clients-add');
+        return view('admin_new.Clients.clients-add');
     }
 
     /**
@@ -51,13 +51,13 @@ class ClientsController extends Controller
             'link' => $request->link,
         ]);
 
-        return redirect()->route('admin.clients-list')->with('success', 'Client berhasil ditambahkan!');
+       return redirect()->route('admin.clients-list')->with('success', 'Client berhasil ditambahkan!');
     }
 
     public function edit(string $id)
     {
         $client = Clients::findOrFail($id);
-        return view('admin.clients-edit', compact('client'));
+        return view('admin_new.Clients.clients-edit', compact('client'));
     }
 
     /**

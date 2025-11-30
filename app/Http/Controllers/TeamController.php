@@ -18,12 +18,12 @@ class TeamController extends Controller
     public function list()
     {
         $teams = Team::all();
-        return view('admin.team-list', compact('teams'));
+        return view('admin_new.Team.team-list', compact('teams'));
     } 
 
     public function create()
     {
-        return view('admin.team-add');
+        return view('admin_new.Team.team-add');
     }
 
     public function store(Request $request)
@@ -64,41 +64,46 @@ class TeamController extends Controller
 
     public function edit($id) {
         $teams = Team::findOrFail($id); // Pastikan ID valid
-        return view('admin.team-edit', compact('teams'));
+        return view('admin_new.Team.team-edit', compact('teams'));
     }
      
 
-    public function update(Request $request, $id)
+public function update(Request $request, $id)
 {
-    $teams = Team::find($id);
-    $teams->update($request->all()); // Gunakan findOrFail agar error lebih jelas jika tidak ditemukan
+    $teams = Team::findOrFail($id);
 
-    // Update Foto
+    // Update field biasa
+    $teams->nama_panggilan = $request->nama_panggilan;
+    $teams->roles = $request->roles;
+    $teams->desc = $request->desc;
+    $teams->status = $request->status;
+
+    // Update Foto (opsional)
     if ($request->hasFile('foto')) {
-        // Hapus foto lama jika ada
         if ($teams->foto && Storage::exists('public/' . $teams->foto)) {
             Storage::delete('public/' . $teams->foto);
         }
-        // Simpan foto baru
+
         $fotoPath = $request->file('foto')->store('images', 'public');
         $teams->foto = $fotoPath;
     }
 
-    // Update CV
+    // Update CV (opsional)
     if ($request->hasFile('cv')) {
-        // Hapus CV lama jika ada
         if ($teams->cv && Storage::exists('public/' . $teams->cv)) {
             Storage::delete('public/' . $teams->cv);
         }
-        // Simpan CV baru
+
         $cvPath = $request->file('cv')->store('cv', 'public');
         $teams->cv = $cvPath;
     }
 
-    $teams->update(); // Simpan perubahan
+    $teams->save();
 
-    return redirect()->route('admin.team-list')->with('success', 'Data tim berhasil diperbarui!');
+    return redirect()->route('admin.team-list')
+        ->with('success', 'Data tim berhasil diperbarui!');
 }
+
 public function destroy($id)
 {
     $teams = Team::findOrFail($id); // Cari foto berdasarkan ID
