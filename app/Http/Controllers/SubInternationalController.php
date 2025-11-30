@@ -24,14 +24,14 @@ class SubInternationalController extends Controller
     public function index()
     {
         $SubInternationalPrograms = SubInternationalProgram::with('mainProgram')->get();
-        return view('admin.sub-international-list', compact('SubInternationalPrograms'));
+        return view('admin_new.InternationalProgram.sub-international-list', compact('SubInternationalPrograms'));
     }
 
     // Form tambah sub program
     public function create()
     {
         $MainInternationalPrograms = MainInternationalProgram::all();
-        return view('admin.sub-international-add', compact('MainInternationalPrograms'));
+        return view('admin_new.InternationalProgram.sub-international-add', compact('MainInternationalPrograms'));
     }
 
     // Simpan sub program baru
@@ -67,7 +67,7 @@ class SubInternationalController extends Controller
     {
         $SubInternationalProgram = SubInternationalProgram::findOrFail($id);
         $MainInternationalPrograms = MainInternationalProgram::all();
-        return view('admin.sub-international-edit', compact('SubInternationalProgram', 'MainInternationalPrograms'));
+        return view('admin_new.InternationalProgram.sub-international-edit', compact('SubInternationalProgram', 'MainInternationalPrograms'));
     }
 
     // Update sub program

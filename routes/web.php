@@ -6,6 +6,7 @@ use App\Http\Controllers\MainInternationalController;
 use App\Http\Controllers\MainNationalController;
 use App\Http\Controllers\SubInternationalController;
 use App\Http\Controllers\SubNationalController;
+use App\Http\Controllers\SubTailorProgram;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
@@ -14,6 +15,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\MuridPendaftaranController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\GalleryController;
 use Stichoza\GoogleTranslate\GoogleTranslate;
@@ -26,7 +28,7 @@ use App\Http\Controllers\HourlyBasedProgramController;
 
 Route::group([
     "middleware" => ("guest")
-], function(){
+], function () {
 
     // Register
     // Route::get("register", [AuthController::class, "register"])->name("register");
@@ -35,12 +37,11 @@ Route::group([
     // Login
     // Route::get("login", [AuthController::class, "login"])->name("login");
     Route::match(["get", "post"], "login", [AuthController::class, "login"])->name("login");
-
 });
 
 Route::group([
     "middleware" => ("auth")
-], function(){
+], function () {
 
     // Dashboard
     Route::get("dashboard", [AuthController::class, "dashboard"])->name("dashboard");
@@ -51,7 +52,6 @@ Route::group([
 
     // Logout
     Route::get("logout", [AuthController::class, "logout"])->name("logout");
-
 });
 
 Route::get("home", function () {
@@ -72,15 +72,14 @@ Route::put('/clients/{id}', [ClientsController::class, 'update'])->name('clients
 Route::delete('/clients/{id}', [ClientsController::class, 'destroy'])->name('clients.destroy');
 
 
-// Menampilkan form tambah berita di project-add.blade.php
-Route::get('/project-add', [NewsController::class, 'create'])->name('project-add'); // Alias untuk news.create
+// Menampilkan form tambah berita di news-add.blade.php
+Route::get('/news-add', [NewsController::class, 'create'])->name('news-add'); // Alias untuk news.create
 Route::get('/news', [NewsController::class, 'news'])->name('news'); // Menampilkan daftar berita
-Route::get('/news/create', [NewsController::class, 'create'])->name('news.create'); // Menampilkan form tambah berita
 Route::post('/news/store', [NewsController::class, 'store'])->name('news.store'); // Menyimpan berita
 Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
-Route::get('/project/{id}/edit', [NewsController::class, 'edit'])->name('project.edit'); // Menampilkan form edit
-Route::put('/project/{id}', [NewsController::class, 'update'])->name('project.update');
-Route::delete('/project/{id}', [NewsController::class, 'destroy'])->name('project.destroy');
+Route::get('/news/{id}/edit', [NewsController::class, 'edit'])->name('news.edit'); // Menampilkan form edit
+Route::put('/news/{id}', [NewsController::class, 'update'])->name('news.update');
+Route::delete('/news/{id}', [NewsController::class, 'destroy'])->name('news.destroy');
 
 
 // Menampilkan form tambah foto di gallery-add.blade.php
@@ -92,13 +91,23 @@ Route::put('/gallery/{id}', [GalleryController::class, 'update'])->name('gallery
 Route::delete('/gallery/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
 Route::get('/gallery/{id}', [GalleryController::class, 'show'])->name('gallery');
 
-// Menampilkan form tambah foto di gallery-add.blade.php
+// Menampilkan form team
 Route::get('/team-add', [TeamController::class, 'create'])->name('team-add');
 Route::get('/team', [TeamController::class, 'teams'])->name('teams'); // Menampilkan daftar Gallery
 Route::post('/teams/store', [TeamController::class, 'store'])->name('teams.store'); // Menyimpan berita
 Route::get('/team/{id}/edit', [TeamController::class, 'edit'])->name('team.edit'); // Menampilkan form edit
 Route::put('/team/{id}', [TeamController::class, 'update'])->name('team.update');
 Route::delete('/team/{id}', [TeamController::class, 'destroy'])->name('team.destroy');
+
+// Menampilkan form pendaftaran
+Route::get('/daftar-add', [MuridPendaftaranController::class, 'create'])->name('daftar-add');
+Route::get('/daftar', [MuridPendaftaranController::class, 'create'])->name('daftar'); // Menampilkan daftar Gallery
+Route::post('/daftar/store', [MuridPendaftaranController::class, 'store'])->name('daftar.store'); // Menyimpan berita
+Route::get('/daftar/{id}/edit', [MuridPendaftaranController::class, 'edit'])->name('daftar.edit'); // Menampilkan form edit
+Route::put('/daftar/{id}', [MuridPendaftaranController::class, 'update'])->name('daftar.update');
+Route::delete('/daftar/{id}', [MuridPendaftaranController::class, 'destroy'])->name('daftar.destroy');
+
+
 
 
 // Menampilkan form programs-add.blade.php
@@ -112,7 +121,7 @@ Route::delete('/programs/{id}', [ProgramController::class, 'destroy'])->name('pr
 // =====================
 // FRONTEND
 // =====================
-Route::get('/international', [MainInternationalController::class, 'international'])->name('international'); 
+Route::get('/international', [MainInternationalController::class, 'international'])->name('international');
 Route::get('/after-click-inter/{id}', [SubInternationalController::class, 'subInternational'])->name('after-click-inter');
 
 // =====================
@@ -139,8 +148,8 @@ Route::get('/sub-international/{main_program_id}', [SubInternationalController::
 // =====================
 // FRONTEND
 // =====================
-Route::get('/national', [MainInternationalController::class, 'international'])->name('international'); 
-Route::get('/after-click/{id}', [SubInternationalController::class, 'subInternational'])->name('after-click-inter');
+Route::get('/national', [MainNationalController::class, 'national'])->name('national');
+Route::get('/after-click/{id}', [SubNationalController::class, 'subNational'])->name('after-click-national');
 
 // =====================
 // ADMIN - MAIN PROGRAM NATIONAL
@@ -162,6 +171,9 @@ Route::delete('/sub-national-delete/{id}', [SubNationalController::class, 'destr
 Route::get('/sub-national/{main_program_id}', [SubNationalController::class, 'subNational'])
     ->name('sub-national');
 
+    
+Route::get('/tailor-program', [TailorProgramController::class, 'tailorPrograms'])->name('tailor-program');
+
 //tailor program
 Route::get('/tailor-program-add', [TailorProgramController::class, 'create'])->name('tailor-program-add');
 Route::post('/tailor-program/store', [TailorProgramController::class, 'store'])->name('tailor-program-store');
@@ -169,6 +181,15 @@ Route::get('/tailor-program', [TailorProgramController::class, 'tailorPrograms']
 Route::get('/tailor-program/{id}/edit', [TailorProgramController::class, 'edit'])->name('tailor-program-edit');
 Route::put('/tailor-program/{id}', [TailorProgramController::class, 'update'])->name('tailor-program-update');
 Route::delete('/tailor-program/{id}', [TailorProgramController::class, 'destroy'])->name('tailor-program-delete');
+
+// Sub Tailor Program (Structure)
+
+Route::get('/sub-tailor-program/add', [SubTailorProgram::class, 'create'])->name('sub-tailor-program-add');
+Route::post('/sub-tailor-program/store', [SubTailorProgram::class, 'store'])->name('sub-tailor-program-store');
+Route::get('/sub-tailor-program/{id}/edit', [SubTailorProgram::class, 'edit'])->name('sub-tailor-program-edit');
+Route::put('/sub-tailor-program/{id}', [SubTailorProgram::class, 'update'])->name('sub-tailor-program-update');
+Route::delete('/sub-tailor-program/{id}', [SubTailorProgram::class, 'destroy'])->name('sub-tailor-program-delete');
+
 
 //in house program
 Route::get('/in-house-program-add', [InHouseProgramController::class, 'create'])->name('in-house-program-add');
@@ -187,9 +208,11 @@ Route::put('/hourly-based-program/{id}', [HourlyBasedProgramController::class, '
 Route::delete('/hourly-based-program/{id}', [HourlyBasedProgramController::class, 'destroy'])->name('hourly-based-program-delete');
 
 // Admin Routes
-Route::get('/projects', [NewsController::class, 'list'])->name('admin.projects');
+Route::get('/news-list', [NewsController::class, 'list'])->name('admin.news-list');
 Route::get('/team-list', [TeamController::class, 'list'])->name('admin.team-list');
-Route::get('/gallery-list', [GalleryController::class, 'list'])->name('admin.gallery-list');
+Route::get('/pendaftaran-list', [MuridPendaftaranController::class, 'list'])
+    ->name('pendaftaran.list');
+Route::get('/gallery-list', [GalleryController::class, 'list'])->name('admin_new.Gallery.gallery-list');
 Route::get('/clients-list', [ClientsController::class, 'list'])->name('admin.clients-list');
 Route::get('/programs-list', [ProgramController::class, 'list'])->name('admin.programs-list');
 Route::get('/international-list', [MainInternationalController::class, 'list'])->name('admin.international-list');
@@ -197,6 +220,7 @@ Route::get('/sub-international-list', [SubInternationalController::class, 'index
 Route::get('/national-list', [MainNationalController::class, 'list'])->name('admin.national-list');
 Route::get('/sub-national-list', [SubNationalController::class, 'index'])->name('admin.sub-national-list');
 Route::get('/tailor-program-list', [TailorProgramController::class, 'list'])->name('admin.tailor-program-list');
+Route::get('/sub-tailor-program-list', [SubTailorProgram::class, 'index'])->name('admin.sub-tailor-program-list');
 Route::get('/in-house-program-list', [InHouseProgramController::class, 'list'])->name('admin.in-house-program-list');
 Route::get('/hourly-based-program-list', [HourlyBasedProgramController::class, 'list'])->name('admin.hourly-based-program-list');
 Route::get('/international', [MainInternationalController::class, 'international'])->name('international');
@@ -229,18 +253,12 @@ Route::get('/adminbaru', function () {
     return view('admin_new.dashboard');
 })->name('adminbaru');
 
-Route::get('/project', function () {
-    return view('admin-new.projects');
-})->name('project');
+
 
 Route::get('/video', function () {
     return view('video');
 })->name('video');
 
-
-Route::get('/tailor-program', function () {
-    return view('tailor-program');
-})->name('tailor-program');
 
 Route::get('/house-training', function () {
     return view('house-training');
@@ -288,8 +306,8 @@ Route::get('changeLang', function () {
     return redirect()->back();
 })->name('changeLang');
 
-Route::get('lang/home', [LangController::class,'index']);
-Route::get('lang/change', [LangController::class,'change'])->name('changeLang');
+Route::get('lang/home', [LangController::class, 'index']);
+Route::get('lang/change', [LangController::class, 'change'])->name('changeLang');
 
 Route::get('/test-translate', function () {
     require_once base_path('vendor/autoload.php'); // Paksa autoload ulang

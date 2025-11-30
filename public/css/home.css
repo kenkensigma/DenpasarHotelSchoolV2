@@ -63,6 +63,10 @@ section {
     padding: 50px;
 }
 
+.program.reverse {
+    flex-direction: row-reverse;
+}
+
 .program-text h1 {
     color: var(--white);
     margin-bottom: 10px;
@@ -99,24 +103,31 @@ section {
     gap: 20px;
 }
 
+/* CARD */
 .program-card {
     position: relative;
+    width: 100%;
+    max-width: 700px;        /* batas maksimal card */
     border-radius: 10px;
     overflow: hidden;
     text-align: left;
 }
 
+/* TEXT DI DALAM CARD */
 .program-card p {
     text-align: left;
 }
 
+/* GAMBAR */
 .program-card img {
-    width: 100%;
-    max-width: 700px;
-    border-radius: 10px 10px 0 0;
+    width: 100%;             /* ikut card */
+    aspect-ratio: 4 / 3;     /* rasionya pasti 4:3 */
+    object-fit: cover;       /* gambar memenuhi area tanpa distorsi */
     display: block;
     filter: brightness(50%);
+    border-radius: 10px 10px 0 0;
 }
+
 
 .program-title-text {
     color: white;
@@ -228,6 +239,14 @@ section {
     visibility: visible;
 }
 
+.program-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
 /* Media Queries */
 
 /* Tablet & Mobile */
@@ -241,6 +260,8 @@ section {
     }
     .program-desktop {
         display: none;
+    }
+    .program-card {
     }
 }
 

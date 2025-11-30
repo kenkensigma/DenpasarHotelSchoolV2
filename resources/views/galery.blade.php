@@ -73,8 +73,6 @@
                     <div class="dropdown-content">
                         <a href="national">{{ $translator->translate('National Program') }}</a>
                         <a href="international">{{ $translator->translate('International Program') }}</a>
-                        <a
-                            href="tailor-program">{{ $translator->translate('Tailor-Made Program For Hospitality') }}</a>
                         <a href="house-training">{{ $translator->translate('In-House Training Program') }}</a>
                         <a href="hourly-training">{{ $translator->translate('Hourly-Based Training Program') }}</a>
                     </div>

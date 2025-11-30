@@ -17,13 +17,13 @@ class NewsController extends Controller
     public function list()
     {
         $news = News::all();
-        return view('admin.projects', compact('news'));
+        return view('admin_new.News.news-list', compact('news'));
     }   
 
     // Menampilkan form tambah berita
     public function create()
     {
-        return view('admin.project-add');
+        return view('admin_new.News.news-add');
     }
 
     // Menyimpan berita ke database
@@ -65,12 +65,12 @@ class NewsController extends Controller
             'status' => $request->status,
         ]);
     
-        return redirect()->route('admin.projects')->with('success', 'Berita berhasil ditambahkan!');
+        return redirect()->route('admin.news-list')->with('success', 'Berita berhasil ditambahkan!');
     }
     
     public function edit($id)   {
         $news = News::findOrFail($id);
-        return view('admin.project-edit',compact('news'));
+        return view('admin_new.News.news-edit',compact('news'));
     }   
 
     
@@ -89,12 +89,11 @@ class NewsController extends Controller
             $news->photo = $photoPath;
         }
           
-        
-        
-        $news->update();
+        $news->save();
+
 
         
-        return redirect()->route('admin.projects')->with('success', 'Berita berhasil di diupdate');
+        return redirect()->route('admin.news-list')->with('success', 'Berita berhasil di diupdate');
         }
 
         public function show($id)
@@ -113,7 +112,7 @@ public function destroy($id)
     $news = News::findOrFail($id); // Cari berita berdasarkan ID
     $news->delete(); // Hapus berita
 
-    return redirect()->route('admin.projects')->with('success', 'Berita berhasil dihapus!');
+    return redirect()->route('admin.news-list')->with('success', 'Berita berhasil dihapus!');
 }
 
 public function index()

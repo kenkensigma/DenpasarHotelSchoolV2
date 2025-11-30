@@ -16,12 +16,12 @@ class GalleryController extends Controller
     public function list()
     {
         $gallery = Gallery::all();
-        return view('admin.gallery-list', compact('gallery'));
+        return view('admin_new.Gallery.gallery-list', compact('gallery'));
     }
 
     public function create()
     {
-        return view('admin.gallery-add');
+        return view('admin_new.Gallery.gallery-add');
     }
 
     public function store(Request $request)
@@ -44,12 +44,12 @@ class GalleryController extends Controller
             'status' => $request->status,
         ]);
     
-        return redirect()->route('admin.gallery-list')->with('success', 'Berita berhasil ditambahkan!');
+        return redirect()->route('admin_new.Gallery.gallery-list')->with('success', 'Berita berhasil ditambahkan!');
     }
 
     public function edit($id)   {
         $gallery = Gallery::findOrFail($id);
-        return view('admin.gallery-edit',compact('gallery'));
+        return view('admin_new.Gallery.gallery-edit',compact('gallery'));
     }   
 
     
@@ -72,8 +72,7 @@ class GalleryController extends Controller
         
         $gallery->update();
 
-        
-        return redirect()->route('admin.gallery-list')->with('success', 'foto berhasil di diupdate');
+        return redirect()->route('admin_new.Gallery.gallery-list')->with('success', 'foto berhasil di diupdate');
         }
 
         public function destroy($id)
@@ -81,6 +80,6 @@ class GalleryController extends Controller
     $gallery = Gallery::findOrFail($id); // Cari foto berdasarkan ID
     $gallery->delete(); // Hapus foto
 
-    return redirect()->route('admin.gallery-list')->with('success', 'foto berhasil dihapus!');
+    return redirect()->route('admin_new.Gallery.gallery-list')->with('success', 'foto berhasil dihapus!');
 }
     }

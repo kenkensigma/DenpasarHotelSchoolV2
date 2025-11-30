@@ -24,14 +24,14 @@ class SubNationalController extends Controller
     public function index()
     {
         $SubNationalPrograms = SubNationalProgram::with('mainProgram')->get();
-        return view('admin.sub-national-list', compact('SubNationalPrograms'));
+        return view('admin_new.NationalProgram.sub-national-list', compact('SubNationalPrograms'));
     }
 
     // Form tambah sub program
     public function create()
     {
         $MainNationalPrograms = MainNationalProgram::all();
-        return view('admin.sub-national-add', compact('MainNationalPrograms'));
+        return view('admin_new.NationalProgram.sub-national-add', compact('MainNationalPrograms'));
     }
 
     // Simpan sub program baru
@@ -67,7 +67,7 @@ class SubNationalController extends Controller
     {
         $SubNationalProgram = SubNationalProgram::findOrFail($id);
         $MainNationalPrograms = MainNationalProgram::all();
-        return view('admin.sub-national-edit', compact('SubNationalProgram', 'MainNationalPrograms'));
+        return view('admin_new.NationalProgram.sub-national-edit', compact('SubNationalProgram', 'MainNationalPrograms'));
     }
 
     // Update sub program

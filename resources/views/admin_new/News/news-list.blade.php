@@ -1,0 +1,79 @@
+@extends('admin_new.layout')
+
+@section('title', 'Dashboard')
+
+@section('content')
+<div class="container-fluid py-3">
+
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+            <h3 class="fw-bold mb-1">News & Event Management</h3>
+            <p class="text-muted mb-0">Manage news & event.</p>
+        </div>
+
+        <a href="{{ route('news-add') }}" class="btn btn-primary shadow-sm px-4 py-2">
+            <i class="bi bi-plus-circle"></i> Add Program
+        </a>
+    </div>
+
+    <!-- CARD WRAPPER -->
+    <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-body p-0">
+
+            <table class="table table-hover mb-0 align-middle">
+                <thead class="bg-light">
+                    <tr>
+                        <th>No</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Title</th>
+                        <th>Image</th>
+                        <th>Hit</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach ($news as $key => $item)
+                        <tr>
+                            <td>{{ $key + 1 }}</td>
+                            <td>{{ Str::limit(strip_tags($item->category), 10) }}</td>
+                            <td>{{ $item->date }}</td>
+                            <td>{{ Str::limit(strip_tags($item->title), 5) }}</td>
+                            <td>
+                                <img src="{{ asset('storage/' . $item->photo) }}" width="80"
+                                        height="70" alt="Image">
+                            </td>
+                            <td>{{ $item->hit }}</td>
+                            <td>
+                                @if ($item->status == 1)
+                                    <span class="badge bg-success rounded-pill px-3 py-2">Show</span>
+                                @else
+                                    <span class="badge bg-danger rounded-pill px-3 py-2">Hide</span>
+                                @endif
+                            </td>
+                            <td>
+                                <a href="{{ route('news.edit', $item->id) }}"
+                                    class="btn btn-outline-primary btn-sm rounded-pill px-3">Edit</a>
+
+                                    <form action="{{ route('news.destroy', $item->id) }}"
+                                        method="POST" 
+                                        class="d-inline"
+                                        onsubmit="return confirm('Yakin mau hapus?')">
+                                        @csrf
+                                        @method('DELETE')
+                                            <button class="btn btn-sm btn-danger">Delete</button>
+                                    </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+@endsection

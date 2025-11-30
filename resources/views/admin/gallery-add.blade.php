@@ -240,8 +240,8 @@
                                 <div class="form-group mb-3">
                                     <label for="description" class="form-label">Description</label>
                                     <textarea name="description" id="description" cols="30" rows="5" class="form-control" required>
-        {{ old('description') ? strip_tags(old('description')) : '' }}
-    </textarea>
+                                {{ old('description') ? strip_tags(old('description')) : '' }}
+                                    </textarea>
                                 </div>
 
                                 <div class="form-group mb-3 col-md-3">

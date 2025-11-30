@@ -1,0 +1,241 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #383880;
+  overflow-x: auto; /* tambahkan ini */
+}
+
+
+.logo-image{
+    position: absolute;
+    justify-content: center; /* tengah horizontal */
+    align-items: center;      /* tengah vertical */
+    pointer-events: none;
+  transform: translateX(24.5rem) translateY(-3rem);
+}
+
+.logo-image img{
+    width: 150px;          /* ukuran default */
+    max-width: 40vw;       /* responsif, mengikuti lebar layar */
+    height: auto;          /* jaga proporsi gambar */
+    
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px;
+  width: 1000px;
+  min-width: 1000px; /* tambahkan ini agar layout tidak pecah */
+  margin: 0 auto;
+  flex-wrap: nowrap;
+}
+
+
+
+.wrapper {
+    display: flex;
+    align-items: flex-start;
+}
+
+.side-image {
+  position: absolute;
+    display: flex;
+    justify-content: center; /* tengah horizontal */
+    align-items: center;      /* tengah vertical */
+    top: 455px;
+    left: 755px;
+}
+
+.side-image img {
+    width: 340px;
+    height: 600px;
+    z-index: 999;
+}
+
+.form-wrapper {
+  width: 800px;
+  height: 100%;
+  background-color: #f3f3f3;
+  padding: 60px;
+  border-radius: 14px 14px 4px 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-top: 28px;
+}
+
+.form-wrapper h2 {
+  text-align: center;
+  font-size: 48px;
+  color: #383880;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+form label {
+  display: block;
+  margin-top: 19px;
+  font-weight: 500;
+  color: #383880;
+}
+
+.form-group label span {
+  color: #85222b;   /* warna opsional yang kamu mau */
+  font-weight: normal; 
+}
+
+
+form input,
+form select,
+form textarea {
+  background-color: transparent;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  padding-left: 0;
+  margin-top: 5px;
+  border: none;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  outline: none;
+}
+
+form textarea {
+  height: 22px;
+  resize: none;      /* hilangkan handle resize */
+    overflow: auto;
+}
+form textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.form-row {
+  display: flex;
+  gap: 90px;
+  margin-top: 15px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+    border-bottom: 1px solid #8b8888;
+}
+
+#gender {
+    appearance: none;          /* hilangkan arrow default browser */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    font-size: 14px;
+    background-color: #f3f3f3;
+    color: #383880;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.select-wrapper::after {
+    content: "▼";               /* custom arrow */
+    font-size: 14px;
+    color: #383880;
+    position: absolute;
+    right: 10px;
+    top: 72%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+
+/* ===== ANIMASI BORDER INPUT ===== */
+
+.form-group .focus-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: #111111;
+  transition: width 0.35s ease;
+}
+
+/* aktif saat input/select/textarea fokus */
+.form-group input:focus + .focus-border,
+.form-group select:focus + .focus-border,
+.form-group textarea:focus + .focus-border {
+  width: 100%;
+}
+
+
+.box{
+  display: flex;
+  justify-content: center;
+}
+
+.upload-box {
+  width: 600px;
+  height: 180px;
+  margin-top: 10px;
+  padding: 20px;
+  border: 2px dashed #383880;
+  border-radius: 8px;
+  text-align: center;
+  color: #555;
+  background-color: #f9f9f9;
+  position: relative;
+}
+
+.upload-box span {
+  color: #007acc;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.upload-box input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.upload-box p{
+  text-align: center;
+  margin-top: 80px;
+}
+
+.button-container{
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  margin-top: 30px;
+  width: 150px;
+  height: auto;
+  padding: 12px;
+  background-color: #383880;
+  color: white;
+  border: 2px solid #383880;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #f3f3f3;
+  color: #383880;
+  border: 2px solid #383880;
+}

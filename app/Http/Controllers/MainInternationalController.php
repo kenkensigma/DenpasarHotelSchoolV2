@@ -19,13 +19,13 @@ class MainInternationalController extends Controller
     public function list()
     {
         $MainInternationalPrograms = MainInternationalProgram::all();
-        return view('admin.international-list', compact('MainInternationalPrograms'));
+        return view('admin_new.InternationalProgram.international-list', compact('MainInternationalPrograms'));
     }
 
     // Form tambah main program
     public function create()
     {
-        return view('admin.international-add');
+        return view('admin_new.InternationalProgram.international-add');
     }
 
     // Simpan main program baru
@@ -58,7 +58,7 @@ class MainInternationalController extends Controller
     public function edit(string $id)
     {
         $MainInternationalProgram = MainInternationalProgram::findOrFail($id);
-        return view('admin.International-edit', compact('MainInternationalProgram'));
+        return view('admin_new.InternationalProgram.international-edit', compact('MainInternationalProgram'));
     }
 
     // Update main program
@@ -86,7 +86,7 @@ class MainInternationalController extends Controller
             }
         
             // Simpan file baru ke folder 'images' dalam storage/public
-            $imagePath = $request->file('imagex')->store('images', 'public');
+            $imagePath = $request->file('image')->store('images', 'public');
             $MainInternationalProgram->image = $imagePath;
         }
 

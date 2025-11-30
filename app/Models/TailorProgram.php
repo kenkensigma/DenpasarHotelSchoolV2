@@ -8,17 +8,27 @@ use Illuminate\Database\Eloquent\Model;
 class TailorProgram extends Model
 {
     use HasFactory;
-    protected $table = "tailor_programs";
+
+    protected $table = 'tailor_programs';
+
     protected $fillable = [
+        'title',
+        'subtitle',
+        'reason_main',
         'sub_reason_title',
         'sub_reason_description',
-        'target_audience_description',
-        'program_title',
-        'program_duration',
-        'program_description',
-        'program_image',
+        'icon_target_audience',
+        'description_target_audience',
         'highlights_title',
         'highlights_description',
-        'career_pathways_description'
+        'career_icon',
+        'career_description',
+        'price',
     ];
+
+    // Relasi: 1 TailorProgram punya banyak TailorProgramOption
+    public function SubTailor()
+    {
+        return $this->hasMany(TailorProgramOption::class);
+    }
 }
